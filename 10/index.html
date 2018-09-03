@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="HerbertGao" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python ——从入门到PY交易  其实我早就入门了。其实我入门了好多次。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python ——从入门到监控租房网站">
+<meta property="og:url" content="https://herbertgao.com/10/index.html">
+<meta property="og:site_name" content="河伯特高">
+<meta property="og:description" content="Python ——从入门到PY交易  其实我早就入门了。其实我入门了好多次。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://herbertgao.com/10/f_00002d.png">
+<meta property="og:updated_time" content="2018-05-12T15:38:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python ——从入门到监控租房网站">
+<meta name="twitter:description" content="Python ——从入门到PY交易  其实我早就入门了。其实我入门了好多次。">
+<meta name="twitter:image" content="https://herbertgao.com/10/f_00002d.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://herbertgao.com/10/"/>
+
+
+
+
+
+  <title>Python ——从入门到监控租房网站 | 河伯特高</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">河伯特高</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">HerbertGao 个人主页</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://herbertgao.com/10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Herbert Gao">
+      <meta itemprop="description" content="水能载舟，亦能煮粥<br>江可泽民，亦可赛艇">
+      <meta itemprop="image" content="/images/HerbertGao.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河伯特高">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Python ——从入门到监控租房网站</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T16:43:11+08:00">
+                2017-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常/" itemprop="url" rel="index">
+                    <span itemprop="name">日常</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>Python</p>
+<p>——从入门到PY交易</p>
+</blockquote>
+<p><del>其实我早就入门了。</del><br><del>其实我入门了好多次。</del></p>
+<a id="more"></a>
+<p>不过这次是我第一次真正写出来一个有点用处的脚本。<br><del>虽然最终租下房子还是中介提醒我可以预定了，这脚本没完全起效</del></p>
+<hr>
+<p>事情起因是因为最近房子快到期了，所以考虑换一套。<br>由于有跟人合租的需求，所以想找一套两室一厅的。<br>在某租房网站上挑来挑去后，决定租X地的房子，于是和中介打好招呼，去看房。<br>结果到了地方，中介告诉我房子还在装修没法看，于是只好问了问详情，留了联系方式就走了。<br>没想到刚上地铁走了没两站，中介打电话告诉我房子可以看了，并且看中的几套中，有一套当天50分钟后就可以签约。<br>然而看中的几套中，有一套比这一套更喜欢的，所以告诉中介希望等等后面的房子。<br>结果就在这套房子可签约后的20分钟，房子被别人签走了，走了，了……<br>（该网站是线上签约，热门房子就看谁手速快）<br>虽然想要的并不是这套房子，但是痛定思痛，还是决定写个脚本实时监控想要的房子。<br>虽然我学的是Java，但是Java本身运行比较吃内存，不够轻量级，所以我把目光转向Python，<del>一个我并不怎么会的语言</del>。<br>思路如下：</p>
+<ol>
+<li>如果网站是以JavaScirpt发起请求调用JSON获取房源数据的话，我直接解析JSON就很容易得到房子是否可签约。通过JSON获取数据例子：Apple Inc.预约新机时显示各店是否有新机是这种模式，常见于Ajax异步刷新使用的方式。不过我找了一圈，发现该网站不是这种类型，可能是PHP在后端调用接口直接把成品页面拼装好了直接返回给浏览器的；</li>
+<li>直接抓取整个页面，通过寻找相关Dom节点获取所需数据，根据数据判断房子是否可以预定；</li>
+<li>通过阿里大于，当房子可以预定时就给自己的手机发一条短信提醒；</li>
+<li>定期执行该方法，准备随时获得最新信息。<br>具体代码如下：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> httplib2.socks</span><br><span class="line"><span class="keyword">import</span> top.api</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Timer</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 阿里大于接口URL</span></span><br><span class="line">alidayuUrl = <span class="string">'gw.api.taobao.com'</span></span><br><span class="line"><span class="comment"># 阿里大于接口端口</span></span><br><span class="line">alidayuPort = <span class="string">'80'</span></span><br><span class="line"><span class="comment"># 阿里大于短信模板（需要通过阿里大于服务器端验证）</span></span><br><span class="line">alidayuTemplet = <span class="string">"SMS_12345678"</span></span><br><span class="line"><span class="comment"># 阿里大于签名（需要通过阿里大于服务器端验证）</span></span><br><span class="line">alidayuSign = <span class="string">"贰浩次元"</span></span><br><span class="line"><span class="comment"># 阿里大于手机号</span></span><br><span class="line">alidayuTel = <span class="string">"1**********"</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PageClass</span>:</span></span><br><span class="line">    <span class="comment"># 获得页面</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPage</span><span class="params">(self, url)</span>:</span></span><br><span class="line">        http = httplib2.Http()</span><br><span class="line">        response,content = http.request(url,<span class="string">'GET'</span>)</span><br><span class="line">        <span class="keyword">return</span> content</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开某一文件获得地址列表</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getURL</span><span class="params">(filepath)</span>:</span></span><br><span class="line">    input = open(filepath, <span class="string">'r'</span>)</span><br><span class="line">    cites = input.readlines()</span><br><span class="line">    <span class="keyword">return</span> cites</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhaofangzi</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 1、打开文件</span></span><br><span class="line">    urls = getURL(<span class="string">'url.txt'</span>)</span><br><span class="line">    <span class="comment"># 2、循环所有地址</span></span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"url:"</span>,url</span><br><span class="line">        <span class="comment"># 3、实例化页面类并获取页面</span></span><br><span class="line">        page = PageClass()</span><br><span class="line">        content = page.getPage(url.strip())</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 4、将页面转化成树</span></span><br><span class="line">        tree = etree.HTML(content)</span><br><span class="line">        <span class="comment"># 5、解析树，找到所需元素，如预订按钮元素</span></span><br><span class="line">        hyperlinks = tree.xpath(<span class="string">u'//div[@class="room_btns clearfix"]/a'</span>)</span><br><span class="line">        <span class="comment"># 6、循环元素（此处只可能有1个元素或0个元素，即仅执行一次或不执行）</span></span><br><span class="line">        <span class="keyword">for</span> index,hyperlink <span class="keyword">in</span> enumerate(hyperlinks):</span><br><span class="line">            <span class="keyword">if</span> index &amp;gt; <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            btnId = hyperlink.get(<span class="string">'id'</span>)</span><br><span class="line">            yudingFlg = <span class="keyword">False</span></span><br><span class="line">            <span class="keyword">if</span> index == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">if</span> btnId == <span class="string">'zreserve'</span>:</span><br><span class="line">                    yudingFlg = <span class="keyword">False</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    yudingFlg = <span class="keyword">True</span></span><br><span class="line">            <span class="keyword">elif</span> index == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> btnId == <span class="string">'toYuding'</span>:</span><br><span class="line">                    yudingFlg = <span class="keyword">True</span></span><br><span class="line">    </span><br><span class="line">            <span class="keyword">if</span> yudingFlg == <span class="keyword">True</span>:</span><br><span class="line">                <span class="comment"># 7、获取所需的房间名称</span></span><br><span class="line">                title = tree.xpath(<span class="string">u'//div[@class="room_name"]/h2'</span>)[<span class="number">0</span>].text.strip()</span><br><span class="line">                <span class="keyword">print</span> <span class="string">"title:"</span>,title</span><br><span class="line">                <span class="comment"># 8、实例化阿里大于短信发送请求并填入各种配置参数</span></span><br><span class="line">                req = top.api.AlibabaAliqinFcSmsNumSendRequest(alidayuUrl, alidayuPort)</span><br><span class="line">                req.set_app_info(top.appinfo(<span class="string">'appkey'</span>, <span class="string">'appsecret'</span>))</span><br><span class="line">    </span><br><span class="line">                req.extend = <span class="string">""</span></span><br><span class="line">                req.sms_type = <span class="string">"normal"</span></span><br><span class="line">                req.sms_free_sign_name = alidayuSign</span><br><span class="line">                req.sms_param = <span class="string">"&#123;housename:'"</span>+title+<span class="string">"'&#125;"</span></span><br><span class="line">                req.rec_num = alidayuTel</span><br><span class="line">                req.sms_template_code = alidayuTemplet</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    <span class="comment"># 9、发送</span></span><br><span class="line">                    resp = req.getResponse()</span><br><span class="line">                    <span class="keyword">print</span> (resp)</span><br><span class="line">                <span class="keyword">except</span> Exception, e:</span><br><span class="line">                    <span class="keyword">print</span> (e)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"end"</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">while</span> zhaofangzi():</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'now time:'</span>+time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>,time.localtime(time.time()))+<span class="string">'. waiting for 15 min'</span></span><br><span class="line">        t = Timer(<span class="number">60</span> * <span class="number">15</span>, zhaofangzi)</span><br><span class="line">        t.start()</span><br><span class="line">        t.join()</span><br></pre></td></tr></table></figure>
+<p>实际操作及运行中遇到的问题如下：</p>
+<ol>
+<li>乱码问题。不同的机器上运行，有的抓取页面时会出乱码，有的不会出，这个比较头疼，会直接影响到运行结果，最终也没解决这个问题<del>（反正房子已经订好了）</del>；</li>
+<li>做这个脚本的时候实际没有监控到「XX:XX可预订」按钮的信息，实际上之后的某个版本做了，但仍然卡在乱码的问题上，最终还是放弃了。</li>
+</ol>
+<p>一张效果图</p>
+<p><img src="/10/f_00002d.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/9/" rel="next" title="Apple Pay的那些事">
+                <i class="fa fa-chevron-left"></i> Apple Pay的那些事
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/11/" rel="prev" title="VMware Workstation 14运行虚拟机黑屏解决方案">
+                VMware Workstation 14运行虚拟机黑屏解决方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5adc9e6b1b533a8d" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/HerbertGao.jpg"
+                alt="Herbert Gao" />
+            
+              <p class="site-author-name" itemprop="name">Herbert Gao</p>
+              <p class="site-description motion-element" itemprop="description">水能载舟，亦能煮粥<br>江可泽民，亦可赛艇</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://t.me/herbertgaochannel" target="_blank" title="TG Channel">
+                      
+                        <i class="fa fa-fw fa-telegram"></i>TG Channel</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://t.me/herbertgao" target="_blank" title="Telegram">
+                      
+                        <i class="fa fa-fw fa-telegram"></i>Telegram</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/herbertgao" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HerbertGao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gaohaobo.com" target="_blank" title="Resume">
+                      
+                        <i class="fa fa-fw fa-user-circle"></i>Resume</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:admin@herbertgao.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.mtiner.com/" title="丁小浪的大城市" target="_blank">丁小浪的大城市</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chenhao.net/" title="随风飞翔" target="_blank">随风飞翔</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://liguanbo.io/" title="Calton's Blog" target="_blank">Calton's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bh2ro.info" title="BH2RO" target="_blank">BH2RO</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.3mtoo.com/" title="森兔" target="_blank">森兔</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wang93wei.cn/" title="モモコのブログ" target="_blank">モモコのブログ</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Herbert Gao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
