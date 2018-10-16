@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html   引子俺在写前一篇博文（也就是 Firefox PK Chrome 那篇）的时候，碰巧看到 Mo">
+<meta name="description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【编程随想】对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS">
 <meta property="og:url" content="https://herbertgao.com/15/index.html">
 <meta property="og:site_name" content="河伯特高">
-<meta property="og:description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html   引子俺在写前一篇博文（也就是 Firefox PK Chrome 那篇）的时候，碰巧看到 Mo">
+<meta property="og:description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://lh6.googleusercontent.com/4QaghUJDZ1GkjAsoVyFbCnhNchM7YYswTgIuk9MWSA3NNW6xBh6P4VJ1NRAjJcqFJXiee6VhkCkI8UuP8eJLSd7Ka0dyOekEHVc0_GDVWvHOUOrSH0CL7T2JXqka3dZdG6VNLo--vkU">
-<meta property="og:updated_time" content="2018-10-16T14:08:33.907Z">
+<meta property="og:updated_time" content="2018-10-16T14:16:41.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【编程随想】对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS">
-<meta name="twitter:description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html   引子俺在写前一篇博文（也就是 Firefox PK Chrome 那篇）的时候，碰巧看到 Mo">
+<meta name="twitter:description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html">
 <meta name="twitter:image" content="https://lh6.googleusercontent.com/4QaghUJDZ1GkjAsoVyFbCnhNchM7YYswTgIuk9MWSA3NNW6xBh6P4VJ1NRAjJcqFJXiee6VhkCkI8UuP8eJLSd7Ka0dyOekEHVc0_GDVWvHOUOrSH0CL7T2JXqka3dZdG6VNLo--vkU">
 
 
@@ -344,12 +344,12 @@
       
 
       
-        <a id="more"></a>
-<blockquote>
+        <blockquote>
 <p>原作者版权声明：</p>
 <p><strong>版权声明</strong></p>
 <p>本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者<a href="mailto:program.think@gmail.com" target="_blank" rel="noopener">编程随想</a>和本文原始地址：<br><a href="https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html" target="_blank" rel="noopener">https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html</a></p>
 </blockquote>
+<a id="more"></a>
 <p><img src="https://lh6.googleusercontent.com/4QaghUJDZ1GkjAsoVyFbCnhNchM7YYswTgIuk9MWSA3NNW6xBh6P4VJ1NRAjJcqFJXiee6VhkCkI8UuP8eJLSd7Ka0dyOekEHVc0_GDVWvHOUOrSH0CL7T2JXqka3dZdG6VNLo--vkU" alt=""></p>
 <h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>俺在写前一篇博文（也就是 <a href="https://program-think.blogspot.com/2018/09/Why-You-Should-Switch-from-Chrome-to-Firefox.html" target="_blank" rel="noopener">Firefox PK Chrome 那篇</a>）的时候，碰巧看到 Mozilla 官方博客提到说：目前最新的 Firefox 62 版本开始支持【DNS over HTTPS】这一特性（链接在“<a href="https://blog.nightly.mozilla.org/2018/06/01/improving-dns-privacy-in-firefox/" target="_blank" rel="noopener">这里</a>”）。<br>本来想顺便聊一下“DNS over HTTPS”这个玩意儿。但是查了一下，发现它的 RFC 目前还只是【草案】，尚未正式发布。<br>所以俺就把本文的主题改成——对比4种强化 DNS 安全的网络协议（顺便也普及一些信息安全知识）。</p>
 <h1 id="传统的-DNS-有啥问题？"><a href="#传统的-DNS-有啥问题？" class="headerlink" title="传统的 DNS 有啥问题？"></a>传统的 DNS 有啥问题？</h1><p>传统的 DNS 是一个【比较古老】的协议。最早的草案可以追溯到1983年。1987年定稿之后，基本上没啥变化。算起来，它的年龄比俺博客的很多读者都要大。<br>设计 DNS 的时候，互联网基本上还是个玩具。那年头的互联网协议，压根儿都没考虑安全性，DNS 当然也不例外。所以 DNS 的交互过程全都是【明文】滴，既无法做到“保密性”，也无法实现“完整性”。<br>缺乏“保密性”就意味着——任何一个能【监视】你上网流量的人，都可以【看到】你查询了哪些域名。直接引发的问题就是隐私风险。<br>缺乏“完整性”就意味着——任何一个能【修改】你上网流量的人，都可以【篡改】你的查询结果。直接引发的问题就是“DNS 欺骗”（也叫“DNS 污染”或“DNS 缓存投毒”）<br>关于“域名欺骗/域名污染”，可以参见俺的另一篇博文《<a href="https://program-think.blogspot.com/2014/01/dns.html" target="_blank" rel="noopener">扫盲 DNS 原理，兼谈“域名劫持”和“域名欺骗／域名污染”</a>》（注：4年前的那篇博文，不光讲了“域名欺骗”，还扫盲了 DNS 的基本原理）</p>
