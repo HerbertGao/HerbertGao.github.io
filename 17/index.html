@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="河伯特高">
 <meta property="og:description" content="JAVA 的中文字符乱码问题一直很让人头疼。特别是在 WEB 应用中。网上的分析文章和解决方案都很多，但总是针对某些特定情况的。很多次遇到乱码问题后，经过极为辛苦的调试和搜索资料后终于解决，满以为自己已经掌握了对付这些字符乱码怪兽的诀窍。可当过段时间，换了个应用或换了个环境，又会碰到那讨厌的火星文，并再次无所适从。于是下决心好好整理一下中文字符编码问题，以方便自己记忆，也为其他程序员兄弟们提供一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-13T10:29:59.262Z">
+<meta property="og:updated_time" content="2019-07-13T10:39:54.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Aamirr】Java中文字编码问题详解">
 <meta name="twitter:description" content="JAVA 的中文字符乱码问题一直很让人头疼。特别是在 WEB 应用中。网上的分析文章和解决方案都很多，但总是针对某些特定情况的。很多次遇到乱码问题后，经过极为辛苦的调试和搜索资料后终于解决，满以为自己已经掌握了对付这些字符乱码怪兽的诀窍。可当过段时间，换了个应用或换了个环境，又会碰到那讨厌的火星文，并再次无所适从。于是下决心好好整理一下中文字符编码问题，以方便自己记忆，也为其他程序员兄弟们提供一">
@@ -368,7 +368,7 @@
                 
               
 
-              <time title="创建时间：2019-07-13 18:30:00 / 修改时间：18:29:59" itemprop="dateCreated datePublished" datetime="2019-07-13T18:30:00+08:00">2019-07-13</time>
+              <time title="创建时间：2019-07-13 18:30:00 / 修改时间：18:39:54" itemprop="dateCreated datePublished" datetime="2019-07-13T18:30:00+08:00">2019-07-13</time>
             
 
             
@@ -390,7 +390,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发-Java/" itemprop="url" rel="index"><span itemprop="name">开发 Java</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发/" itemprop="url" rel="index"><span itemprop="name">开发</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
@@ -704,7 +711,7 @@
 </tr>
 </tbody>
 </table>
-<p>（HerbertGao注：15/16与19/20重复，原文如此）</p>
+<p>（HerbertGao 注：15/16 与 19/20 重复，原文如此）</p>
 <p>以上表格里的现象，除了指名在 IE7 上，其他全是在 IE6 上测试的结果。<br>由这个表我们可以看到，IE 的“总以 UTF-8 方式发送 URL 地址”设置并不影响对 parameter 的解析，而从页面请求 URL 和从地址栏输入 URL 居然也有不同的表现。<br>根据这个表列出的现象，大家只要用 smartSniff 抓几个网络包，并稍稍调查一下 TOMCAT 的源代码，就可以得出以下结论：</p>
 <ol>
 <li>IE 设置中的“总以 UTF-8 方式发送 URL 地址”只对 URL 的 PATH 部分起作用，对查询字符串是不起作用的。也就是说，如果勾选了这个选项，那么类似<code>http://localhost:8080/test/大家好.jsp?param=大家好</code>这种 URL，前一个“大家好”将被转化成 UTF-8 形式，而后一个并没有变化。这里所说的 UTF-8 形式，其实应该叫 UTF-8+escape 形式，即<code>%B4%F3%BC%D2%BA%C3</code>这种形式。<br>那么，查询字符串中的中文字符，到底是用什么编码传送到服务器的呢？答案是系统默认编码，即 GBK。也就是说，在我们中文操作系统上，传送给 WEB 服务器的查询字符串，总是以 GBK 来编码的。</li>
@@ -927,7 +934,39 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1105,7 +1144,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">61k</span>
+    <span title="站点总字数">62k</span>
   
 
   
@@ -1114,7 +1153,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">55 分钟</span>
+    <span title="站点阅读时长">56 分钟</span>
   
 </div>
 

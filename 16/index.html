@@ -111,21 +111,21 @@
 
 
 
-  <meta name="description" content="作为一个开发者，自己的博客应该是一个追求现代化的网站（主要还是因为没什么PV），所以我作出了一个愉快的的决定：禁用TLS1.0和TLS1.1。">
+  <meta name="description" content="作为一个开发者，自己的博客应该是一个追求现代化的网站（主要还是因为没什么 PV），所以我作出了一个愉快的的决定：禁用 TLS1.0 和 TLS1.1。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx禁用TLS1.0与1.1的尝试">
 <meta property="og:url" content="https://herbertgao.com/16/index.html">
 <meta property="og:site_name" content="河伯特高">
-<meta property="og:description" content="作为一个开发者，自己的博客应该是一个追求现代化的网站（主要还是因为没什么PV），所以我作出了一个愉快的的决定：禁用TLS1.0和TLS1.1。">
+<meta property="og:description" content="作为一个开发者，自己的博客应该是一个追求现代化的网站（主要还是因为没什么 PV），所以我作出了一个愉快的的决定：禁用 TLS1.0 和 TLS1.1。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://herbertgao.com/16/1.png">
 <meta property="og:image" content="https://herbertgao.com/16/2.png">
 <meta property="og:image" content="https://herbertgao.com/16/3.png">
 <meta property="og:image" content="https://herbertgao.com/16/4.png">
-<meta property="og:updated_time" content="2019-03-08T08:07:24.545Z">
+<meta property="og:updated_time" content="2019-07-13T10:40:34.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx禁用TLS1.0与1.1的尝试">
-<meta name="twitter:description" content="作为一个开发者，自己的博客应该是一个追求现代化的网站（主要还是因为没什么PV），所以我作出了一个愉快的的决定：禁用TLS1.0和TLS1.1。">
+<meta name="twitter:description" content="作为一个开发者，自己的博客应该是一个追求现代化的网站（主要还是因为没什么 PV），所以我作出了一个愉快的的决定：禁用 TLS1.0 和 TLS1.1。">
 <meta name="twitter:image" content="https://herbertgao.com/16/1.png">
 
 
@@ -373,12 +373,24 @@
                 
               
 
-              <time title="创建时间：2019-03-08 16:00:00 / 修改时间：16:07:24" itemprop="dateCreated datePublished" datetime="2019-03-08T16:00:00+08:00">2019-03-08</time>
+              <time title="创建时间：2019-03-08 16:00:00" itemprop="dateCreated datePublished" datetime="2019-03-08T16:00:00+08:00">2019-03-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-13 18:40:34" itemprop="dateModified" datetime="2019-07-13T18:40:34+08:00">2019-07-13</time>
               
             
           </span>
@@ -395,7 +407,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络/" itemprop="url" rel="index"><span itemprop="name">网络</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a></span>
 
                 
                 
@@ -424,7 +443,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.5k</span>
+                <span title="本文字数">3.7k</span>
               
 
               
@@ -459,11 +478,11 @@
 
       
         <blockquote>
-<p>作为一个开发者，自己的博客应该是一个追求现代化的网站<del>（主要还是因为没什么PV）</del>，所以我作出了一个愉快的的决定：禁用TLS1.0和TLS1.1。</p>
+<p>作为一个开发者，自己的博客应该是一个追求现代化的网站<del>（主要还是因为没什么 PV）</del>，所以我作出了一个愉快的的决定：禁用 TLS1.0 和 TLS1.1。</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="SSL-TLS-相关"><a href="#SSL-TLS-相关" class="headerlink" title="SSL/TLS 相关"></a>SSL/TLS 相关</h1><h2 id="什么是SSL-TLS"><a href="#什么是SSL-TLS" class="headerlink" title="什么是SSL/TLS"></a>什么是SSL/TLS</h2><p>传输层安全性协议（英语：Transport Layer Security，缩写作 TLS），及其前身安全套接层（Secure Sockets Layer，缩写作 SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与 RFC 6176 （2011年3月）。在浏览器、电子邮件、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。当前已成为互联网上保密通信的工业标准。</p>
-<h2 id="SSL-TLS的版本"><a href="#SSL-TLS的版本" class="headerlink" title="SSL/TLS的版本"></a>SSL/TLS的版本</h2><table>
+<h1 id="SSL-TLS-相关"><a href="#SSL-TLS-相关" class="headerlink" title="SSL/TLS 相关"></a>SSL/TLS 相关</h1><h2 id="什么是-SSL-TLS"><a href="#什么是-SSL-TLS" class="headerlink" title="什么是 SSL/TLS"></a>什么是 SSL/TLS</h2><p>传输层安全性协议（英语：Transport Layer Security，缩写作 TLS），及其前身安全套接层（Secure Sockets Layer，缩写作 SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在 1994 年推出首版网页浏览器，网景导航者时，推出 HTTPS 协议，以 SSL 进行加密，这是 SSL 的起源。IETF 将 SSL 进行标准化，1999 年公布第一版 TLS 标准文件。随后又公布 RFC 5246 （2008 年 8 月）与 RFC 6176 （2011 年 3 月）。在浏览器、电子邮件、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如 Google、Facebook 等也以这个协议来创建安全连线，发送数据。当前已成为互联网上保密通信的工业标准。</p>
+<h2 id="SSL-TLS-的版本"><a href="#SSL-TLS-的版本" class="headerlink" title="SSL/TLS 的版本"></a>SSL/TLS 的版本</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">协议</th>
@@ -479,83 +498,83 @@
 </tr>
 <tr>
 <td style="text-align:center">SSL 2.0</td>
-<td style="text-align:center">1995年</td>
-<td style="text-align:center">已于2011年弃用</td>
+<td style="text-align:center">1995 年</td>
+<td style="text-align:center">已于 2011 年弃用</td>
 </tr>
 <tr>
 <td style="text-align:center">SSL 3.0</td>
-<td style="text-align:center">1996年</td>
-<td style="text-align:center">已于2015年弃用</td>
+<td style="text-align:center">1996 年</td>
+<td style="text-align:center">已于 2015 年弃用</td>
 </tr>
 <tr>
 <td style="text-align:center">TLS 1.0</td>
-<td style="text-align:center">1999年</td>
-<td style="text-align:center">计划于2020年弃用</td>
+<td style="text-align:center">1999 年</td>
+<td style="text-align:center">计划于 2020 年弃用</td>
 </tr>
 <tr>
 <td style="text-align:center">TLS 1.1</td>
-<td style="text-align:center">2006年</td>
-<td style="text-align:center">计划于2020年弃用</td>
+<td style="text-align:center">2006 年</td>
+<td style="text-align:center">计划于 2020 年弃用</td>
 </tr>
 <tr>
 <td style="text-align:center">TLS 1.2</td>
-<td style="text-align:center">2008年</td>
+<td style="text-align:center">2008 年</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TLS 1.3</td>
-<td style="text-align:center">2018年</td>
+<td style="text-align:center">2018 年</td>
 </tr>
 </tbody>
 </table>
-<h2 id="为什么要禁用TLS1-0、TLS1-1"><a href="#为什么要禁用TLS1-0、TLS1-1" class="headerlink" title="为什么要禁用TLS1.0、TLS1.1"></a>为什么要禁用TLS1.0、TLS1.1</h2><p>SSL由于以往发现的漏洞，已经被证实不安全。而TLS1.0与SSL3.0的区别实际上并不太多，并且TLS1.0可以通过某些方式被强制降级为SSL3.0。</p>
-<p>由此，支付卡行业安全标准委员会（PCI SSC）强制取消了支付卡行业对TLS 1.0的支持，同时强烈建议取消对TLS 1.1的支持。</p>
-<p>苹果、谷歌、微软、Mozilla也发表了声明，将于2020年初放弃对TLS 1.1和TLS 1.0的支持。其原因是这两个版本使用的是过时的算法和加密系统，经发现，这些算法和系统是十分脆弱的，比如SHA-1和MD5。它们也缺乏像完美的前向保密性这样的现代特征，并且容易受到降级攻击的影响。</p>
-<h1 id="在Nginx上禁用TLS1-0、TLS1-1"><a href="#在Nginx上禁用TLS1-0、TLS1-1" class="headerlink" title="在Nginx上禁用TLS1.0、TLS1.1"></a>在Nginx上禁用TLS1.0、TLS1.1</h1><h2 id="排查自己的网站"><a href="#排查自己的网站" class="headerlink" title="排查自己的网站"></a>排查自己的网站</h2><p>实际我想要禁用TLS1.0和TLS1.1的一大原因是，在<a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">SSL Labs</a>和<a href="https://myssl.com/ssl.html" target="_blank" rel="noopener">My SSL</a>做的SSL检测时，发现我的某个博客启用了TLS1.0及配套的加密套件，导致评分直接掉到了B级。</p>
+<h2 id="为什么要禁用-TLS1-0、TLS1-1"><a href="#为什么要禁用-TLS1-0、TLS1-1" class="headerlink" title="为什么要禁用 TLS1.0、TLS1.1"></a>为什么要禁用 TLS1.0、TLS1.1</h2><p>SSL 由于以往发现的漏洞，已经被证实不安全。而 TLS1.0 与 SSL3.0 的区别实际上并不太多，并且 TLS1.0 可以通过某些方式被强制降级为 SSL3.0。</p>
+<p>由此，支付卡行业安全标准委员会（PCI SSC）强制取消了支付卡行业对 TLS 1.0 的支持，同时强烈建议取消对 TLS 1.1 的支持。</p>
+<p>苹果、谷歌、微软、Mozilla 也发表了声明，将于 2020 年初放弃对 TLS 1.1 和 TLS 1.0 的支持。其原因是这两个版本使用的是过时的算法和加密系统，经发现，这些算法和系统是十分脆弱的，比如 SHA-1 和 MD5。它们也缺乏像完美的前向保密性这样的现代特征，并且容易受到降级攻击的影响。</p>
+<h1 id="在-Nginx-上禁用-TLS1-0、TLS1-1"><a href="#在-Nginx-上禁用-TLS1-0、TLS1-1" class="headerlink" title="在 Nginx 上禁用 TLS1.0、TLS1.1"></a>在 Nginx 上禁用 TLS1.0、TLS1.1</h1><h2 id="排查自己的网站"><a href="#排查自己的网站" class="headerlink" title="排查自己的网站"></a>排查自己的网站</h2><p>实际我想要禁用 TLS1.0 和 TLS1.1 的一大原因是，在<a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">SSL Labs</a>和<a href="https://myssl.com/ssl.html" target="_blank" rel="noopener">My SSL</a>做的 SSL 检测时，发现我的某个博客启用了 TLS1.0 及配套的加密套件，导致评分直接掉到了 B 级。</p>
 <blockquote>
-<p>由于本博客是托管在Github Page上的，启用的即Github Page的TLS配置，故不存在此问题。</p>
+<p>由于本博客是托管在 Github Page 上的，启用的即 Github Page 的 TLS 配置，故不存在此问题。</p>
 </blockquote>
 <p><img src="/16/1.png" alt="开启TLS1.0将导致PCI DSS不合规"></p>
 <p><img src="/16/2.png" alt="该博客原先支持了TLS1.0和TLS1.1"></p>
-<h2 id="尝试在Nginx禁用TLS1-0和TLS1-1"><a href="#尝试在Nginx禁用TLS1-0和TLS1-1" class="headerlink" title="尝试在Nginx禁用TLS1.0和TLS1.1"></a>尝试在Nginx禁用TLS1.0和TLS1.1</h2><p>首先登陆自己的主机，查看Nginx版本</p>
+<h2 id="尝试在-Nginx-禁用-TLS1-0-和-TLS1-1"><a href="#尝试在-Nginx-禁用-TLS1-0-和-TLS1-1" class="headerlink" title="尝试在 Nginx 禁用 TLS1.0 和 TLS1.1"></a>尝试在 Nginx 禁用 TLS1.0 和 TLS1.1</h2><p>首先登陆自己的主机，查看 Nginx 版本</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> nginx -V</span><br><span class="line"></span><br><span class="line">nginx version: nginx/1.15.7</span><br><span class="line">built by gcc 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC)</span><br><span class="line">built with OpenSSL 1.0.2k-fips  26 Jan 2017</span><br><span class="line">TLS SNI support enabled</span><br></pre></td></tr></table></figure>
-<p>这个版本的Nginx默认支持的TLS版本，即为上述检测出来的 TLS1.0、TLS1.1、TLS1.2。</p>
-<p>那么，如果要禁用TLS1.0及TLS1.1的话，只需要在Nginx配置文件中，在指定的域名上指定支持的TLS的版本即可。</p>
+<p>这个版本的 Nginx 默认支持的 TLS 版本，即为上述检测出来的 TLS1.0、TLS1.1、TLS1.2。</p>
+<p>那么，如果要禁用 TLS1.0 及 TLS1.1 的话，只需要在 Nginx 配置文件中，在指定的域名上指定支持的 TLS 的版本即可。</p>
 <p>我所指定的如下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssl_protocols TLSv1.2 TLSv1.3;</span><br><span class="line">ssl_ciphers 'TLS13+AESGCM+AES128:EECDH+AES128';</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>该配置方式仅作为演示用途，对于推荐的配置方式，可以在<a href="https://cipherli.st/" target="_blank" rel="noopener">Cipherli.st</a>获取。</p>
 </blockquote>
-<p>保存Nginx配置后，重启Nginx，通过openssl指令查询对应的TLS1.0版本是否仍旧有效：</p>
+<p>保存 Nginx 配置后，重启 Nginx，通过 openssl 指令查询对应的 TLS1.0 版本是否仍旧有效：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> openssl s_client -connect mydomain.com:443 -tls1</span><br><span class="line"></span><br><span class="line">CONNECTED(00000003)</span><br><span class="line">depth=2 O = Digital Signature Trust Co., CN = DST Root CA X3</span><br><span class="line">verify return:1</span><br><span class="line">depth=1 C = US, O = Let's Encrypt, CN = Let's Encrypt Authority X3</span><br><span class="line">verify return:1</span><br><span class="line">depth=0 CN = anotherdomain.com</span><br><span class="line">verify return:1</span><br></pre></td></tr></table></figure>
 <p>然而发现仍旧返回了验证通过，这是怎么回事呢？</p>
-<h2 id="SNI协议与Nginx的default-server"><a href="#SNI协议与Nginx的default-server" class="headerlink" title="SNI协议与Nginx的default server"></a>SNI协议与Nginx的default server</h2><p>仔细看了上边命令的返回，我发现实际返回的域名和我测试所请求的域名并不一致。这是怎么回事呢？</p>
-<p>原因是我在这个服务器上部署的域名和网站不止一个。在HTTP协议中，请求的域名作为主机头(Host)放在HTTP Header中，而在SSL握手的时候，SSL拿不到Host的信息，这时服务端通常返回的是配置中第一个可用的证书。</p>
-<p>这个问题是早期SSL2.0时就引入的一个问题，由此SNI协议就诞生了。SNI协议允许客户端在发起SSL握手请求时，就提交请求的Host信息，使服务器能够切换到正确的域并返回相应的证书。</p>
+<h2 id="SNI-协议与-Nginx-的-default-server"><a href="#SNI-协议与-Nginx-的-default-server" class="headerlink" title="SNI 协议与 Nginx 的 default server"></a>SNI 协议与 Nginx 的 default server</h2><p>仔细看了上边命令的返回，我发现实际返回的域名和我测试所请求的域名并不一致。这是怎么回事呢？</p>
+<p>原因是我在这个服务器上部署的域名和网站不止一个。在 HTTP 协议中，请求的域名作为主机头(Host)放在 HTTP Header 中，而在 SSL 握手的时候，SSL 拿不到 Host 的信息，这时服务端通常返回的是配置中第一个可用的证书。</p>
+<p>这个问题是早期 SSL2.0 时就引入的一个问题，由此 SNI 协议就诞生了。SNI 协议允许客户端在发起 SSL 握手请求时，就提交请求的 Host 信息，使服务器能够切换到正确的域并返回相应的证书。</p>
 <blockquote>
-<p>SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的SSL/TLS扩展。一句话简述它的工作原理就是，在连接到服务器建立SSL连接之前先发送要访问站点的域名（Hostname），这样服务器根据这个域名返回一个合适的证书。目前，大多数操作系统和浏览器都已经很好地支持SNI扩展，OpenSSL 0.9.8已经内置这一功能。</p>
+<p>SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。一句话简述它的工作原理就是，在连接到服务器建立 SSL 连接之前先发送要访问站点的域名（Hostname），这样服务器根据这个域名返回一个合适的证书。目前，大多数操作系统和浏览器都已经很好地支持 SNI 扩展，OpenSSL 0.9.8 已经内置这一功能。</p>
 </blockquote>
-<p>从上述Nginx命令中可以看出，我的Nginx是支持SNI协议的，而在上面没有返回正确证书的原因是，我的openssl命令并没有带上SNI协议查询。如果要带上SNI协议来查询的话，命令应该增加-servername参数</p>
+<p>从上述 Nginx 命令中可以看出，我的 Nginx 是支持 SNI 协议的，而在上面没有返回正确证书的原因是，我的 openssl 命令并没有带上 SNI 协议查询。如果要带上 SNI 协议来查询的话，命令应该增加-servername 参数</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> openssl s_client -servername mydomain.com -connect mydomain.com:443 -tls1</span><br><span class="line"></span><br><span class="line">CONNECTED(00000003)</span><br><span class="line">write:errno=104</span><br><span class="line">---</span><br><span class="line">no peer certificate available</span><br><span class="line">---</span><br><span class="line">No client certificate CA names sent</span><br><span class="line">---</span><br><span class="line">SSL handshake has read 0 bytes and written 0 bytes</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>可以看出，命令返回了错误信息，即TLS1.0确实被禁用了。</p>
-<p>我们再回头看之前的错误中，还有一个问题。在客户端不支持SNI的情况下，服务端默认返回的是配置中第一个可用的证书。那么如果我们希望服务端返回特定的证书的话应该怎么办？</p>
+<p>可以看出，命令返回了错误信息，即 TLS1.0 确实被禁用了。</p>
+<p>我们再回头看之前的错误中，还有一个问题。在客户端不支持 SNI 的情况下，服务端默认返回的是配置中第一个可用的证书。那么如果我们希望服务端返回特定的证书的话应该怎么办？</p>
 <blockquote>
-<p>Nginx有一个default server的概念。也就是说当出现不支持SNI协议的客户端时，将使用default server的配置进行验证。当没有配置default server的时候，Nginx将使用找到的第一个配置文件中的配置（经过测试，应该是按照字母顺序排序的）。</p>
+<p>Nginx 有一个 default server 的概念。也就是说当出现不支持 SNI 协议的客户端时，将使用 default server 的配置进行验证。当没有配置 default server 的时候，Nginx 将使用找到的第一个配置文件中的配置（经过测试，应该是按照字母顺序排序的）。</p>
 </blockquote>
-<p>我们需要在Nginx配置文件中，将指定的域名中加入default_server，这样的话，在客户端不支持SNI时，Nginx就会将该域名作为默认的配置。</p>
+<p>我们需要在 Nginx 配置文件中，将指定的域名中加入 default_server，这样的话，在客户端不支持 SNI 时，Nginx 就会将该域名作为默认的配置。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl default_server;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为了以防万一，我把我所有的域名均禁用了TLS1.0和TLS1.1。</p>
-<p>再次通过My SSL检测后，评级上升到了A。</p>
+<p>为了以防万一，我把我所有的域名均禁用了 TLS1.0 和 TLS1.1。</p>
+<p>再次通过 My SSL 检测后，评级上升到了 A。</p>
 <p><img src="/16/3.png" alt="评级上升为A级"></p>
 <p><img src="/16/4.png" alt="显示我的域名已不再支持TLS1.0与TLS1.1"></p>
-<p>原本我还计划添加对TLS1.3的支持，但由于目前主流浏览器和客户端对TLS1.3的支持并不够完善，并且似乎我需要更新一些服务器配置，需要继续探究一下相关的知识，所以就没有在本次文章中写出。也许会在下一篇文章写吧！<del>（Flag已经立起来了）</del></p>
+<p>原本我还计划添加对 TLS1.3 的支持，但由于目前主流浏览器和客户端对 TLS1.3 的支持并不够完善，并且似乎我需要更新一些服务器配置，需要继续探究一下相关的知识，所以就没有在本次文章中写出。也许会在下一篇文章写吧！<del>（Flag 已经立起来了）</del></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://zh.wikipedia.org/wiki/傳輸層安全性協定" target="_blank" rel="noopener">维基百科 传输层安全性协议</a></li>
-<li><a href="https://www.sslchina.com/pci-ban-tls1-0/" target="_blank" rel="noopener">PCI合规截止日期：你必须在6月30日之前禁用TLS 1.0</a></li>
-<li><a href="https://www.racent.com/blog/apple-microsoft-google-disable-tls-1-0-tls-1-1/" target="_blank" rel="noopener">苹果、微软和谷歌宣布结束对TLS 1.0和1.1的支持</a></li>
-<li><a href="https://shansing.com/read/355/" target="_blank" rel="noopener">SNI: 实现多域名虚拟主机的SSL/TLS认证</a></li>
-<li><a href="https://wwww.lvmoo.com/933.love" target="_blank" rel="noopener">浅谈SNI 兼容性导致 HTTPS 出错问题</a></li>
-<li><a href="https://orchidflower.gitee.io/2017/06/03/SSL-Authentication-Failure-caused-by-Nginx-Proxy/" target="_blank" rel="noopener">Nginx配置导致的SSL证书认证失败</a></li>
+<li><a href="https://www.sslchina.com/pci-ban-tls1-0/" target="_blank" rel="noopener">PCI 合规截止日期：你必须在 6 月 30 日之前禁用 TLS 1.0</a></li>
+<li><a href="https://www.racent.com/blog/apple-microsoft-google-disable-tls-1-0-tls-1-1/" target="_blank" rel="noopener">苹果、微软和谷歌宣布结束对 TLS 1.0 和 1.1 的支持</a></li>
+<li><a href="https://shansing.com/read/355/" target="_blank" rel="noopener">SNI: 实现多域名虚拟主机的 SSL/TLS 认证</a></li>
+<li><a href="https://wwww.lvmoo.com/933.love" target="_blank" rel="noopener">浅谈 SNI 兼容性导致 HTTPS 出错问题</a></li>
+<li><a href="https://orchidflower.gitee.io/2017/06/03/SSL-Authentication-Failure-caused-by-Nginx-Proxy/" target="_blank" rel="noopener">Nginx 配置导致的 SSL 证书认证失败</a></li>
 </ul>
 
       
@@ -729,7 +748,39 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -884,7 +935,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSL-TLS-相关"><span class="nav-number">1.</span> <span class="nav-text">SSL/TLS 相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是SSL-TLS"><span class="nav-number">1.1.</span> <span class="nav-text">什么是SSL/TLS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-TLS的版本"><span class="nav-number">1.2.</span> <span class="nav-text">SSL/TLS的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要禁用TLS1-0、TLS1-1"><span class="nav-number">1.3.</span> <span class="nav-text">为什么要禁用TLS1.0、TLS1.1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在Nginx上禁用TLS1-0、TLS1-1"><span class="nav-number">2.</span> <span class="nav-text">在Nginx上禁用TLS1.0、TLS1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#排查自己的网站"><span class="nav-number">2.1.</span> <span class="nav-text">排查自己的网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试在Nginx禁用TLS1-0和TLS1-1"><span class="nav-number">2.2.</span> <span class="nav-text">尝试在Nginx禁用TLS1.0和TLS1.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SNI协议与Nginx的default-server"><span class="nav-number">2.3.</span> <span class="nav-text">SNI协议与Nginx的default server</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSL-TLS-相关"><span class="nav-number">1.</span> <span class="nav-text">SSL/TLS 相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-SSL-TLS"><span class="nav-number">1.1.</span> <span class="nav-text">什么是 SSL/TLS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-TLS-的版本"><span class="nav-number">1.2.</span> <span class="nav-text">SSL/TLS 的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要禁用-TLS1-0、TLS1-1"><span class="nav-number">1.3.</span> <span class="nav-text">为什么要禁用 TLS1.0、TLS1.1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-Nginx-上禁用-TLS1-0、TLS1-1"><span class="nav-number">2.</span> <span class="nav-text">在 Nginx 上禁用 TLS1.0、TLS1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#排查自己的网站"><span class="nav-number">2.1.</span> <span class="nav-text">排查自己的网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试在-Nginx-禁用-TLS1-0-和-TLS1-1"><span class="nav-number">2.2.</span> <span class="nav-text">尝试在 Nginx 禁用 TLS1.0 和 TLS1.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SNI-协议与-Nginx-的-default-server"><span class="nav-number">2.3.</span> <span class="nav-text">SNI 协议与 Nginx 的 default server</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -924,7 +975,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">61k</span>
+    <span title="站点总字数">62k</span>
   
 
   
@@ -933,7 +984,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">55 分钟</span>
+    <span title="站点阅读时长">56 分钟</span>
   
 </div>
 
