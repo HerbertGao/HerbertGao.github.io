@@ -4,81 +4,26 @@
 
 
 
-
-
-
-
-
-
-
-  
-
-
 <html class="theme-next gemini use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-
-
-
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.0">
-
-
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.0" color="#222">
-
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.3.0" color="#222">
   <link rel="manifest" href="/images/site.webmanifest">
-
-
   <meta name="msapplication-config" content="/images/browserconfig.xml">
 
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
 
 
 <script id="hexo.configurations">
@@ -86,30 +31,35 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '7.1.0',
-    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: true,
-    fancybox: true,
-    fastclick: true,
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
     algolia: {
       applicationID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: ''
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
     }
   };
 </script>
-
-
-  
-
-
-
 
   <meta name="description" content="水能载舟，亦能煮粥江可泽民，亦可赛艇">
 <meta property="og:type" content="website">
@@ -121,15 +71,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="河伯特高">
 <meta name="twitter:description" content="水能载舟，亦能煮粥江可泽民，亦可赛艇">
-
-
-
-
-
-  
-  
   <link rel="canonical" href="https://herbertgao.com/">
-
 
 
 <script id="page.configurations">
@@ -138,12 +80,8 @@
   };
 </script>
 
-  <title>河伯特高 – HerbertGao 个人主页</title>
+  <title>河伯特高 - HerbertGao 个人主页</title>
   
-
-
-
-
 
 
 
@@ -181,19 +119,12 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta">
-    
 
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
@@ -202,12 +133,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
         <h1 class="site-subtitle" itemprop="description">HerbertGao 个人主页</h1>
       
-    
-    
   </div>
 
   <div class="site-nav-toggle">
@@ -222,21 +149,13 @@
 
 
 <nav class="site-nav">
-  
     <ul id="menu" class="menu">
-      
         
         
         
           
           <li class="menu-item menu-item-home menu-item-active">
-
-    
-    
-    
       
-    
-
     
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
@@ -246,14 +165,19 @@
         
         
           
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
+          <li class="menu-item menu-item-tags">
       
     
 
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
     
 
     <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
@@ -264,34 +188,14 @@
         
           
           <li class="menu-item menu-item-archives">
-
-    
-    
-    
       
-    
-
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-
-      
-      
     </ul>
-  
-
-  
-
-  
 </nav>
-
-
-
-  
-
-
 
 </div>
     </header>
@@ -302,23 +206,12 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
             
 
-          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -336,11 +229,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="河伯特高">
     </span>
-
-    
       <header class="post-header">
 
-        
         
           <h2 class="post-title" itemprop="name headline">
                 
@@ -352,13 +242,7 @@
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -370,21 +254,24 @@
                 
               
 
-              <time title="创建时间：2019-07-13 18:30:00 / 修改时间：18:39:54" itemprop="dateCreated datePublished" datetime="2019-07-13T18:30:00+08:00">2019-07-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+              <time title="创建时间：2019-07-13 18:30:00" itemprop="dateCreated datePublished" datetime="2019-07-13T18:30:00+08:00">2019-07-13</time>
+            </span>
           
-            <span class="post-category">
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-15 00:08:19" itemprop="dateModified" datetime="2019-08-15T00:08:19+08:00">2019-08-15</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -392,14 +279,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发/" itemprop="url" rel="index"><span itemprop="name">开发</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/转载/" itemprop="url" rel="index"><span itemprop="name">转载</span></a></span>
 
                 
                 
@@ -407,51 +287,30 @@
             </span>
           
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">本文字数：</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">11k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">10 分钟</span>
-              
-            </div>
+              <span title="本文字数">11k</span>
+            </span>
           
-
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">18 分钟</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
@@ -459,10 +318,6 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <blockquote>
 <p>JAVA 的中文字符乱码问题一直很让人头疼。特别是在 WEB 应用中。网上的分析文章和解决方案都很多，但总是针对某些特定情况的。很多次遇到乱码问题后，经过极为辛苦的调试和搜索资料后终于解决，满以为自己已经掌握了对付这些字符乱码怪兽的诀窍。可当过段时间，换了个应用或换了个环境，又会碰到那讨厌的火星文，并再次无所适从。于是下决心好好整理一下中文字符编码问题，以方便自己记忆，也为其他程序员兄弟们提供一份参考。</p>
 <p>作者：Aamirr<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/ora_unix/article/details/6323654" target="_blank" rel="noopener">https://blog.csdn.net/ora_unix/article/details/6323654</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
@@ -481,31 +336,11 @@
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-      
-    
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -513,17 +348,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -541,11 +367,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="河伯特高">
     </span>
-
-    
       <header class="post-header">
 
-        
         
           <h2 class="post-title" itemprop="name headline">
                 
@@ -557,13 +380,7 @@
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -576,32 +393,23 @@
               
 
               <time title="创建时间：2019-03-08 16:00:00" itemprop="dateCreated datePublished" datetime="2019-03-08T16:00:00+08:00">2019-03-08</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-13 18:40:34" itemprop="dateModified" datetime="2019-07-13T18:40:34+08:00">2019-07-13</time>
-              
+                <time title="修改时间：2019-08-15 00:10:47" itemprop="dateModified" datetime="2019-08-15T00:10:47+08:00">2019-08-15</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -609,14 +417,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/原创/" itemprop="url" rel="index"><span itemprop="name">原创</span></a></span>
 
                 
                 
@@ -624,51 +425,30 @@
             </span>
           
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">本文字数：</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">3 分钟</span>
-              
-            </div>
+              <span title="本文字数">3.6k</span>
+            </span>
           
-
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">6 分钟</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
@@ -676,10 +456,6 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <blockquote>
 <p>作为一个开发者，自己的博客应该是一个追求现代化的网站<del>（主要还是因为没什么 PV）</del>，所以我作出了一个愉快的的决定：禁用 TLS1.0 和 TLS1.1。</p>
 </blockquote>
@@ -697,31 +473,11 @@
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-      
-    
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -729,17 +485,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -757,11 +504,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="河伯特高">
     </span>
-
-    
       <header class="post-header">
 
-        
         
           <h2 class="post-title" itemprop="name headline">
                 
@@ -773,13 +517,7 @@
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -792,32 +530,23 @@
               
 
               <time title="创建时间：2018-10-09 12:00:00" itemprop="dateCreated datePublished" datetime="2018-10-09T12:00:00+08:00">2018-10-09</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-13 18:40:03" itemprop="dateModified" datetime="2019-07-13T18:40:03+08:00">2019-07-13</time>
-              
+                <time title="修改时间：2019-08-15 00:09:14" itemprop="dateModified" datetime="2019-08-15T00:09:14+08:00">2019-08-15</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -825,14 +554,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DNS/" itemprop="url" rel="index"><span itemprop="name">DNS</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DNS/安全/" itemprop="url" rel="index"><span itemprop="name">安全</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/转载/" itemprop="url" rel="index"><span itemprop="name">转载</span></a></span>
 
                 
                 
@@ -840,51 +562,30 @@
             </span>
           
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">本文字数：</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">7.6k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">7 分钟</span>
-              
-            </div>
+              <span title="本文字数">7.5k</span>
+            </span>
           
-
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">13 分钟</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
@@ -892,10 +593,6 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <blockquote>
 <p>原作者版权声明：</p>
 <p><strong>版权声明</strong></p>
@@ -915,31 +612,11 @@
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-      
-    
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -947,17 +624,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -975,11 +643,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="河伯特高">
     </span>
-
-    
       <header class="post-header">
 
-        
         
           <h2 class="post-title" itemprop="name headline">
                 
@@ -991,13 +656,7 @@
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1010,32 +669,23 @@
               
 
               <time title="创建时间：2018-09-26 16:00:00" itemprop="dateCreated datePublished" datetime="2018-09-26T16:00:00+08:00">2018-09-26</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-13 18:41:15" itemprop="dateModified" datetime="2019-07-13T18:41:15+08:00">2019-07-13</time>
-              
+                <time title="修改时间：2019-08-15 00:11:49" itemprop="dateModified" datetime="2019-08-15T00:11:49+08:00">2019-08-15</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1043,14 +693,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Apple/" itemprop="url" rel="index"><span itemprop="name">Apple</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Apple/Apple-ID/" itemprop="url" rel="index"><span itemprop="name">Apple ID</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/原创/" itemprop="url" rel="index"><span itemprop="name">原创</span></a></span>
 
                 
                 
@@ -1058,51 +701,30 @@
             </span>
           
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">本文字数：</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
+              <span title="本文字数">1.1k</span>
+            </span>
           
-
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">2 分钟</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
@@ -1110,10 +732,6 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <blockquote>
 <p>注册美区 Apple ID 之后，事儿几乎就没少过。<br>从 iTunes 礼品卡支付，到绑定美区 PayPal，到多次被禁止支付，再到这次 Apple ID 被封……</p>
 </blockquote>
@@ -1131,31 +749,11 @@
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-      
-    
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -1163,17 +761,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -1191,11 +780,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="河伯特高">
     </span>
-
-    
       <header class="post-header">
 
-        
         
           <h2 class="post-title" itemprop="name headline">
                 
@@ -1207,13 +793,7 @@
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1226,32 +806,23 @@
               
 
               <time title="创建时间：2018-09-03 16:00:00" itemprop="dateCreated datePublished" datetime="2018-09-03T16:00:00+08:00">2018-09-03</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-13 18:41:38" itemprop="dateModified" datetime="2019-07-13T18:41:38+08:00">2019-07-13</time>
-              
+                <time title="修改时间：2019-08-15 00:12:07" itemprop="dateModified" datetime="2019-08-15T00:12:07+08:00">2019-08-15</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1259,21 +830,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Google/" itemprop="url" rel="index"><span itemprop="name">Google</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Google/Samsung/" itemprop="url" rel="index"><span itemprop="name">Samsung</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Google/Samsung/一加/" itemprop="url" rel="index"><span itemprop="name">一加</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/原创/" itemprop="url" rel="index"><span itemprop="name">原创</span></a></span>
 
                 
                 
@@ -1281,51 +838,30 @@
             </span>
           
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">本文字数：</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3.6k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">3 分钟</span>
-              
-            </div>
+              <span title="本文字数">3.6k</span>
+            </span>
           
-
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">6 分钟</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
@@ -1333,10 +869,6 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <blockquote>
 <p>在国内丢了手机，可能丢了就丢了吧，八成找不回来了；那如果是国外呢？<br>不过这篇文章不只是探讨国内外的差别，还要对比一下几个查找手机功能的实用性，因为这次确确实实帮到我了。</p>
 </blockquote>
@@ -1354,38 +886,17 @@
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-      
-    
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
   
   
   </article>
-
 
     
   </section>
@@ -1396,12 +907,10 @@
   </nav>
 
 
-
           </div>
           
 
         </div>
-        
           
   
   <div class="sidebar-toggle">
@@ -1415,242 +924,204 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
-      
-
-      
-
       <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
+
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/HerbertGao.jpg" alt="Herbert Gao">
-            
-              <p class="site-author-name" itemprop="name">Herbert Gao</p>
-              <div class="site-description motion-element" itemprop="description">水能载舟，亦能煮粥<br>江可泽民，亦可赛艇</div>
-          </div>
+    <img class="site-author-image" itemprop="image"
+      src="/images/HerbertGao.jpg"
+      alt="Herbert Gao">
+  <p class="site-author-name" itemprop="name">Herbert Gao</p>
+  <div class="site-description motion-element" itemprop="description">水能载舟，亦能煮粥<br>江可泽民，亦可赛艇</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://t.me/herbertgaochannel" title="TG Channel &rarr; https://t.me/herbertgaochannel" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>TG Channel</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://t.me/herbertgao" title="Telegram &rarr; https://t.me/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://instagram.com/herbertgao" title="Instagram &rarr; https://instagram.com/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/HerbertGao" title="GitHub &rarr; https://github.com/HerbertGao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:admin@herbertgao.com" title="E-Mail &rarr; mailto:admin@herbertgao.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">17</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
 
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                      <a href="/categories/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://t.me/herbertgaochannel" title="TG Channel &rarr; https://t.me/herbertgaochannel" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>TG Channel</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://t.me/herbertgao" title="Telegram &rarr; https://t.me/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://instagram.com/herbertgao" title="Instagram &rarr; https://instagram.com/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/HerbertGao" title="GitHub &rarr; https://github.com/HerbertGao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://gaohaobo.com" title="Resume &rarr; https://gaohaobo.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle"></i>Resume</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://herbertgao.tw" title="Life Blog &rarr; https://herbertgao.tw" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle"></i>Life Blog</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:admin@herbertgao.com" title="E-Mail &rarr; mailto:admin@herbertgao.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                友情链接
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.mtiner.com/" title="https://www.mtiner.com/" rel="noopener" target="_blank">丁小浪的大城市</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.chenhao.net/" title="http://www.chenhao.net/" rel="noopener" target="_blank">随风飞翔</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://liguanbo.io/" title="http://liguanbo.io/" rel="noopener" target="_blank">Calton's Blog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://bh2ro.info" title="https://bh2ro.info" rel="noopener" target="_blank">BH2RO</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.3mtoo.com/" title="http://www.3mtoo.com/" rel="noopener" target="_blank">森兔</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://wang93wei.cn/" title="http://wang93wei.cn/" rel="noopener" target="_blank">モモコのブログ</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-            
-          
-          
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.mtiner.com/" title="https://www.mtiner.com/" rel="noopener" target="_blank">丁小浪的大城市</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.chenhao.net/" title="http://www.chenhao.net/" rel="noopener" target="_blank">随风飞翔</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://liguanbo.io/" title="http://liguanbo.io/" rel="noopener" target="_blank">Calton's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://bh2ro.info" title="https://bh2ro.info" rel="noopener" target="_blank">BH2RO</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.3mtoo.com/" title="http://www.3mtoo.com/" rel="noopener" target="_blank">森兔</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://wang93wei.cn/" title="http://wang93wei.cn/" rel="noopener" target="_blank">モモコのブログ</a>
+        </li>
+      
+    </ul>
+  </div>
 
         </div>
       </div>
-
-      
-
-      
-        <div class="back-to-top">
+        <div class="back-to-top motion-element">
           <i class="fa fa-arrow-up"></i>
           
             <span id="scrollpercent"><span>0</span>%</span>
@@ -1660,10 +1131,9 @@
 
     </div>
   </aside>
-  
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
@@ -1674,37 +1144,20 @@
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Herbert Gao</span>
-
-  
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    
-    <span title="站点总字数">62k</span>
-  
-
-  
+    <span title="站点总字数">60k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    
-    <span title="站点阅读时长">56 分钟</span>
-  
+    <span title="站点阅读时长">1:40</span>
 </div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
-
-
-
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
-
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
 
 
   <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a></div>
@@ -1725,99 +1178,29 @@
 
     
 
-    
-
-    
-
-    
   </div>
 
   
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-  
     
     
   
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.0"></script>
-
-  <script src="/js/motion.js?v=7.1.0"></script>
-
-
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
 
   
-  
-
-
-  <script src="/js/affix.js?v=7.1.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
-
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
 
 
 
   
 
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.0"></script>
-
+  <script src="/js/next-boot.js?v=7.3.0"></script>
 
   
 
@@ -1825,74 +1208,74 @@
 
   
 
-  
-
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-<script>
-  $('.highlight').each(function(i, e) {
-    var $wrap = $('<div>').addClass('highlight-wrap');
-    $(e).after($wrap);
-    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
-      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
-        return $(e).text();
-      }).toArray().join('\n');
-      var ta = document.createElement('textarea');
-      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
-      ta.style.top = yPosition + 'px'; // Prevent page scroll
-      ta.style.position = 'absolute';
-      ta.style.opacity = '0';
-      ta.readOnly = true;
-      ta.value = code;
-      document.body.appendChild(ta);
-      ta.select();
-      ta.setSelectionRange(0, code.length);
-      ta.readOnly = false;
-      var result = document.execCommand('copy');
-      
-      ta.blur(); // For iOS
-      $(this).blur();
-    })).on('mouseleave', function(e) {
-      var $b = $(this).find('.copy-btn');
-      setTimeout(function() {
-        $b.text('复制');
-      }, 300);
-    }).append(e);
-  })
-</script>
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['', '', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

@@ -4,81 +4,26 @@
 
 
 
-
-
-
-
-
-
-
-  
-
-
 <html class="theme-next gemini use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-
-
-
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.0">
-
-
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.0" color="#222">
-
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.3.0" color="#222">
   <link rel="manifest" href="/images/site.webmanifest">
-
-
   <meta name="msapplication-config" content="/images/browserconfig.xml">
 
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
 
 
 <script id="hexo.configurations">
@@ -86,53 +31,51 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '7.1.0',
-    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: true,
-    fancybox: true,
-    fastclick: true,
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
     algolia: {
       applicationID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: ''
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
     }
   };
 </script>
 
-
-  
-
-
-
-
   <meta name="description" content="原载于随风飞翔的扯淡博客-AllenChan 的专栏 &amp;gt; 点击查看原文   前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。 什么叫分享，就是我有好东西，我恨不得你们也一样的拥有，什么叫装逼，就是我拥有好东西，我就是得瑟你们没有。 我跟你们分享 SSD 固态硬盘带来的酣畅淋漓，希望你们一样拥有。">
+<meta name="keywords" content="AllenChen专栏,SSD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【随风飞翔】SSD固态硬盘的Q and A">
 <meta property="og:url" content="https://herbertgao.com/2/index.html">
 <meta property="og:site_name" content="河伯特高">
 <meta property="og:description" content="原载于随风飞翔的扯淡博客-AllenChan 的专栏 &amp;gt; 点击查看原文   前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。 什么叫分享，就是我有好东西，我恨不得你们也一样的拥有，什么叫装逼，就是我拥有好东西，我就是得瑟你们没有。 我跟你们分享 SSD 固态硬盘带来的酣畅淋漓，希望你们一样拥有。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://herbertgao.com/2/TB2OaYdapXXXXbAXXXXXXXXXXXX/_!!730652580.jpg">
-<meta property="og:updated_time" content="2019-07-13T10:40:19.206Z">
+<meta property="og:image" content="https://herbertgao.com/2/TB2OaYdapXXXXbAXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:updated_time" content="2019-08-29T09:15:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【随风飞翔】SSD固态硬盘的Q and A">
 <meta name="twitter:description" content="原载于随风飞翔的扯淡博客-AllenChan 的专栏 &amp;gt; 点击查看原文   前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。 什么叫分享，就是我有好东西，我恨不得你们也一样的拥有，什么叫装逼，就是我拥有好东西，我就是得瑟你们没有。 我跟你们分享 SSD 固态硬盘带来的酣畅淋漓，希望你们一样拥有。">
-<meta name="twitter:image" content="https://herbertgao.com/2/TB2OaYdapXXXXbAXXXXXXXXXXXX/_!!730652580.jpg">
-
-
-
-
-
-  
-  
+<meta name="twitter:image" content="https://herbertgao.com/2/TB2OaYdapXXXXbAXXXXXXXXXXXX_!!730652580.jpg">
   <link rel="canonical" href="https://herbertgao.com/2/">
-
 
 
 <script id="page.configurations">
@@ -143,10 +86,6 @@
 
   <title>【随风飞翔】SSD固态硬盘的Q and A | 河伯特高</title>
   
-
-
-
-
 
 
 
@@ -184,18 +123,12 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  
-  
-    
-  
-
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta">
-    
 
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
@@ -204,12 +137,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
         <h1 class="site-subtitle" itemprop="description">HerbertGao 个人主页</h1>
       
-    
-    
   </div>
 
   <div class="site-nav-toggle">
@@ -224,21 +153,13 @@
 
 
 <nav class="site-nav">
-  
     <ul id="menu" class="menu">
-      
         
         
         
           
           <li class="menu-item menu-item-home">
-
-    
-    
-    
       
-    
-
     
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
@@ -248,14 +169,19 @@
         
         
           
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
+          <li class="menu-item menu-item-tags">
       
     
 
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
     
 
     <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
@@ -266,34 +192,14 @@
         
           
           <li class="menu-item menu-item-archives">
-
-    
-    
-    
       
-    
-
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-
-      
-      
     </ul>
-  
-
-  
-
-  
 </nav>
-
-
-
-  
-
-
 
 </div>
     </header>
@@ -304,23 +210,13 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
             
 
-          
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -338,11 +234,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="河伯特高">
     </span>
-
-    
       <header class="post-header">
 
-        
         
           <h2 class="post-title" itemprop="name headline">【随风飞翔】SSD固态硬盘的Q and A
 
@@ -352,13 +245,7 @@
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -371,32 +258,23 @@
               
 
               <time title="创建时间：2014-09-14 00:00:06" itemprop="dateCreated datePublished" datetime="2014-09-14T00:00:06+08:00">2014-09-14</time>
+            </span>
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-13 18:40:19" itemprop="dateModified" datetime="2019-07-13T18:40:19+08:00">2019-07-13</time>
-              
+                <time title="修改时间：2019-08-29 17:15:49" itemprop="dateModified" datetime="2019-08-29T17:15:49+08:00">2019-08-29</time>
+              </span>
             
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -408,62 +286,34 @@
 
                 
                 
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/AllenChen专栏/SSD/" itemprop="url" rel="index"><span itemprop="name">SSD</span></a></span>
-
-                
-                
               
             </span>
           
 
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">本文字数：</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">2 分钟</span>
-              
-            </div>
+              <span title="本文字数">2.7k</span>
+            </span>
           
-
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">4 分钟</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
@@ -471,11 +321,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
         <blockquote>
-<p>原载于<a href="http://blog.chenhao.net" target="_blank" rel="noopener">随风飞翔的扯淡博客</a>-<a href="http://blog.chenhao6.com/category/allenchan%e7%9a%84%e4%b8%93%e6%a0%8f" target="_blank" rel="noopener">AllenChan 的专栏</a> &gt; <a href="http://blog.chenhao6.com/938.html" target="_blank" rel="noopener">点击查看原文</a></p>
+<p>原载于<a href="http://blog.chenhao.net" target="_blank" rel="noopener">随风飞翔的扯淡博客</a>-<a href="http://blog.chenhao.net/category/allenchan%e7%9a%84%e4%b8%93%e6%a0%8f" target="_blank" rel="noopener">AllenChan 的专栏</a> &gt; <a href="http://blog.chenhao.net/938.html" target="_blank" rel="noopener">点击查看原文</a></p>
 </blockquote>
 <blockquote>
 <p>前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。</p>
@@ -483,7 +330,7 @@
 <p>我跟你们分享 SSD 固态硬盘带来的酣畅淋漓，希望你们一样拥有。</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="为什么要用固态硬盘？"><a href="#为什么要用固态硬盘？" class="headerlink" title="为什么要用固态硬盘？"></a>为什么要用固态硬盘？</h1><p>首先，看几个硬盘用 AS SSD Benchmark 测试的数据截图。<br><img src="/2/TB2OaYdapXXXXbAXXXXXXXXXXXX/_!!730652580.jpg" alt><br>自己看吧，SSD 固态硬盘的优势明显应该有眼就能看到的。就连乞丐版的威刚远甩机械硬盘，现在日常使用的电脑，无论台式机还是笔记本，CPU 在我看来是很是够用了，而机械硬盘是严重的短板。<br>（注：之所以说乞丐版，是因为他在正规 SSD 固态硬盘里面，连续读取速度写入速度算最慢的了。 ）</p>
+<h1 id="为什么要用固态硬盘？"><a href="#为什么要用固态硬盘？" class="headerlink" title="为什么要用固态硬盘？"></a>为什么要用固态硬盘？</h1><p>首先，看几个硬盘用 AS SSD Benchmark 测试的数据截图。<br><img src="/2/TB2OaYdapXXXXbAXXXXXXXXXXXX_!!730652580.jpg" alt="1"><br>自己看吧，SSD 固态硬盘的优势明显应该有眼就能看到的。就连乞丐版的威刚远甩机械硬盘，现在日常使用的电脑，无论台式机还是笔记本，CPU 在我看来是很是够用了，而机械硬盘是严重的短板。<br>（注：之所以说乞丐版，是因为他在正规 SSD 固态硬盘里面，连续读取速度写入速度算最慢的了。 ）</p>
 <p>LOL 党，Dota 党，游戏党不要奢望装个固态硬盘就能特效全开、流畅画面，这是显卡的事，乖乖换显卡去。SSD 固态硬盘只会加载游戏更快（斗地主不要算游戏）。</p>
 <h1 id="用固态硬盘需要知道的几件事"><a href="#用固态硬盘需要知道的几件事" class="headerlink" title="用固态硬盘需要知道的几件事"></a>用固态硬盘需要知道的几件事</h1><p>Q：我的电脑好卡啊！<br>A：没有 SSD 固态硬盘活该卡。</p>
 <p>Q：系统一卡重装系统就好了？<br>A：重装个锤子啊，一点卡就怪系统，就想重装系统，脑子没问题吧，升级到 SSD 固态硬盘先。</p>
@@ -504,61 +351,25 @@
 <p>Q：台式机怎么加 SSD 固态硬盘？<br>A：把 SSD 固态硬盘加到主板上的 Sata 0（或者 1，反正就是最小的那个），机械硬盘再继续加进去。</p>
 <p>Q：笔记本怎么加 SSD 固态硬盘？<br>A：推荐方法，拆开笔记本，把内部的硬盘硬盘位，装上 SSD 固态硬盘，然后，X 宝购买笔记本光驱支架，把笔记本的光驱卸了，把机械硬盘塞在支架上，然后塞进光驱位。另有还有加 msata 接口的固态硬盘，这个就不用卸了光驱。NGFF 接口就算了。现在还没发现啥能可信的 NGFF 接口的固态硬盘。</p>
 <p>下月写一篇旧电脑联想 Y471 改造加装固态硬盘的教程。尽请期待。</p>
-<pre><code>对内容有异议需要撕逼、咨询，欢迎约架上优酷土豆搜狐视频爱奇艺腾讯视频新浪播客我乐网酷6网风行网风云直播，请联系新浪微博：[@AllenChan___](http://weibo.com/945570100)
-</code></pre>
-      
+<p>对内容有异议需要撕逼、咨询，欢迎约架上优酷土豆搜狐视频爱奇艺腾讯视频新浪播客我乐网酷6网风行网风云直播，请联系新浪微博：<a href="http://weibo.com/945570100" target="_blank" rel="noopener">@AllenChan___</a></p>
+
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-      
-    
-    
-      <div>
-        <div id="reward-container">
-  <div></div>
-  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
-  </button>
-  <div id="qr" style="display: none;">
-
-    
-      
-      
-        
-      
-      <div style="display: inline-block">
-        <img src="/images/admiration_qrcode.jpg" alt="Herbert Gao 微信支付">
-        <p>微信支付</p>
-      </div>
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
+          
+        
+        <div class="post-tags">
+            <a href="/tags/AllenChen专栏/" rel="tag"># AllenChen专栏</a>
+          
+            <a href="/tags/SSD/" rel="tag"># SSD</a>
+          
+        </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
               <a href="/1/" rel="next" title="【随风飞翔】虚拟运营商首单——阿里通信">
                 <i class="fa fa-chevron-left"></i> 【随风飞翔】虚拟运营商首单——阿里通信
               </a>
@@ -568,17 +379,12 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
               <a href="/3/" rel="prev" title="【随风飞翔】笔记本电脑加装固态硬盘教程">
                 【随风飞翔】笔记本电脑加装固态硬盘教程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
         </div>
-      
-
-      
-      
     </footer>
   </div>
   
@@ -586,19 +392,14 @@
   
   </article>
 
-
   </div>
 
 
           </div>
           
 
-  
-
-
 
         </div>
-        
           
   
   <div class="sidebar-toggle">
@@ -611,10 +412,6 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
-
-      
-
-      
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
@@ -627,233 +424,201 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
+
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/HerbertGao.jpg" alt="Herbert Gao">
-            
-              <p class="site-author-name" itemprop="name">Herbert Gao</p>
-              <div class="site-description motion-element" itemprop="description">水能载舟，亦能煮粥<br>江可泽民，亦可赛艇</div>
-          </div>
+    <img class="site-author-image" itemprop="image"
+      src="/images/HerbertGao.jpg"
+      alt="Herbert Gao">
+  <p class="site-author-name" itemprop="name">Herbert Gao</p>
+  <div class="site-description motion-element" itemprop="description">水能载舟，亦能煮粥<br>江可泽民，亦可赛艇</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://t.me/herbertgaochannel" title="TG Channel &rarr; https://t.me/herbertgaochannel" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>TG Channel</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://t.me/herbertgao" title="Telegram &rarr; https://t.me/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://instagram.com/herbertgao" title="Instagram &rarr; https://instagram.com/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/HerbertGao" title="GitHub &rarr; https://github.com/HerbertGao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:admin@herbertgao.com" title="E-Mail &rarr; mailto:admin@herbertgao.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">17</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
 
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                      <a href="/categories/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://t.me/herbertgaochannel" title="TG Channel &rarr; https://t.me/herbertgaochannel" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>TG Channel</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://t.me/herbertgao" title="Telegram &rarr; https://t.me/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://instagram.com/herbertgao" title="Instagram &rarr; https://instagram.com/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/HerbertGao" title="GitHub &rarr; https://github.com/HerbertGao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://gaohaobo.com" title="Resume &rarr; https://gaohaobo.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle"></i>Resume</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://herbertgao.tw" title="Life Blog &rarr; https://herbertgao.tw" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle"></i>Life Blog</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:admin@herbertgao.com" title="E-Mail &rarr; mailto:admin@herbertgao.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                友情链接
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.mtiner.com/" title="https://www.mtiner.com/" rel="noopener" target="_blank">丁小浪的大城市</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.chenhao.net/" title="http://www.chenhao.net/" rel="noopener" target="_blank">随风飞翔</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://liguanbo.io/" title="http://liguanbo.io/" rel="noopener" target="_blank">Calton's Blog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://bh2ro.info" title="https://bh2ro.info" rel="noopener" target="_blank">BH2RO</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.3mtoo.com/" title="http://www.3mtoo.com/" rel="noopener" target="_blank">森兔</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://wang93wei.cn/" title="http://wang93wei.cn/" rel="noopener" target="_blank">モモコのブログ</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-            
-          
-          
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.mtiner.com/" title="https://www.mtiner.com/" rel="noopener" target="_blank">丁小浪的大城市</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.chenhao.net/" title="http://www.chenhao.net/" rel="noopener" target="_blank">随风飞翔</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://liguanbo.io/" title="http://liguanbo.io/" rel="noopener" target="_blank">Calton's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://bh2ro.info" title="https://bh2ro.info" rel="noopener" target="_blank">BH2RO</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.3mtoo.com/" title="http://www.3mtoo.com/" rel="noopener" target="_blank">森兔</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://wang93wei.cn/" title="http://wang93wei.cn/" rel="noopener" target="_blank">モモコのブログ</a>
+        </li>
+      
+    </ul>
+  </div>
 
         </div>
       </div>
-
-      
       <!--noindex-->
         <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
@@ -871,9 +636,7 @@
         </div>
       <!--/noindex-->
       
-
-      
-        <div class="back-to-top">
+        <div class="back-to-top motion-element">
           <i class="fa fa-arrow-up"></i>
           
             <span id="scrollpercent"><span>0</span>%</span>
@@ -883,10 +646,9 @@
 
     </div>
   </aside>
-  
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
@@ -897,37 +659,20 @@
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Herbert Gao</span>
-
-  
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    
-    <span title="站点总字数">62k</span>
-  
-
-  
+    <span title="站点总字数">60k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    
-    <span title="站点阅读时长">56 分钟</span>
-  
+    <span title="站点阅读时长">1:40</span>
 </div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
-
-
-
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
-
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
 
 
   <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a></div>
@@ -948,95 +693,29 @@
 
     
 
-    
-
-    
-
-    
   </div>
 
   
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-  
     
     
   
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
   
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.0"></script>
-
-  <script src="/js/motion.js?v=7.1.0"></script>
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
 
 
 
   
-  
-
-
-  <script src="/js/affix.js?v=7.1.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
-
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.1.0"></script>
-<script src="/js/post-details.js?v=7.1.0"></script>
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
 
 
 <script src="/js/baffle.min.js"></script>
@@ -1050,11 +729,7 @@
 </script>
 
 
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.0"></script>
-
+  <script src="/js/next-boot.js?v=7.3.0"></script>
 
   
 
@@ -1062,76 +737,74 @@
 
   
 
-  
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['', '', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
-  
 
 
 
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-<script>
-  $('.highlight').each(function(i, e) {
-    var $wrap = $('<div>').addClass('highlight-wrap');
-    $(e).after($wrap);
-    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
-      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
-        return $(e).text();
-      }).toArray().join('\n');
-      var ta = document.createElement('textarea');
-      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
-      ta.style.top = yPosition + 'px'; // Prevent page scroll
-      ta.style.position = 'absolute';
-      ta.style.opacity = '0';
-      ta.readOnly = true;
-      ta.value = code;
-      document.body.appendChild(ta);
-      ta.select();
-      ta.setSelectionRange(0, code.length);
-      ta.readOnly = false;
-      var result = document.execCommand('copy');
-      
-      ta.blur(); // For iOS
-      $(this).blur();
-    })).on('mouseleave', function(e) {
-      var $b = $(this).find('.copy-btn');
-      setTimeout(function() {
-        $b.text('复制');
-      }, 300);
-    }).append(e);
-  })
-</script>
 
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
