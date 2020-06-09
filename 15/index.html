@@ -1,104 +1,69 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.3.0" color="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
   <link rel="manifest" href="/images/site.webmanifest">
   <meta name="msapplication-config" content="/images/browserconfig.xml">
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"herbertgao.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.3.0',
-    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    search: {
-      root: '/',
-      path: ''
-    },
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-<script data-ad-client="ca-pub-4604823985082292" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <meta name="description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html">
-<meta name="keywords" content="安全,DNS">
+  <meta name="description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https:&#x2F;&#x2F;program-think.blogspot.com&#x2F;2018&#x2F;10&#x2F;Comparison-of-DNS-Protocols.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【编程随想】对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS">
 <meta property="og:url" content="https://herbertgao.com/15/index.html">
 <meta property="og:site_name" content="河伯特高">
-<meta property="og:description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https:&#x2F;&#x2F;program-think.blogspot.com&#x2F;2018&#x2F;10&#x2F;Comparison-of-DNS-Protocols.html">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lh6.googleusercontent.com/4QaghUJDZ1GkjAsoVyFbCnhNchM7YYswTgIuk9MWSA3NNW6xBh6P4VJ1NRAjJcqFJXiee6VhkCkI8UuP8eJLSd7Ka0dyOekEHVc0_GDVWvHOUOrSH0CL7T2JXqka3dZdG6VNLo--vkU">
-<meta property="og:updated_time" content="2019-08-14T16:09:14.000Z">
+<meta property="article:published_time" content="2018-10-09T04:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-14T16:09:14.000Z">
+<meta property="article:author" content="Herbert Gao">
+<meta property="article:tag" content="安全">
+<meta property="article:tag" content="DNS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【编程随想】对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS">
-<meta name="twitter:description" content="原作者版权声明： 版权声明 本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html">
 <meta name="twitter:image" content="https://lh6.googleusercontent.com/4QaghUJDZ1GkjAsoVyFbCnhNchM7YYswTgIuk9MWSA3NNW6xBh6P4VJ1NRAjJcqFJXiee6VhkCkI8UuP8eJLSd7Ka0dyOekEHVc0_GDVWvHOUOrSH0CL7T2JXqka3dZdG6VNLo--vkU">
-  <link rel="canonical" href="https://herbertgao.com/15/">
+
+<link rel="canonical" href="https://herbertgao.com/15/">
 
 
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>【编程随想】对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS | 河伯特高</title>
   
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158897845-1"></script>
-  <script>
-    var host = window.location.hostname;
-    if (host !== "localhost" || !true) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-158897845-1');
-    }
-  </script>
-
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158897845-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-158897845-1');
+      }
+    </script>
 
 
 
@@ -107,7 +72,6 @@
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -116,9 +80,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -132,205 +95,151 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">河伯特高</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-        <h1 class="site-subtitle" itemprop="description">HerbertGao 个人主页</h1>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">河伯特高</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">HerbertGao 个人主页</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
 
 
+
 <nav class="site-nav">
-    <ul id="menu" class="menu">
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-      
-    
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-      
-    
+        <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-      
-    
+        <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-      
-    
+        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-    </ul>
+  </ul>
 </nav>
+
+
+
 
 </div>
     </header>
 
     
 
+  <a href="https://github.com/HerbertGao" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-    <main id="main" class="main">
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
 
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://herbertgao.com/15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HerbertGao.jpg">
       <meta itemprop="name" content="Herbert Gao">
       <meta itemprop="description" content="<div style='font-size: 8px'>弱小和无知不是生存的障碍，傲慢才是。<br><i>Weakness and ignorance are not barriers to survival, but arrogance is.</i><br><br><div style='text-align: left;margin-left: 40%;'>——三体Ⅲ·死神永生<br>——<i>Death's End</i></div></div>">
-      <meta itemprop="image" content="/images/HerbertGao.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="河伯特高">
     </span>
       <header class="post-header">
-
-        
-          <h2 class="post-title" itemprop="name headline">【编程随想】对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS
-
-              
-            
-          </h2>
-        
+        <h1 class="post-title" itemprop="name headline">
+          【编程随想】对比4种强化域名安全的协议——DNSSEC，DNSCrypt，DNS over TLS，DNS over HTTPS
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2018-10-09 12:00:00" itemprop="dateCreated datePublished" datetime="2018-10-09T12:00:00+08:00">2018-10-09</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-08-15 00:09:14" itemprop="dateModified" datetime="2019-08-15T00:09:14+08:00">2019-08-15</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/转载/" itemprop="url" rel="index"><span itemprop="name">转载</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AC%E8%BD%BD/" itemprop="url" rel="index"><span itemprop="name">转载</span></a>
+                </span>
             </span>
-          
 
           
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon"
-              >
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
-                 阅读次数： 
-                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
               </span>
-            </span>
-          <br>
-            <span class="post-meta-item">
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
-              
                 <span class="post-meta-item-text">本文字数：</span>
-              
-              <span title="本文字数">7.5k</span>
+              <span>6.9k</span>
             </span>
-          
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
-              
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span title="阅读时长">13 分钟</span>
+              <span>6 分钟</span>
             </span>
-          
 
         </div>
       </header>
@@ -344,21 +253,24 @@
         <blockquote>
 <p>原作者版权声明：</p>
 <p><strong>版权声明</strong></p>
-<p>本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者<a href="mailto:program.think@gmail.com" target="_blank" rel="noopener">编程随想</a>和本文原始地址：<br><a href="https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html" target="_blank" rel="noopener">https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html</a></p>
+<p>本博客所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者<a href="mailto:program.think@gmail.com">编程随想</a>和本文原始地址：<br><a href="https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html" target="_blank" rel="noopener">https://program-think.blogspot.com/2018/10/Comparison-of-DNS-Protocols.html</a></p>
 </blockquote>
 <a id="more"></a>
+
 <p><img src="https://lh6.googleusercontent.com/4QaghUJDZ1GkjAsoVyFbCnhNchM7YYswTgIuk9MWSA3NNW6xBh6P4VJ1NRAjJcqFJXiee6VhkCkI8UuP8eJLSd7Ka0dyOekEHVc0_GDVWvHOUOrSH0CL7T2JXqka3dZdG6VNLo--vkU" alt></p>
 <h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>俺在写前一篇博文（也就是 <a href="https://program-think.blogspot.com/2018/09/Why-You-Should-Switch-from-Chrome-to-Firefox.html" target="_blank" rel="noopener">Firefox PK Chrome 那篇</a>）的时候，碰巧看到 Mozilla 官方博客提到说：目前最新的 Firefox 62 版本开始支持【DNS over HTTPS】这一特性（链接在“<a href="https://blog.nightly.mozilla.org/2018/06/01/improving-dns-privacy-in-firefox/" target="_blank" rel="noopener">这里</a>”）。<br>本来想顺便聊一下“DNS over HTTPS”这个玩意儿。但是查了一下，发现它的 RFC 目前还只是【草案】，尚未正式发布。<br>所以俺就把本文的主题改成——对比 4 种强化 DNS 安全的网络协议（顺便也普及一些信息安全知识）。</p>
 <h1 id="传统的-DNS-有啥问题？"><a href="#传统的-DNS-有啥问题？" class="headerlink" title="传统的 DNS 有啥问题？"></a>传统的 DNS 有啥问题？</h1><p>传统的 DNS 是一个【比较古老】的协议。最早的草案可以追溯到 1983 年。1987 年定稿之后，基本上没啥变化。算起来，它的年龄比俺博客的很多读者都要大。<br>设计 DNS 的时候，互联网基本上还是个玩具。那年头的互联网协议，压根儿都没考虑安全性，DNS 当然也不例外。所以 DNS 的交互过程全都是【明文】滴，既无法做到“保密性”，也无法实现“完整性”。<br>缺乏“保密性”就意味着——任何一个能【监视】你上网流量的人，都可以【看到】你查询了哪些域名。直接引发的问题就是隐私风险。<br>缺乏“完整性”就意味着——任何一个能【修改】你上网流量的人，都可以【篡改】你的查询结果。直接引发的问题就是“DNS 欺骗”（也叫“DNS 污染”或“DNS 缓存投毒”）<br>关于“域名欺骗/域名污染”，可以参见俺的另一篇博文《<a href="https://program-think.blogspot.com/2014/01/dns.html" target="_blank" rel="noopener">扫盲 DNS 原理，兼谈“域名劫持”和“域名欺骗／域名污染”</a>》（注：4 年前的那篇博文，不光讲了“域名欺骗”，还扫盲了 DNS 的基本原理）</p>
 <p>为了解决传统 DNS 的这些弊端，后来诞生了好几个网络协议，以强化域名系统的安全性。俺今天挑选其中 4 个来介绍。除了这 4 个，其它一些协议的名气和影响力太小，不值一提。<br>下面俺以出场时间的先后，分别介绍这 4 个协议。</p>
 <h1 id="DNSSEC"><a href="#DNSSEC" class="headerlink" title="DNSSEC"></a>DNSSEC</h1><h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>这玩意儿是“Domain Name System Security Extensions”的缩写。在今天介绍的 4 个协议中，DNSSEC 是最早诞生的（1997）。从最先的 <a href="https://tools.ietf.org/html/rfc2065" target="_blank" rel="noopener">RFC 2065</a> 进化为 <a href="https://tools.ietf.org/html/rfc2535" target="_blank" rel="noopener">RFC 2535</a>，再到 <a href="https://tools.ietf.org/html/rfc4033" target="_blank" rel="noopener">RFC 4033</a>、<a href="https://tools.ietf.org/html/rfc4034" target="_blank" rel="noopener">RFC 4034</a>、<a href="https://tools.ietf.org/html/rfc4035" target="_blank" rel="noopener">RFC 4035</a>。<br>在今天介绍的 4 个协议中，DNSSEC 也是最早大规模部署的。在 2010 年的时候，所有<a href="https://zh.wikipedia.org/wiki/%E6%A0%B9%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8B%99%E5%99%A8" target="_blank" rel="noopener">根域名服务器</a>都已经部署了 DNSSEC。到了 2011 年，若干顶级域名（.org 和 .com 和 .net 和 .edu）也部署了 DNSSEC。</p>
 <h2 id="协议栈"><a href="#协议栈" class="headerlink" title="协议栈"></a>协议栈</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--------</span><br><span class="line"> DNSSEC</span><br><span class="line">--------</span><br><span class="line">  UDP</span><br><span class="line">--------</span><br><span class="line">  IP</span><br><span class="line">--------</span><br></pre></td></tr></table></figure>
+
 <h2 id="安全性的原理"><a href="#安全性的原理" class="headerlink" title="安全性的原理"></a>安全性的原理</h2><p>当初设计 DNSSEC 的一个考虑是“尽可能兼容 DNS 协议”。所以 DNSSEC 只是在 DNS 协议的基础上增加了一个【数字签名机制】。<br>有了数字签名，如果域名查询的结果被人篡改了，DNSSEC 客户端就可以通过【校验签名】，判断查询结果是假的。套用信息安全的行话——DNSSEC 实现了【完整性】（也叫“不可篡改性”）。<br>由于 DNSSEC 引入了【数字签名】，就需要有【公私钥对】。私钥是保密的，用来生成签名；公钥是公开的，用来验证签名。DNSSEC 客户端可以向 DNSSEC 服务器发出请求，获得一个 DNSKEY 记录，里面含公钥；然后用这个公钥校验每次的查询结果。</p>
 <h2 id="信任链的实现"><a href="#信任链的实现" class="headerlink" title="信任链的实现"></a>信任链的实现</h2><p>有些聪明的读者会问了：DESSEC 客户端在向服务器请求公钥的过程中，如果被攻击者篡改了，得到一个假的公钥，那该如何是好？<br>为了解决此问题，DNSSEC 体系要求【上级域】来担保。比如想要证明 program-think.blogspot.com 这个域名的公钥是否可信，就依靠 blogspot.com 这个域名的公钥来验证。通过层层追溯，最后达到【根域名服务器】。而“根域名服务器的公钥”是事先就部署在客户端的——这玩意儿就是整个信任链的根源，称之为“信任锚”（洋文叫“Trust Anchor”）。</p>
 <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>在今天聊的 4 个协议中，DNSSEC 应该是最成熟的。除了前面提到的广泛部署，大多数公共的域名服务器也都支持它。维基百科上有一个对照表（链接在“<a href="https://en.wikipedia.org/wiki/Public_recursive_name_server" target="_blank" rel="noopener">这里</a>”），对比了有名气的几个公共域名服务系统。在今天聊的 4 个协议中，支持 DNSSEC 的最多。</p>
 <h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>虽然 DNSSEC 最成熟，但它有个天生的缺陷——【没有】考虑到【保密性】。<br>DNSSEC 虽然对传输的数据做了数字签名，但是【没有】进行加密。这就意味着——任何能监视你网络流量的人，也可以看到你通过 DNSSEC 查询了哪些域名。<strong>隐私风险大大滴！</strong><br>Chrome 曾经在 14 版本支持过 DNSSEC，后来又【移除】了；而 Firefox 官方从未支持过 DNSSEC 协议。俺猜测：大概就是这个缺点给闹的。</p>
 <h1 id="DNSCrypt"><a href="#DNSCrypt" class="headerlink" title="DNSCrypt"></a>DNSCrypt</h1><h2 id="历史-1"><a href="#历史-1" class="headerlink" title="历史"></a>历史</h2><p>第 2 个出场的是 DNSCrypt。这个协议是由 Frank Denis 和 Yecheng Fu（付业成）两人设计的。<br>这个协议从来【没有】提交过 RFC（征求意见稿），要想看它的协议实现，只能去它的官网（链接在“<a href="https://dnscrypt.info/protocol/" target="_blank" rel="noopener">这里</a>”）。<br>历史上有过两个版本，分别称：Version 1 和 Version 2。如今主要使用“版本 2”</p>
 <h2 id="协议栈-1"><a href="#协议栈-1" class="headerlink" title="协议栈"></a>协议栈</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">----------------</span><br><span class="line">    DNSCrypt</span><br><span class="line">----------------</span><br><span class="line">   TCP or UDP</span><br><span class="line">----------------</span><br><span class="line">       IP</span><br><span class="line">----------------</span><br></pre></td></tr></table></figure>
+
 <h2 id="安全性的原理-1"><a href="#安全性的原理-1" class="headerlink" title="安全性的原理"></a>安全性的原理</h2><p>前面俺提到 DNSSEC 协议强调兼容性。而 DNSCrypt 则完全是另起炉灶搞出来的协议。在这个协议中，域名的“查询请求”与“响应结果”都是加密的。这就是它比 DNSSEC 高级的地方。<br>换句话说，DNSCrypt 既能做到【完整性】，也能做到【保密性】；相比之下，DNSSEC 只能做到【完整性】。</p>
 <h2 id="信任链的实现-1"><a href="#信任链的实现-1" class="headerlink" title="信任链的实现"></a>信任链的实现</h2><p>DNSCrypt 的信任链比较简单——客户端要想使用哪个 DNSCrypt 服务器，就需要预先部署该服务器的公钥。<br>另外，DNSCrypt 还支持客户端认证（作为可选项）。如果需要的话，可以在服务器上部署客户端的公钥。此时，服务器只接受可信的客户端的查询请求。</p>
 <h2 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h2><p>如前所述，DNSCrypt 同时支持【完整性】与【保密性】。在隐私方面完胜 DNSSEC。<br>在下层协议方面，DNSCrypt 同时支持 TCP 和 UDP，显然比 DNSSEC 灵活（DNSSEC 只支持 UDP）。<br>顺便提醒一下：虽然 DNSCrypt 协议默认使用 443 这个端口号，但该协议与 HTTPS 毫无关系。</p>
@@ -366,6 +278,7 @@
 <h1 id="DNS-over-TLS"><a href="#DNS-over-TLS" class="headerlink" title="DNS over TLS"></a>DNS over TLS</h1><p>“DNS over TLS”有时也被简称为【DoT】。为了打字省力，本文以下部分用 DoT 来称呼之。</p>
 <h2 id="历史-2"><a href="#历史-2" class="headerlink" title="历史"></a>历史</h2><p>DoT 已经正式发布了 RFC（参见 <a href="https://tools.ietf.org/html/rfc7858" target="_blank" rel="noopener">RFC 7858</a> 和 <a href="https://tools.ietf.org/html/rfc8310" target="_blank" rel="noopener">RFC 8310</a>）。<br>从时间上看，RFC7858 是 2016 年发布的，RFC8310 是今年（2018）发布的；显然，这个协议出现得比较晚（相比前面提到的 DNSSEC 和 DNSCrypt）。</p>
 <h2 id="协议栈-2"><a href="#协议栈-2" class="headerlink" title="协议栈"></a>协议栈</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--------</span><br><span class="line">  DoT</span><br><span class="line">--------</span><br><span class="line">  TLS</span><br><span class="line">--------</span><br><span class="line">  TCP</span><br><span class="line">--------</span><br><span class="line">  IP</span><br><span class="line">--------</span><br></pre></td></tr></table></figure>
+
 <h2 id="安全性的原理-2"><a href="#安全性的原理-2" class="headerlink" title="安全性的原理"></a>安全性的原理</h2><p>顾名思义，DNS over TLS 就是基于 TLS 隧道之上的域名协议。由于 TLS 本身已经实现了【保密性】与【完整性】，因此 DoT 自然也就具有这两项特性。<br>至于 TLS 协议是如何实现完整性与保密性滴？可以参见俺的系列博文：《<a href="https://program-think.blogspot.com/2014/11/https-ssl-tls-0.html" target="_blank" rel="noopener">扫盲 HTTPS 和 SSL/TLS 协议</a>》</p>
 <h2 id="信任链的实现-2"><a href="#信任链的实现-2" class="headerlink" title="信任链的实现"></a>信任链的实现</h2><p>DoT 的信任链依赖于 TLS，而 TLS 的信任链靠的是 CA 证书体系。<br>关于 CA 证书体系，可以参见 8 年前的博文：《<a href="https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html" target="_blank" rel="noopener">数字证书及 CA 的扫盲介绍</a>》</p>
 <h2 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h2><p>相比 DNSSEC，DoT 具备了【保密性】；相比 DNSCrypt，DoT 已经标准化。<br>另外，由于 DoT 协议是完全包裹在 TLS 里面，即使有人监视你的上网流量，也无法判断——哪些 TLS 流量是用于域名查询，哪些 TLS 用于网页传输。换句话说，DoT 协议的流量无法被【单独识别】出来。</p>
@@ -373,6 +286,7 @@
 <h1 id="DNS-over-HTTPS"><a href="#DNS-over-HTTPS" class="headerlink" title="DNS over HTTPS"></a>DNS over HTTPS</h1><p>“DNS over HTTPS”有时也被简称为【DoH】。为了打字省力，本文以下部分用 DoH 来称呼之。</p>
 <h2 id="历史-3"><a href="#历史-3" class="headerlink" title="历史"></a>历史</h2><p>在今天介绍的 4 个协议中，DoH 是最新的（最晚出现的）。RFC 方面，它已经有了相应的草案，但还【没有】正式发布。截至俺写本文时，DoH 的草案已经发了 15 个版本（从 00 到 14），最新版的链接在“<a href="https://tools.ietf.org/html/draft-ietf-doh-dns-over-https-14" target="_blank" rel="noopener">这里</a>”。<br>很多人把 DoH 与 DoT 混为一谈，实际上这是两种不同的协议。你可以对比这两者的协议栈，（只要你眼睛不瞎）就可看出其中的差别。</p>
 <h2 id="协议栈-3"><a href="#协议栈-3" class="headerlink" title="协议栈"></a>协议栈</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--------</span><br><span class="line">  DoH</span><br><span class="line">--------</span><br><span class="line">  HTTP</span><br><span class="line">--------</span><br><span class="line">  TLS</span><br><span class="line">--------</span><br><span class="line">  TCP</span><br><span class="line">--------</span><br><span class="line">  IP</span><br><span class="line">--------</span><br></pre></td></tr></table></figure>
+
 <h2 id="安全性的原理-3"><a href="#安全性的原理-3" class="headerlink" title="安全性的原理"></a>安全性的原理</h2><p>顾名思义，DNS over HTTPS 就是基于 HTTPS 隧道之上的域名协议。而 HTTPS 又是“HTTP over TLS”。所以 DoH 相当于是【双重隧道】的协议。<br>与 DoT 类似，DoH 最终也是依靠 TLS 来实现了【保密性】与【完整性】。<br>至于 TLS 协议是如何实现完整性与保密性滴？可以参见俺的系列博文：《<a href="https://program-think.blogspot.com/2014/11/https-ssl-tls-0.html" target="_blank" rel="noopener">扫盲 HTTPS 和 SSL/TLS 协议</a>》</p>
 <h2 id="信任链的实现-3"><a href="#信任链的实现-3" class="headerlink" title="信任链的实现"></a>信任链的实现</h2><p>DoH 类似于 DoT，最终是靠 TLS 所使用的“CA 证书体系”来实现信任链。<br>关于 CA 证书体系，可以参见 8 年前的博文：《<a href="https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html" target="_blank" rel="noopener">数字证书及 CA 的扫盲介绍</a>》</p>
 <h2 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h2><p>基本上，DoT 具备的优点，DoH 也具备。<br>相比 DoT，DoH 还多了一个优点：<br>由于 DoH 是基于 HTTP 之上。而主流的编程语言都有成熟的 HTTP 协议封装库；再加上 HTTP 协议的使用本身很简单。因此，要想用各种主流编程语言开发一个 DoH 的客户端，是非常容易滴。</p>
@@ -390,8 +304,7 @@
 <th>知名的<br>公共服务器</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>DNSSEC</td>
 <td>有</td>
 <td>有</td>
@@ -427,8 +340,7 @@
 <td>有</td>
 <td>Google<br>Cloudflare<br>Quad9</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="为啥-DNS-over-HTTPS-更有前途？——谈谈俺个人观点"><a href="#为啥-DNS-over-HTTPS-更有前途？——谈谈俺个人观点" class="headerlink" title="为啥 DNS over HTTPS 更有前途？——谈谈俺个人观点"></a>为啥 DNS over HTTPS 更有前途？——谈谈俺个人观点</h1><p>接着来聊一下：4 个协议中，谁的前景看好。（以下是俺个人观点，供参考）</p>
 <h2 id="首先排除-DNSSEC"><a href="#首先排除-DNSSEC" class="headerlink" title="首先排除 DNSSEC"></a>首先排除 DNSSEC</h2><p>如果要讨论这 4 种协议的优劣，首先出局的是 DNSSEC。因为这玩意儿连【保密性】都不具备，无法保护网民的隐私。<br>相比之下，另外三种协议都具备了“保密性”。</p>
 <h2 id="DNSCrypt-与-TLS-的对比"><a href="#DNSCrypt-与-TLS-的对比" class="headerlink" title="DNSCrypt 与 TLS 的对比"></a>DNSCrypt 与 TLS 的对比</h2><p>DoT 与 DoH 这两个协议，本质上都是依赖 TLS 来保证安全性（完整性 及 保密性）。所以剩下三种协议的对比，实际上是 DNSCrypt 与 TLS 之间的 PK。<br>俺认为 TLS 具有如下几个优势：<br><strong>优势 1——关于“标准化”</strong><br>SSL/TLS 老早就已经标准化了，距今已超过 20 年。（关于 SSL/TLS 版本的演变历史，可以参见<a href="https://program-think.blogspot.com/2018/09/https-ssl-tls-4.html" target="_blank" rel="noopener">这篇博文</a>）<br>而 DNSCrypt 发布这么多年，连 RFC 都没有提交过——这玩意儿看来【没希望】成为互联网标准了。</p>
@@ -459,307 +371,212 @@
 
     
     
-    
-
-    <footer class="post-footer">
-          
-        
-        <div class="post-tags">
-            <a href="/tags/安全/" rel="tag"># 安全</a>
-          
-            <a href="/tags/DNS/" rel="tag"># DNS</a>
-          
-        </div>
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-              <a href="/14/" rel="next" title="美区Apple ID，从被封到解封">
-                <i class="fa fa-chevron-left"></i> 美区Apple ID，从被封到解封
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-              <a href="/16/" rel="prev" title="Nginx禁用TLS1.0与1.1的尝试">
-                Nginx禁用TLS1.0与1.1的尝试 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 底部广告 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4604823985082292"
-     data-ad-slot="4513265704"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+    <script src="/js/baffle.min.js"></script>
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
+    let b = baffle(document.querySelectorAll('.post-title'));
+    b.set({
+        speed: 75,
+        characters: '/>░░▒▒▓▓██锟斤拷烫'
+    });
+    b.reveal(3000, 1000);
 </script>
+        
 
-    </footer>
-  </div>
-  
-  
-  
-  </article>
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
 
-  </div>
+    <div class="social-list">
 
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/HerbertGaoChannel">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
 
-          </div>
-          
-
-
+            <span class="label">Telegram</span>
+          </a>
         </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+
+      <div>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- 底部广告 -->
+     <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-4604823985082292"
+          data-ad-slot="4513265704"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
+              <a href="/tags/DNS/" rel="tag"># DNS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/14/" rel="prev" title="美区Apple ID，从被封到解封">
+      <i class="fa fa-chevron-left"></i> 美区Apple ID，从被封到解封
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/16/" rel="next" title="Nginx禁用TLS1.0与1.1的尝试">
+      Nginx禁用TLS1.0与1.1的尝试 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
     <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传统的-DNS-有啥问题？"><span class="nav-number">2.</span> <span class="nav-text">传统的 DNS 有啥问题？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNSSEC"><span class="nav-number">3.</span> <span class="nav-text">DNSSEC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史"><span class="nav-number">3.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议栈"><span class="nav-number">3.2.</span> <span class="nav-text">协议栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的原理"><span class="nav-number">3.3.</span> <span class="nav-text">安全性的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信任链的实现"><span class="nav-number">3.4.</span> <span class="nav-text">信任链的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">3.5.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">3.6.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNSCrypt"><span class="nav-number">4.</span> <span class="nav-text">DNSCrypt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史-1"><span class="nav-number">4.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议栈-1"><span class="nav-number">4.2.</span> <span class="nav-text">协议栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的原理-1"><span class="nav-number">4.3.</span> <span class="nav-text">安全性的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信任链的实现-1"><span class="nav-number">4.4.</span> <span class="nav-text">信任链的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点-1"><span class="nav-number">4.5.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点-1"><span class="nav-number">4.6.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNS-over-TLS"><span class="nav-number">5.</span> <span class="nav-text">DNS over TLS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史-2"><span class="nav-number">5.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议栈-2"><span class="nav-number">5.2.</span> <span class="nav-text">协议栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的原理-2"><span class="nav-number">5.3.</span> <span class="nav-text">安全性的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信任链的实现-2"><span class="nav-number">5.4.</span> <span class="nav-text">信任链的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点-2"><span class="nav-number">5.5.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点-2"><span class="nav-number">5.6.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNS-over-HTTPS"><span class="nav-number">6.</span> <span class="nav-text">DNS over HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史-3"><span class="nav-number">6.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议栈-3"><span class="nav-number">6.2.</span> <span class="nav-text">协议栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的原理-3"><span class="nav-number">6.3.</span> <span class="nav-text">安全性的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信任链的实现-3"><span class="nav-number">6.4.</span> <span class="nav-text">信任链的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点-3"><span class="nav-number">6.5.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点-3"><span class="nav-number">6.6.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-种协议的综合对照表"><span class="nav-number">7.</span> <span class="nav-text">4 种协议的综合对照表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为啥-DNS-over-HTTPS-更有前途？——谈谈俺个人观点"><span class="nav-number">8.</span> <span class="nav-text">为啥 DNS over HTTPS 更有前途？——谈谈俺个人观点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先排除-DNSSEC"><span class="nav-number">8.1.</span> <span class="nav-text">首先排除 DNSSEC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNSCrypt-与-TLS-的对比"><span class="nav-number">8.2.</span> <span class="nav-text">DNSCrypt 与 TLS 的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DoT-vs-DoH"><span class="nav-number">8.3.</span> <span class="nav-text">DoT vs DoH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">8.4.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对-DoH-的进一步讨论"><span class="nav-number">9.</span> <span class="nav-text">对 DoH 的进一步讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引申阅读"><span class="nav-number">9.1.</span> <span class="nav-text">引申阅读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于浏览器的说明"><span class="nav-number">9.2.</span> <span class="nav-text">关于浏览器的说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对翻墙的好处——无缝整合"><span class="nav-number">9.3.</span> <span class="nav-text">对翻墙的好处——无缝整合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关的客户端工具"><span class="nav-number">9.4.</span> <span class="nav-text">相关的客户端工具</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/HerbertGao.jpg"
-      alt="Herbert Gao">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Herbert Gao"
+      src="/images/HerbertGao.jpg">
   <p class="site-author-name" itemprop="name">Herbert Gao</p>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
-        
-        
-          
-        
-          
-        
-          
-        
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
         <span class="site-state-item-count">24</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
+</div>
 
 <br>
-<div class="site-description motion-element" itemprop="description"><div style='font-size: 8px'>弱小和无知不是生存的障碍，傲慢才是。<br><i>Weakness and ignorance are not barriers to survival, but arrogance is.</i><br><br><div style='text-align: left;margin-left: 40%;'>——三体Ⅲ·死神永生<br>——<i>Death's End</i></div></div></div>
+<div class="site-description" itemprop="description"><div style='font-size: 8px'>弱小和无知不是生存的障碍，傲慢才是。<br><i>Weakness and ignorance are not barriers to survival, but arrogance is.</i><br><br><div style='text-align: left;margin-left: 40%;'>——三体Ⅲ·死神永生<br>——<i>Death's End</i></div></div></div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://t.me/herbertgaochannel" title="TG Channel &rarr; https://t.me/herbertgaochannel" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>TG Channel</a>
+        <a href="https://t.me/herbertgao" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;herbertgao" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://t.me/herbertgao" title="Telegram &rarr; https://t.me/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+        <a href="https://instagram.com/herbertgao" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;herbertgao" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://instagram.com/herbertgao" title="Instagram &rarr; https://instagram.com/herbertgao" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+        <a href="https://github.com/HerbertGao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HerbertGao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/HerbertGao" title="GitHub &rarr; https://github.com/HerbertGao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="mailto:admin@herbertgao.com" title="E-Mail → mailto:admin@herbertgao.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:admin@herbertgao.com" title="E-Mail &rarr; mailto:admin@herbertgao.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-    
   </div>
 
 
-  <div class="links-of-blogroll motion-element links-of-blogroll-block">
-    <div class="links-of-blogroll-title">
-      <i class="fa  fa-fw fa-link"></i>
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       友情链接
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.mtiner.com/" title="https://www.mtiner.com/" rel="noopener" target="_blank">丁小浪的大城市</a>
+          <a href="https://www.mtiner.com/" title="https:&#x2F;&#x2F;www.mtiner.com" rel="noopener" target="_blank">丁小浪的大城市</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="http://www.chenhao.net/" title="http://www.chenhao.net/" rel="noopener" target="_blank">随风飞翔</a>
+          <a href="http://www.chenhao.net/" title="http:&#x2F;&#x2F;www.chenhao.net" rel="noopener" target="_blank">随风飞翔</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://bh2ro.info" title="https://bh2ro.info" rel="noopener" target="_blank">BH2RO</a>
+          <a href="https://bh2ro.info/" title="https:&#x2F;&#x2F;bh2ro.info" rel="noopener" target="_blank">BH2RO</a>
         </li>
-      
     </ul>
   </div>
 
-        </div>
       </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
 
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传统的-DNS-有啥问题？"><span class="nav-number">2.</span> <span class="nav-text">传统的 DNS 有啥问题？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNSSEC"><span class="nav-number">3.</span> <span class="nav-text">DNSSEC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史"><span class="nav-number">3.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议栈"><span class="nav-number">3.2.</span> <span class="nav-text">协议栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的原理"><span class="nav-number">3.3.</span> <span class="nav-text">安全性的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信任链的实现"><span class="nav-number">3.4.</span> <span class="nav-text">信任链的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">3.5.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">3.6.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNSCrypt"><span class="nav-number">4.</span> <span class="nav-text">DNSCrypt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史-1"><span class="nav-number">4.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议栈-1"><span class="nav-number">4.2.</span> <span class="nav-text">协议栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的原理-1"><span class="nav-number">4.3.</span> <span class="nav-text">安全性的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信任链的实现-1"><span class="nav-number">4.4.</span> <span class="nav-text">信任链的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点-1"><span class="nav-number">4.5.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点-1"><span class="nav-number">4.6.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNS-over-TLS"><span class="nav-number">5.</span> <span class="nav-text">DNS over TLS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史-2"><span class="nav-number">5.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议栈-2"><span class="nav-number">5.2.</span> <span class="nav-text">协议栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的原理-2"><span class="nav-number">5.3.</span> <span class="nav-text">安全性的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信任链的实现-2"><span class="nav-number">5.4.</span> <span class="nav-text">信任链的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点-2"><span class="nav-number">5.5.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点-2"><span class="nav-number">5.6.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNS-over-HTTPS"><span class="nav-number">6.</span> <span class="nav-text">DNS over HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史-3"><span class="nav-number">6.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议栈-3"><span class="nav-number">6.2.</span> <span class="nav-text">协议栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性的原理-3"><span class="nav-number">6.3.</span> <span class="nav-text">安全性的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信任链的实现-3"><span class="nav-number">6.4.</span> <span class="nav-text">信任链的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点-3"><span class="nav-number">6.5.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点-3"><span class="nav-number">6.6.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-种协议的综合对照表"><span class="nav-number">7.</span> <span class="nav-text">4 种协议的综合对照表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为啥-DNS-over-HTTPS-更有前途？——谈谈俺个人观点"><span class="nav-number">8.</span> <span class="nav-text">为啥 DNS over HTTPS 更有前途？——谈谈俺个人观点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先排除-DNSSEC"><span class="nav-number">8.1.</span> <span class="nav-text">首先排除 DNSSEC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNSCrypt-与-TLS-的对比"><span class="nav-number">8.2.</span> <span class="nav-text">DNSCrypt 与 TLS 的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DoT-vs-DoH"><span class="nav-number">8.3.</span> <span class="nav-text">DoT vs DoH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">8.4.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对-DoH-的进一步讨论"><span class="nav-number">9.</span> <span class="nav-text">对 DoH 的进一步讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引申阅读"><span class="nav-number">9.1.</span> <span class="nav-text">引申阅读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于浏览器的说明"><span class="nav-number">9.2.</span> <span class="nav-text">关于浏览器的说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对翻墙的好处——无缝整合"><span class="nav-number">9.3.</span> <span class="nav-text">对翻墙的好处——无缝整合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关的客户端工具"><span class="nav-number">9.4.</span> <span class="nav-text">相关的客户端工具</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 侧栏广告 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:220px;height:220px"
-     data-ad-client="ca-pub-4604823985082292"
-     data-ad-slot="5387363677"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+      <div>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- 侧栏广告 -->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:220px;height:220px"
+          data-ad-client="ca-pub-4604823985082292"
+          data-ad-slot="5387363677"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
         <div class="back-to-top motion-element">
           <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
+          <span>0%</span>
         </div>
-      
 
     </div>
   </aside>
@@ -769,51 +586,55 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fas fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Herbert Gao</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
+      <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">87k</span>
+    <span title="站点总字数">77k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:24</span>
+    <span title="站点阅读时长">1:10</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
-
-
-  <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a></div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> & <a href="https://pages.github.com/" class="theme-link" rel="noopener" target="_blank">Github Pages</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
     </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
     <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
     </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
 </div>
 
 
@@ -823,124 +644,67 @@
 
 
 
-        
       </div>
     </footer>
-
-    
-
   </div>
 
   
-    
-    
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  <script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-  
-  <script src="/js/affix.js?v=7.3.0"></script>
-  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
 
 
 
-  
-  <script src="/js/scrollspy.js?v=7.3.0"></script>
-<script src="/js/post-details.js?v=7.3.0"></script>
 
 
-<script src="/js/baffle.min.js"></script>
+
+
+
+
+
+
 <script>
-    let b = baffle(document.querySelectorAll('.post-title'));
-    b.set({
-        speed: 75,
-        characters: '/>░░▒▒▓▓██锟斤拷烫'
-    });
-    b.reveal(3000, 1000);
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
 </script>
 
 
-  <script src="/js/next-boot.js?v=7.3.0"></script>
 
-  
 
   
 
   
-
-  <script>
-    ;((d, w) => {
-      loadThree = () => {
-        let s = d.createElement('script');
-        s.src = '/lib/three/three.min.js';
-        d.body.appendChild(s);
-      }
-      let styles = ['', '', ''];
-      loadStyle = () => {
-        styles.forEach(x => {
-          if (x !== '') {
-            let s = d.createElement('script');
-            s.src = x;
-            d.body.appendChild(s);
-          }
-        })
-      }
-      w.addEventListener('DOMContentLoaded', loadThree);
-      w.addEventListener('load', loadStyle);
-    })(document, window);
-  </script>
-
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
