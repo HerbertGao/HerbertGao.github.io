@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -90,6 +90,7 @@
   </style>
 </noscript>
 
+  <script data-ad-client="ca-pub-4604823985082292" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -253,7 +254,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netsh winsock reset</span><br><span class="line">net stop VMAuthdService</span><br><span class="line">net start VMAuthdService</span><br><span class="line">net stop VMwareHostd</span><br><span class="line">net start VMwareHostd</span><br></pre></td></tr></table></figure>
 
 <h2 id><a href="#" class="headerlink" title></a><a id="more"></a></h2><p>直接复制自知乎的原理版：<br>题主是不是因为吃鸡用了某游加速器？<br>或者晚上空虚寂寞时用了某些方法疏通管道？<br><strong>管理员</strong>运行<code>netsh winsock reset</code>帮你解决一切烦恼。<br>好吧，说正经的，虚拟机和主机之间的通信，基本上是以 socket 的方式进行通信的（这里的 socket 泛指一切 socket，包括本地的、网络的等等）<br>某个程序通过 LSP 给系统的 TCP/IP stack 注入了自己的 DLL，如果程序退出时，没有把这个 DLL 收回来，或者回收失败、没有彻底回收等，那么这个 DLL 残留的东西影响了整个 TCP/IP stack，而且是永久性的。<br>每个 socket 收发的数据包是要经过 TCP/IP stack 的，这个 DLL 可能会对这些 socket 的数据包做了些什么操作（比如修改数据、直接丢弃等等），然后所以你的虚拟机就黑屏了……<br><code>netsh winsock reset</code>这条命令会重置，所以那些被注入的 DLL 就被清理掉了，所以一切都是最初的模样了……</p>
-<p>作者：知乎用户<br>链接：<a href="https://www.zhihu.com/question/66422773/answer/257812909" target="_blank" rel="noopener">https://www.zhihu.com/question/66422773/answer/257812909</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>作者：知乎用户<br>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/66422773/answer/257812909">https://www.zhihu.com/question/66422773/answer/257812909</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
     </div>
 
@@ -287,20 +288,6 @@
     </div>
   </div>
 
-
-      <div>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-     <!-- 底部广告 -->
-     <ins class="adsbygoogle"
-          style="display:block"
-          data-ad-client="ca-pub-4604823985082292"
-          data-ad-slot="4513265704"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
-     <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-     </script>
-</div>
 
       <footer class="post-footer">
           <div class="post-tags">
@@ -378,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -448,18 +435,6 @@
   </div>
 
       </div>
-
-      <div>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-     <!-- 侧栏广告 -->
-     <ins class="adsbygoogle"
-          style="display:inline-block;width:220px;height:220px"
-          data-ad-client="ca-pub-4604823985082292"
-          data-ad-slot="5387363677"></ins>
-     <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-     </script>
-</div>
         <div class="back-to-top motion-element">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
@@ -491,12 +466,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">77k</span>
+    <span title="站点总字数">78k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:10</span>
+    <span title="站点阅读时长">1:11</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> & <a href="https://pages.github.com/" class="theme-link" rel="noopener" target="_blank">Github Pages</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>

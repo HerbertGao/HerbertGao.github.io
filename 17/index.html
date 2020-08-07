@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -91,6 +91,7 @@
   </style>
 </noscript>
 
+  <script data-ad-client="ca-pub-4604823985082292" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -250,7 +251,7 @@
       
         <blockquote>
 <p>JAVA 的中文字符乱码问题一直很让人头疼。特别是在 WEB 应用中。网上的分析文章和解决方案都很多，但总是针对某些特定情况的。很多次遇到乱码问题后，经过极为辛苦的调试和搜索资料后终于解决，满以为自己已经掌握了对付这些字符乱码怪兽的诀窍。可当过段时间，换了个应用或换了个环境，又会碰到那讨厌的火星文，并再次无所适从。于是下决心好好整理一下中文字符编码问题，以方便自己记忆，也为其他程序员兄弟们提供一份参考。</p>
-<p>作者：Aamirr<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/ora_unix/article/details/6323654" target="_blank" rel="noopener">https://blog.csdn.net/ora_unix/article/details/6323654</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+<p>作者：Aamirr<br>来源：CSDN<br>原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ora_unix/article/details/6323654">https://blog.csdn.net/ora_unix/article/details/6323654</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
 </blockquote>
 <a id="more"></a>
 
@@ -264,7 +265,7 @@
 <p>好，现在我们开始一只只的解决这些乱码怪兽。</p>
 <p>一、在 JAVA 文件中硬编码中文字符，在 eclipse 中运行，控制台输出了乱码。</p>
 <p>例如，我们在 JAVA 文件中写入以下代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">"大家好"</span>;</span><br><span class="line">System.out.println(text);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">&quot;大家好&quot;</span>;</span><br><span class="line">System.out.println(text);</span><br></pre></td></tr></table></figure>
 
 <p>如果我们是在 eclipse 里编译运行，可能看到的结果是类似这样的乱码：<code>��Һ�</code>。那么，这是为什么呢？</p>
 <p>我们先来看看整个字符的转换过程。</p>
@@ -306,7 +307,7 @@
 <p>现在在 JSP 文件中硬编码出现乱码的机会比较小了，因为大家都用了如 eclipse 的编辑器，基本上可以自动保证这几个编码设置的正确性。现在更多碰到的是在 JSP 文件中从其他数据源中读取中文字符所产生的乱码问题。</p>
 <p>三、在 JSP 文件中读取字符文件并在页面中显示，中文字符显示为乱码。</p>
 <p>比如，我们在 JSP 文件中使用以下代码：</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"D://test.txt"</span>));</span><br><span class="line">String content = reader.readLine();</span><br><span class="line">reader.close();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%=content%&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">&quot;D://test.txt&quot;</span>));</span><br><span class="line">String content = reader.readLine();</span><br><span class="line">reader.close();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%=content%&gt;</span><br></pre></td></tr></table></figure>
 
 <p>test.txt 里保存的是中文字符，但在浏览器上看到的乱码。这是个经常见到的问题。我们继续用之前的方法一步步来分析输入和输出流</p>
 <ol>
@@ -315,12 +316,12 @@
 <li><code>&lt;%=content%&gt;</code>其实就是<code>out.print(content)</code>，这里又用到了 HTTP 的输出流 JspWriter，于是字符串 content 又被以 JSP 的 page 标签中指定的 UTF-8 方式编码成字节数组被发送到浏览器端。</li>
 <li>浏览器以 HTTP 头中指定的方式解码字符，这时无论是用 GBK 还是 UTF-8 解码，显示的都是乱码。<br>可见，我们字符编码转换在第二步时出错了，UTF-8 的字符串被当做 GBK 读入了内存中。<br>解决这个乱码问题有两种方法，一是把 test.txt 用 GBK 保存，则 FileInputStream 能正确读入中文字符；二是使用 InputStreamReader 来转换字符编码，如：</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InputStreamReader sr = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">"D://test.txt"</span>),<span class="string">"UTF-8"</span>);</span><br><span class="line">BufferedReader reader = <span class="keyword">new</span> BufferedReader(sr);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InputStreamReader sr = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;D://test.txt&quot;</span>),<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">BufferedReader reader = <span class="keyword">new</span> BufferedReader(sr);</span><br></pre></td></tr></table></figure>
 
 <p>这样，JAVA 就会用 UTF-8 的方式来从文件中读取字符数据。<br>另外，我们可以通过在 java 命令后带上 Dfile.encoding 参数来指定虚拟机读取文件使用的默认字符编码，例如<code>java -Dfile.encoding=UTF-8 Test</code>，这样，我们在 JAVA 代码里用<code>System.getProperty(&quot;file.encoding&quot;)</code>取到的值为 UTF-8。</p>
 <p>四、JSP 读取 request.getParameter 里的中文参数后，在页面显示为乱码。</p>
 <p>在 JAVA 的 WEB 应用中，对 request 对象里的 parameters 的中文处理一直是常见也最难搞的一只大怪兽。经常是刚搞定了这边，那边又出了乱码。而导致这种复杂性的，主要是此过程中字符编解码次数非常多，而且无论是浏览器还是 WEB 服务器特别是 TOMCAT 总是不能给我们一个比较满意的支持。<br>首先我们来分析用 GET 方式上传参数的乱码情况。<br>例如我们在浏览器地址栏输入以下 URL：<code>http://localhost:8080/test/test.jsp?param=大家好</code><br>我们的 JSP 代码如此处理 param 这个参数：</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;% String text = request.getParameter(<span class="string">"param"</span>); %&gt;</span><br><span class="line">&lt;%=text%&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;% String text = request.getParameter(<span class="string">&quot;param&quot;</span>); %&gt;</span><br><span class="line">&lt;%=text%&gt;</span><br></pre></td></tr></table></figure>
 
 <p>而就这么简单的两句代码，我们很有可能在页面上看到这样的乱码：<code>´ó¼ÒºÃ</code><br>网上对处理<code>request.getParamter</code>中的乱码有很多文章和方法，也都是正确的，只是方法太多让人一直不明白到底是为什么。这里给大家分析一下到底是怎么一回事。<br>首先，我们来看看与 request 对象有哪些相关的编码设置：</p>
 <ol>
@@ -600,20 +601,6 @@
   </div>
 
 
-      <div>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-     <!-- 底部广告 -->
-     <ins class="adsbygoogle"
-          style="display:block"
-          data-ad-client="ca-pub-4604823985082292"
-          data-ad-slot="4513265704"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
-     <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-     </script>
-</div>
-
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"># 开发</a>
@@ -760,18 +747,6 @@
   </div>
 
       </div>
-
-      <div>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-     <!-- 侧栏广告 -->
-     <ins class="adsbygoogle"
-          style="display:inline-block;width:220px;height:220px"
-          data-ad-client="ca-pub-4604823985082292"
-          data-ad-slot="5387363677"></ins>
-     <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-     </script>
-</div>
         <div class="back-to-top motion-element">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
@@ -803,12 +778,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">77k</span>
+    <span title="站点总字数">78k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:10</span>
+    <span title="站点阅读时长">1:11</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> & <a href="https://pages.github.com/" class="theme-link" rel="noopener" target="_blank">Github Pages</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
