@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
+<meta name="generator" content="Hexo 5.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -258,7 +258,7 @@
 </blockquote>
 <a id="more"></a>
 
-<p><img src="https://lh6.googleusercontent.com/4QaghUJDZ1GkjAsoVyFbCnhNchM7YYswTgIuk9MWSA3NNW6xBh6P4VJ1NRAjJcqFJXiee6VhkCkI8UuP8eJLSd7Ka0dyOekEHVc0_GDVWvHOUOrSH0CL7T2JXqka3dZdG6VNLo--vkU" alt></p>
+<p><img src="https://lh6.googleusercontent.com/4QaghUJDZ1GkjAsoVyFbCnhNchM7YYswTgIuk9MWSA3NNW6xBh6P4VJ1NRAjJcqFJXiee6VhkCkI8UuP8eJLSd7Ka0dyOekEHVc0_GDVWvHOUOrSH0CL7T2JXqka3dZdG6VNLo--vkU"></p>
 <h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>俺在写前一篇博文（也就是 <a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2018/09/Why-You-Should-Switch-from-Chrome-to-Firefox.html">Firefox PK Chrome 那篇</a>）的时候，碰巧看到 Mozilla 官方博客提到说：目前最新的 Firefox 62 版本开始支持【DNS over HTTPS】这一特性（链接在“<a target="_blank" rel="noopener" href="https://blog.nightly.mozilla.org/2018/06/01/improving-dns-privacy-in-firefox/">这里</a>”）。<br>本来想顺便聊一下“DNS over HTTPS”这个玩意儿。但是查了一下，发现它的 RFC 目前还只是【草案】，尚未正式发布。<br>所以俺就把本文的主题改成——对比 4 种强化 DNS 安全的网络协议（顺便也普及一些信息安全知识）。</p>
 <h1 id="传统的-DNS-有啥问题？"><a href="#传统的-DNS-有啥问题？" class="headerlink" title="传统的 DNS 有啥问题？"></a>传统的 DNS 有啥问题？</h1><p>传统的 DNS 是一个【比较古老】的协议。最早的草案可以追溯到 1983 年。1987 年定稿之后，基本上没啥变化。算起来，它的年龄比俺博客的很多读者都要大。<br>设计 DNS 的时候，互联网基本上还是个玩具。那年头的互联网协议，压根儿都没考虑安全性，DNS 当然也不例外。所以 DNS 的交互过程全都是【明文】滴，既无法做到“保密性”，也无法实现“完整性”。<br>缺乏“保密性”就意味着——任何一个能【监视】你上网流量的人，都可以【看到】你查询了哪些域名。直接引发的问题就是隐私风险。<br>缺乏“完整性”就意味着——任何一个能【修改】你上网流量的人，都可以【篡改】你的查询结果。直接引发的问题就是“DNS 欺骗”（也叫“DNS 污染”或“DNS 缓存投毒”）<br>关于“域名欺骗/域名污染”，可以参见俺的另一篇博文《<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/01/dns.html">扫盲 DNS 原理，兼谈“域名劫持”和“域名欺骗／域名污染”</a>》（注：4 年前的那篇博文，不光讲了“域名欺骗”，还扫盲了 DNS 的基本原理）</p>
 <p>为了解决传统 DNS 的这些弊端，后来诞生了好几个网络协议，以强化域名系统的安全性。俺今天挑选其中 4 个来介绍。除了这 4 个，其它一些协议的名气和影响力太小，不值一提。<br>下面俺以出场时间的先后，分别介绍这 4 个协议。</p>
