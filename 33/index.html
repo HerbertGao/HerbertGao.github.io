@@ -24,25 +24,24 @@
     var CONFIG = {"hostname":"herbertgao.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="老咸鱼爬起来解密了。">
+  <meta name="description" content="本文转载自「做棵大树」[Vue.js] v-model 绑定对象不实时更新！  在最近参与的一个项目中，前端用到了 vue.js 框架，期间有个功能需要动态的向一个被绑定的对象中添加属性。但是在实际应用中问题出现了：在向对象中添加属性后，与对象绑定的组件内容却未发生变化，必须要再次刷新组件，其内容才会变为更改后的内容。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ingress 13 Archetypes 01: Dreamer">
-<meta property="og:url" content="https://herbertgao.com/18/index.html">
+<meta property="og:title" content="[Vue.js] v-model 绑定对象不实时更新">
+<meta property="og:url" content="https://herbertgao.com/33/index.html">
 <meta property="og:site_name" content="河伯特高">
-<meta property="og:description" content="老咸鱼爬起来解密了。">
+<meta property="og:description" content="本文转载自「做棵大树」[Vue.js] v-model 绑定对象不实时更新！  在最近参与的一个项目中，前端用到了 vue.js 框架，期间有个功能需要动态的向一个被绑定的对象中添加属性。但是在实际应用中问题出现了：在向对象中添加属性后，与对象绑定的组件内容却未发生变化，必须要再次刷新组件，其内容才会变为更改后的内容。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/89lp2Okl.jpg">
-<meta property="og:image" content="https://i.imgur.com/ZCfUvcEl.png">
-<meta property="og:image" content="https://i.imgur.com/rov1Luz.jpg">
-<meta property="og:image" content="https://i.imgur.com/hmM8lAdl.png">
-<meta property="article:published_time" content="2019-12-11T15:10:00.000Z">
-<meta property="article:modified_time" content="2019-12-31T03:25:52.010Z">
+<meta property="og:image" content="https://i.imgur.com/BPZrWvz.png">
+<meta property="og:image" content="https://media.beatree.cn/article/image/WechatPublicQRCode-small.png">
+<meta property="article:published_time" content="2021-01-06T06:40:00.000Z">
+<meta property="article:modified_time" content="2021-01-06T07:02:28.751Z">
 <meta property="article:author" content="Herbert Gao">
-<meta property="article:tag" content="Ingress">
+<meta property="article:tag" content="开发">
+<meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/89lp2Okl.jpg">
+<meta name="twitter:image" content="https://i.imgur.com/BPZrWvz.png">
 
-<link rel="canonical" href="https://herbertgao.com/18/">
+<link rel="canonical" href="https://herbertgao.com/33/">
 
 
 <script id="page-configurations">
@@ -55,7 +54,7 @@
   };
 </script>
 
-  <title>Ingress 13 Archetypes 01: Dreamer | 河伯特高</title>
+  <title>[Vue.js] v-model 绑定对象不实时更新 | 河伯特高</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158897845-1"></script>
     <script>
@@ -180,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://herbertgao.com/18/">
+    <link itemprop="mainEntityOfPage" href="https://herbertgao.com/33/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HerbertGao.jpg">
@@ -193,7 +192,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Ingress 13 Archetypes 01: Dreamer
+          [Vue.js] v-model 绑定对象不实时更新
         </h1>
 
         <div class="post-meta">
@@ -202,16 +201,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-12-11 23:10:00" itemprop="dateCreated datePublished" datetime="2019-12-11T23:10:00+08:00">2019-12-11</time>
+              <time title="创建时间：2021-01-06 14:40:00 / 修改时间：15:02:28" itemprop="dateCreated datePublished" datetime="2021-01-06T14:40:00+08:00">2021-01-06</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-31 11:25:52" itemprop="dateModified" datetime="2019-12-31T11:25:52+08:00">2019-12-31</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -235,7 +228,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -255,54 +248,47 @@
 
       
         <blockquote>
-<p>老咸鱼爬起来解密了。</p>
+<p>本文转载自「<a target="_blank" rel="noopener" href="https://beatree.cn/">做棵大树</a>」<a target="_blank" rel="noopener" href="https://beatree.cn/vue-js-v-model-%e7%bb%91%e5%ae%9a%e5%af%b9%e8%b1%a1%e4%b8%8d%e5%ae%9e%e6%97%b6%e6%9b%b4%e6%96%b0.html">[Vue.js] v-model 绑定对象不实时更新！</a></p>
 </blockquote>
+<p>在最近参与的一个项目中，前端用到了 vue.js 框架，期间有个功能需要<strong>动态</strong>的向一个被绑定的对象中添加属性。但是在实际应用中问题出现了：在向对象中添加属性后，与对象绑定的组件内容却未发生变化，必须要再次刷新组件，其内容才会变为更改后的内容。</p>
 <a id="more"></a>
 
-<h1 id="About-13-Archetypes"><a href="#About-13-Archetypes" class="headerlink" title="About 13 Archetypes"></a>About 13 Archetypes</h1><p><img src="https://i.imgur.com/89lp2Okl.jpg" alt="13 ARCHETYPES CHALLENGE"></p>
-<p>这是一个长达 13 周的解谜挑战，北京时间 12 月 10 日凌晨 01:00 起， Niantic 会在其论坛上发布一个谜题，然后让玩家解谜，结果会是一个 Passcode ，兑换后可获得 Media 一个。</p>
-<h1 id="Dreamer"><a href="#Dreamer" class="headerlink" title="Dreamer"></a>Dreamer</h1><p><img src="https://i.imgur.com/ZCfUvcEl.png" alt="Dreamer"></p>
-<p>这是第一周的谜题，主题为 Dreamer ，谜题标题为 Sweet Dreams 。</p>
-<h1 id="Decode"><a href="#Decode" class="headerlink" title="Decode"></a>Decode</h1><p>两只羊、一床被子、一个时钟。</p>
-<p>其中被子的图案非常有规则，很容易联想到条形码，并且应该是「两个」条形码叠加的样子。</p>
-<p>我的第一想法就是找个能识别条形码的工具来解析，通过PS或截图工具分别截取横向和纵向的条形码，然后拉伸之后就可以很方便地用工具来识别了。</p>
-<p>然而尝试了三款条形码解析工具直接对着图像识别，都没有得出有效结论。于是我开始尝试手动人工解析。</p>
-<p>条形码由多个宽度不同的条形和空白组成，以最细的条形（或空白）的宽度记为 1 ，其它条形或空白的宽度是 1 宽度的几倍则记为几。</p>
-<blockquote>
-<p>一开始尝试按顺序交替看两个颜色的宽度数值，试了两次都不太顺利，看一会儿眼睛就花了。后来想到一个办法，每次只看一个颜色，对两个条码共计看 4 次，这样来记录条码宽度数值还算比较顺利。</p>
+<p>起初我以为是属性没有添加成功，因为在我的印象中 <code>v-model</code> 是双向绑定的，不会出现不更新的状态。在我查看 Devtools 中的监控后，发现对应的对象确实添加了指定的属性。</p>
+<p>于是，我前去查看了官方文档，找到了官方给出的解释：<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/reactivity.html#%E5%A6%82%E4%BD%95%E8%BF%BD%E8%B8%AA%E5%8F%98%E5%8C%96">Vue.js 如何追踪变化</a></p>
+<h2 id="官方解释"><a href="#官方解释" class="headerlink" title="官方解释"></a>官方解释</h2><blockquote>
+<p>当你把一个普通的 JavaScript 对象传入 Vue 实例作为 <code>data</code> 选项，Vue 将遍历此对象所有的 property，并使用 <code>Object.defineProperty</code> 把这些 property 全部转为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#%E5%AE%9A%E4%B9%89%20_getters_%20%E4%B8%8E%20_setters">getter/setter</a>。<code>Object.defineProperty</code> 是 ES5 中一个无法 shim 的特性，这也就是 Vue 不支持 IE8 以及更低版本浏览器的原因。<br>每个组件实例都对应一个 <strong>watcher</strong> 实例，它会在组件渲染的过程中把“接触”过的数据 property 记录为依赖。<strong>之后当依赖项的 setter 触发时，会通知 watcher</strong>，从而使它关联的组件重新渲染。</p>
 </blockquote>
-<p>横向的条码宽度数字从左往右为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2112321122144211121224111241121224111212412412111112421341112411121122141421121</span><br></pre></td></tr></table></figure>
-<p>其中开头6位为 <code>211232</code> ，为 Code128 编码条形码的 Start Code C ，那么这应该是一个 Code128C 标准的条形码。</p>
-<p>根据<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Code128">维基百科 Code128 词条</a>的介绍，一个 Code128 标准的条形码由6部分组成，分别为：空白区域、起始标记、数据区、校验符、终止符、空白区域。其中上述前6位 <code>211232</code> 即为起始标记之一。而最终的终止符应为 <code>2331112</code> 7位，但上面获得的横向条码的结尾并不是这个，说明我们还需要继续解析纵向条码。</p>
-<p>纵向条码应该从下往上还是从上往下来看呢？从原图的方向来看，将原图顺时针旋转 90° 后，可以获得羊脑袋、床头、闹钟朝上的方向的图片，那么这时的从左往右即为原图的从下往上来看。</p>
-<p>纵向的条码宽度数字从下往上为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">212411421121411221341112411121122141241121224111212411211241212412121232331112</span><br></pre></td></tr></table></figure>
-<p>结尾 <code>2331112</code> 符合 Code128 标准的终止符。</p>
-<p>将两串数字合并，即为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2112321122144211121224111241121224111212412412111112421341112411121122141421121212411421121411221341112411121122141241121224111212411211241212412121232331112</span><br></pre></td></tr></table></figure>
-
-<p>按照 Code128 的定义，每 6 位分为一组，转换为对应的 Code128C 数值，再根据此数值转换为对应的 ASCII 字符。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">211232</span><br><span class="line">112214 69 e</span><br><span class="line">421112 87 w</span><br><span class="line">122411 72 h</span><br><span class="line">124112 84 t</span><br><span class="line">122411 72 h</span><br><span class="line">121241 82 r</span><br><span class="line">241211 75 k</span><br><span class="line">111242 80 p</span><br><span class="line">134111 79 o</span><br><span class="line">241112 78 n</span><br><span class="line">112214 69 e</span><br><span class="line">142112 73 i</span><br><span class="line">121241 82 r</span><br><span class="line">142112 73 i</span><br><span class="line">141122 67 c</span><br><span class="line">134111 79 o</span><br><span class="line">241112 78 n</span><br><span class="line">112214 69 e</span><br><span class="line">124112 84 t</span><br><span class="line">122411 72 h</span><br><span class="line">121241 82 r</span><br><span class="line">121124 65 a</span><br><span class="line">121241 82 r</span><br><span class="line">212123 30 &gt;</span><br><span class="line">2331112</span><br></pre></td></tr></table></figure>
-
-<p>去除校验符，则原本的条形码串为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6987728472827580797869738273677978698472826582</span><br></pre></td></tr></table></figure>
-<p>有兴趣的可以用这个串去生成一个 Code128 格式的条形码与原图做一下对比看看是否一致。</p>
-<p>而转换后的字符串则为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ewhthrkponeiriconethrar</span><br></pre></td></tr></table></figure>
-
-<p>按照 thr = 3 、 one = 1 来转换，即为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ewh3kp1iric13ar</span><br></pre></td></tr></table></figure>
-<p>但这个并不符合 Passcode 通常用的格式。</p>
-<p>经翻阅词典后得知，<code>oneiric</code> 是个单词， <code>adj. 梦的</code> 。此处的 <code>one</code> 不用替换为 <code>1</code> 。</p>
+<p><img src="https://i.imgur.com/BPZrWvz.png" alt="[Vue.js] v-model 绑定对象不实时更新">  </p>
 <blockquote>
-<p>这个人连英语四级都没过就别强求他会这种的单词了（摔）</p>
+<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/reactivity.html#%E6%A3%80%E6%B5%8B%E5%8F%98%E5%8C%96%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">检测变化的注意事项</a><br>由于 JavaScript 的限制，Vue 不能检测数组和对象的变化。尽管如此我们还是有一些办法来回避这些限制并保证它们的响应性。</p>
 </blockquote>
-<p>则转换后的 Passcode 应为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ewh3kponeiric13ar</span><br></pre></td></tr></table></figure>
+<h2 id="对于对象"><a href="#对于对象" class="headerlink" title="对于对象"></a>对于对象</h2><p><strong>Vue 无法检测 property 的添加或移除</strong>。由于 Vue 会在初始化实例时对 property 执行 getter/setter 转化，所以 property 必须在 <code>data</code> 对象上存在才能让 Vue 将它转换为响应式的。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data:&#123;</span><br><span class="line">    a:<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &#x27;vm.a&#x27; 是响应式的</span></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// &#x27;vm.b&#x27; 是非响应式的</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.imgur.com/rov1Luz.jpg" alt="redeem"><br>兑换 Passcode ，获取一个 Media 。</p>
-<p><img src="https://i.imgur.com/hmM8lAdl.png" alt="Media"></p>
+<p>对于已经创建的实例，Vue 不允许动态添加根级别的响应式 property。但是，可以使用 <code>Vue.set(object, propertyName, value)</code> 方法向嵌套对象添加响应式 property。例如，对于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(vm.someObject, <span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>您还可以使用 <code>vm.$set</code> 实例方法，这也是全局 <code>Vue.set</code> 方法的别名：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$set(<span class="built_in">this</span>.someObject,<span class="string">&#x27;b&#x27;</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>有时你可能需要为已有对象赋值多个新 property，比如使用 <code>Object.assign()</code> 或 <code>_.extend()</code>。但是，这样添加到对象上的新 property 不会触发更新。在这种情况下，你应该用原对象与要混合进去的对象的 property 一起创建一个新的对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代替 &#x27;Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)&#x27;</span></span><br><span class="line"><span class="built_in">this</span>.someObject = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="built_in">this</span>.someObject, &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这是对于对象赋值的解决方式，在采用了官方的解决方案 <code>this.$set(object, key, value)</code> 后确实实现了实时更新的效果。同时对于数组等情况，可查看 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/reactivity.html#%E5%A6%82%E4%BD%95%E8%BF%BD%E8%B8%AA%E5%8F%98%E5%8C%96">余下官方文档</a></p>
+<h2 id="为什么会这样呢？"><a href="#为什么会这样呢？" class="headerlink" title="为什么会这样呢？"></a>为什么会这样呢？</h2><p>如官方所说 <em>“由于 JavaScript 的限制，Vue <strong>不能检测</strong>数组和对象的变化。”</em>，但是为什么会这样呢？</p>
+<p>借用 Segmentfault <strong>UKer</strong> 的回答：</p>
+<blockquote>
+<p>ECMAScript 中有两种属性：<strong>数据属性</strong> 和 <strong>访问器属性</strong>;<br>数据属性的描述符为：Configurable，Enumerable，Writable，Value；<br>访问器属性的描述符为：Configurable， Enumerable，set，get。</p>
+</blockquote>
+<p>当我们使用<code>new Vue(obj)</code>,其内部发生了大体如下代码的转换，即，将数据属性转换为了访问器属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.data.keys().forEach((prop, index) =&amp;gt; &#123;</span><br><span class="line">      <span class="built_in">Object</span>.defineProperty(obj.data, prop, &#123;</span><br><span class="line">        set()&#123;</span><br><span class="line">          <span class="comment">//可以在此处进行事件监听</span></span><br><span class="line">        &#125;,</span><br><span class="line">        get()&#123;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是当我们后面再次使用普通的赋值，仅仅是<strong>赋值了一个数据属性</strong>的，这个属性是<strong>不会具有访问器属性的事件监听功能</strong>的。</p>
+<p>至此，<code>v-model</code> 绑定数据不实时更新的问题方才得到了解决。</p>
+<blockquote>
+<p>参考资料: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41485592/article/details/80721998">Vue的使用v-model不实时更新问题的解决</a></p>
+</blockquote>
+<p><img src="https://media.beatree.cn/article/image/WechatPublicQRCode-small.png" alt="[Vue.js] v-model 绑定对象不实时更新"></p>
 
     </div>
 
@@ -353,7 +339,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Ingress/" rel="tag"># Ingress</a>
+              <a href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"># 开发</a>
+              <a href="/tags/Vue-js/" rel="tag"># Vue.js</a>
           </div>
 
         
@@ -362,13 +349,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/17/" rel="prev" title="【Aamirr】Java中文字编码问题详解">
-      <i class="fa fa-chevron-left"></i> 【Aamirr】Java中文字编码问题详解
+    <a href="/32/" rel="prev" title="Jenkins + Python 项目集成记录">
+      <i class="fa fa-chevron-left"></i> Jenkins + Python 项目集成记录
     </a></div>
-      <div class="post-nav-item">
-    <a href="/19/" rel="next" title="Ingress 13 Archetypes 02: Interpreter">
-      Ingress 13 Archetypes 02: Interpreter <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -427,7 +411,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#About-13-Archetypes"><span class="nav-number">1.</span> <span class="nav-text">About 13 Archetypes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dreamer"><span class="nav-number">2.</span> <span class="nav-text">Dreamer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Decode"><span class="nav-number">3.</span> <span class="nav-text">Decode</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E8%A7%A3%E9%87%8A"><span class="nav-number">1.</span> <span class="nav-text">官方解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">对于对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E8%BF%99%E6%A0%B7%E5%91%A2%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">为什么会这样呢？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
