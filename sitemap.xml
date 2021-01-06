@@ -284,6 +284,20 @@
   </url>
   
   <url>
+    <loc>https://herbertgao.com/tags/%E5%AF%86%E7%A0%81/</loc>
+    <lastmod>2021-01-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://herbertgao.com/tags/%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2021-01-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://herbertgao.com/tags/%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2021-01-06</lastmod>
     <changefreq>daily</changefreq>
@@ -298,14 +312,7 @@
   </url>
   
   <url>
-    <loc>https://herbertgao.com/tags/%E5%AF%86%E7%A0%81/</loc>
-    <lastmod>2021-01-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://herbertgao.com/tags/%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://herbertgao.com/tags/Shell/</loc>
     <lastmod>2021-01-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -340,6 +347,13 @@
   </url>
   
   <url>
+    <loc>https://herbertgao.com/tags/Python/</loc>
+    <lastmod>2021-01-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://herbertgao.com/tags/Apple/</loc>
     <lastmod>2021-01-06</lastmod>
     <changefreq>daily</changefreq>
@@ -354,21 +368,7 @@
   </url>
   
   <url>
-    <loc>https://herbertgao.com/tags/Shell/</loc>
-    <lastmod>2021-01-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://herbertgao.com/tags/VMWare/</loc>
-    <lastmod>2021-01-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://herbertgao.com/tags/Python/</loc>
     <lastmod>2021-01-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -403,13 +403,6 @@
   </url>
   
   <url>
-    <loc>https://herbertgao.com/tags/Ingress/</loc>
-    <lastmod>2021-01-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://herbertgao.com/tags/Linux/</loc>
     <lastmod>2021-01-06</lastmod>
     <changefreq>daily</changefreq>
@@ -418,6 +411,13 @@
   
   <url>
     <loc>https://herbertgao.com/tags/Nginx/</loc>
+    <lastmod>2021-01-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://herbertgao.com/tags/Ingress/</loc>
     <lastmod>2021-01-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
