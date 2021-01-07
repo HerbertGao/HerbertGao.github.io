@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://herbertgao.com/27/</loc>
+    
+    <lastmod>2021-01-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://herbertgao.com/31/</loc>
     
     <lastmod>2021-01-07</lastmod>
@@ -24,13 +31,6 @@
   
   <url>
     <loc>https://herbertgao.com/28/</loc>
-    
-    <lastmod>2021-01-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://herbertgao.com/27/</loc>
     
     <lastmod>2021-01-07</lastmod>
     
@@ -298,6 +298,13 @@
   </url>
   
   <url>
+    <loc>https://herbertgao.com/tags/%E5%82%A8%E5%AD%98%E5%8D%A1/</loc>
+    <lastmod>2021-01-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://herbertgao.com/tags/%E5%AF%86%E7%A0%81/</loc>
     <lastmod>2021-01-07</lastmod>
     <changefreq>daily</changefreq>
@@ -306,13 +313,6 @@
   
   <url>
     <loc>https://herbertgao.com/tags/%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2021-01-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://herbertgao.com/tags/%E5%82%A8%E5%AD%98%E5%8D%A1/</loc>
     <lastmod>2021-01-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -361,14 +361,14 @@
   </url>
   
   <url>
-    <loc>https://herbertgao.com/tags/VMWare/</loc>
+    <loc>https://herbertgao.com/tags/Python/</loc>
     <lastmod>2021-01-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://herbertgao.com/tags/Python/</loc>
+    <loc>https://herbertgao.com/tags/VMWare/</loc>
     <lastmod>2021-01-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
