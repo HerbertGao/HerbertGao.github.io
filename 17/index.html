@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/site.webmanifest">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"herbertgao.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="JAVA 的中文字符乱码问题一直很让人头疼。特别是在 WEB 应用中。网上的分析文章和解决方案都很多，但总是针对某些特定情况的。很多次遇到乱码问题后，经过极为辛苦的调试和搜索资料后终于解决，满以为自己已经掌握了对付这些字符乱码怪兽的诀窍。可当过段时间，换了个应用或换了个环境，又会碰到那讨厌的火星文，并再次无所适从。于是下决心好好整理一下中文字符编码问题，以方便自己记忆，也为其他程序员兄弟们提供一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Aamirr】Java中文字编码问题详解">
+<meta property="og:url" content="https://herbertgao.com/17/index.html">
+<meta property="og:site_name" content="河伯特高">
+<meta property="og:description" content="JAVA 的中文字符乱码问题一直很让人头疼。特别是在 WEB 应用中。网上的分析文章和解决方案都很多，但总是针对某些特定情况的。很多次遇到乱码问题后，经过极为辛苦的调试和搜索资料后终于解决，满以为自己已经掌握了对付这些字符乱码怪兽的诀窍。可当过段时间，换了个应用或换了个环境，又会碰到那讨厌的火星文，并再次无所适从。于是下决心好好整理一下中文字符编码问题，以方便自己记忆，也为其他程序员兄弟们提供一">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-13T10:30:00.000Z">
+<meta property="article:modified_time" content="2021-01-07T03:02:08.000Z">
+<meta property="article:author" content="Herbert Gao">
+<meta property="article:tag" content="开发">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://herbertgao.com/17/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【Aamirr】Java中文字编码问题详解 | 河伯特高</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158897845-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-158897845-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <meta name="baidu-site-verification" content="code-GzghNwEis2" />
+  <script data-ad-client="ca-pub-4604823985082292" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">河伯特高</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">HerbertGao 个人主页</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/HerbertGao" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://herbertgao.com/17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HerbertGao.jpg">
+      <meta itemprop="name" content="Herbert Gao">
+      <meta itemprop="description" content="<div style='font-size: 8px'>弱小和无知不是生存的障碍，傲慢才是。<br><i>Weakness and ignorance are not barriers to survival, but arrogance is.</i><br><br><div style='text-align: left;margin-left: 40%;'>——三体Ⅲ·死神永生<br>——<i>Death's End</i></div></div>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河伯特高">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Aamirr】Java中文字编码问题详解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-13 18:30:00" itemprop="dateCreated datePublished" datetime="2019-07-13T18:30:00+08:00">2019-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-07 11:02:08" itemprop="dateModified" datetime="2021-01-07T11:02:08+08:00">2021-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AC%E8%BD%BD/" itemprop="url" rel="index"><span itemprop="name">转载</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>JAVA 的中文字符乱码问题一直很让人头疼。特别是在 WEB 应用中。网上的分析文章和解决方案都很多，但总是针对某些特定情况的。很多次遇到乱码问题后，经过极为辛苦的调试和搜索资料后终于解决，满以为自己已经掌握了对付这些字符乱码怪兽的诀窍。可当过段时间，换了个应用或换了个环境，又会碰到那讨厌的火星文，并再次无所适从。于是下决心好好整理一下中文字符编码问题，以方便自己记忆，也为其他程序员兄弟们提供一份参考。</p>
+<p>作者：Aamirr<br>来源：CSDN<br>原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ora_unix/article/details/6323654">https://blog.csdn.net/ora_unix/article/details/6323654</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+</blockquote>
+<span id="more"></span>
+
+<p>首先要了解 JAVA 处理字符的原理。JAVA 使用 UNICODE 来存储字符数据，处理字符时通常有三个步骤：</p>
+<ul>
+<li>按指定的字符编码形式，从源输入流中读取字符数据</li>
+<li>以 UNICODE 编码形式将字符数据存储在内存中</li>
+<li>按指定的字符编码形式，将字符数据编码并写入目的输出流中。</li>
+</ul>
+<p>所以 JAVA 处理字符时总是经过了两次编码转换，一次是从指定编码转换为 UNICODE 编码，一次是从 UNICODE 编码转换为指定编码。如果在读入时用错误的形式解码字符，则内存存储的是错误的 UNICODE 字符。而从最初文件中读出的字符数据，到最终在屏幕终端显示这些字符，期间经过了应用程序的多次转换。如果中间某次字符处理，用错误的编码方式解码了从输入流读取的字符数据，或用错误的编码方式将字符写入输出流，则下一个字符数据的接收者就会编解码出错，从而导致最终显示乱码。</p>
+<p>这一点，是我们分析字符编码问题以及解决问题的指导思想。</p>
+<p>好，现在我们开始一只只的解决这些乱码怪兽。</p>
+<h2 id="在-JAVA-文件中硬编码中文字符，在-eclipse-中运行，控制台输出了乱码"><a href="#在-JAVA-文件中硬编码中文字符，在-eclipse-中运行，控制台输出了乱码" class="headerlink" title="在 JAVA 文件中硬编码中文字符，在 eclipse 中运行，控制台输出了乱码"></a>在 JAVA 文件中硬编码中文字符，在 eclipse 中运行，控制台输出了乱码</h2><p>例如，我们在 JAVA 文件中写入以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">&quot;大家好&quot;</span>;</span><br><span class="line">System.out.println(text);</span><br></pre></td></tr></table></figure>
+
+<p>如果我们是在 eclipse 里编译运行，可能看到的结果是类似这样的乱码：<code>��Һ�</code>。那么，这是为什么呢？</p>
+<p>我们先来看看整个字符的转换过程。</p>
+<ol>
+<li><p>在 eclipse 窗口中输入中文字符，并保存成 UTF-8 的 JAVA 文件。这里发生了多次字符编码转换。不过因为我们相信 eclipse 的正确性，所以我们不用分析其中的过程，只需要相信保存下的 JAVA 文件确实是 UTF-8 格式。</p>
+</li>
+<li><p>在 eclipse 中编译运行此 JAVA 文件。这里有必要详细分析一下编译和运行时的字符编码转换。</p>
+<ul>
+<li>编译：我们用 javac 编译 JAVA 文件时，javac 不会智能到猜出你所要编译的文件是什么编码类型的，所以它需要指定读取文件所用的编码类型。默认 javac 使用平台缺省的字符编码类型来解析 JAVA 文件。平台缺省编码是操作系统决定的，我们使用的是中文操作系统，语言区域设置通常都是中国大陆，所以平台缺省编码类型通常是 GBK。这个编码类型我们可以在 JAVA 中使用<code>System.getProperty(&quot;file.encoding&quot;)</code>来查看。所以 javac 会默认使用 GBK 来解析 JAVA 文件。如果我们要改变 javac 所用的编码类型，就要加上<code>-encoding</code>参数，如<code>javac -encoding UTF-8 Test.java</code>。<br>这里要另外提一下的是 eclipse 使用的是内置的编译器，并不能添加参数，如果要为 javac 添加参数则建议使用 ANT 来编译。不过这并非出现乱码的原因，因为 eclipse 可以为每个 JAVA 文件设置字符编码类型，而内置编译器会根据此设置来编译 JAVA 文件。</li>
+<li>运行：编译后字符数据会以 UNICODE 格式存入字节码文件中。然后 eclipse 会调用 java 命令来运行此字节码文件。因为字节码中的字符总是 UNICODE 格式，所以 java 读取字节码文件并没有编码转换过程。虚拟机读取文件后，字符数据便以 UNICODE 格式存储在内存中了。</li>
+</ul>
+</li>
+<li><p>调用<code>System.out.println</code>来输出字符。这里又发生了字符编码转换。<br><code>System.out.println</code>使用了 PrintStream 类来输出字符数据至控制台。PrintStream 会使用平台缺省的编码方式来输出字符。我们的中文系统上缺省方式为 GBK，所以内存中的 UNICODE 字符被转码成了 GBK 格式，并送到了操作系统的输出服务中。因为我们操作系统是中文系统，所以往终端显示设备上打印字符时使用的也是 GBK 编码。如果到这一步，我们的字符其实不再是 GBK 编码的话，终端就会显示出乱码。</p>
+</li>
+</ol>
+<p>那么，在 eclipse 运行带中文字符的 JAVA 文件，控制台显示了乱码，是在哪一步转换错误呢？我们一步步来分析。</p>
+<ul>
+<li>保存 JAVA 文件成 UTF-8 后，如果再次打开你没有看到乱码，说明这步是正确的。</li>
+<li>用 eclipse 本身来编译运行 JAVA 文件，应该没有问题。</li>
+<li><code>System.out.println</code>会把内存中正确的 UNICODE 字符编码成 GBK，然后发到 eclipse 的控制台去。等等，我们看到在 Run Configuration 对话框的 Common 标签里，控制台的字符编码被设置成了 UTF-8！问题就在这里。<code>System.out.println</code>已经把字符编码成了 GBK，而控制台仍然以 UTF-8 的格式读取字符，自然会出现乱码。<br>将控制台的字符编码设置为 GBK，乱码问题解决。<br>（这里补充一点：eclipse 的控制台编码是继承了 workspace 的设置的，通常控制台编码里没有 GBK 的选项而且不能输入。我们可以先在 workspace 的编码设置中输入 GBK，然后在控制台的设置中就可以看到 GBK 的选项了，设置好后再把 workspace 的字符编码设置改回 UTF-8 就是。）</li>
+</ul>
+<h2 id="JSP-文件中硬编码中文字符，在浏览器上显示乱码"><a href="#JSP-文件中硬编码中文字符，在浏览器上显示乱码" class="headerlink" title="JSP 文件中硬编码中文字符，在浏览器上显示乱码"></a>JSP 文件中硬编码中文字符，在浏览器上显示乱码</h2><p>我们用 eclipse 编写一个 JSP 页面，使用 tomcat 浏览这个页面时，整个页面的中文字符都是乱码。这是什么原因呢？<br>JSP 页面从编写到在浏览器上浏览，总共有四次字符编解码。</p>
+<ol>
+<li>以某种字符编码保存 JSP 文件</li>
+<li>Tomcat 以指定编码来读取 JSP 文件并编译</li>
+<li>Tomcat 向浏览器以指定编码来发送 HTML 内容</li>
+<li>浏览器以指定编码解析 HTML 内容<br>这里的四次字符编解码，有一次发生错误最终显示的就会是乱码。我们依次来分析各次的字符编码是如何设置的。</li>
+</ol>
+<ul>
+<li>保存 JSP 文件，这是在编辑器中设置的，比如 eclipse 中，设置文件字符类型为 UTF-8。</li>
+<li>JSP 文件开头的<code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</code>，其中 pageEncoding 用来告诉 tomcat 此文件所用的字符编码。这个编码应该与 eclipse 保存文件用的编码一致。Tomcat 以此编码方式来读取 JSP 文件并编译。</li>
+<li>page 标签中的 contentType 用来设置 tomcat 往浏览器发送 HTML 内容所使用的编码。这个编码会在 HTTP 响应头中指定以通知浏览器。</li>
+<li>浏览器根据 HTTP 响应头中指定的字符编码来解析 HTML 内容。如：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Mon, 01 Sep 2008 23:13:31 GMT</span><br><span class="line">Server: Apache/2.2.4 (Win32) mod_jk/1.2.26</span><br><span class="line">Vary: Host,Accept-Encoding</span><br><span class="line">Set-Cookie: JAVA2000_STYLE_ID=1; Domain=www.java2000.net; Expires=Thu, 03-Nov-2011 09:00:10 GMT; Path=/</span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Content-Type: text/html;charset=UTF-8</span><br></pre></td></tr></table></figure>
+
+<p>另外，HTML 中有个标签<code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</code>中也指定了 charset。不过这个字符编码只有在当网页保存在本地作为静态网页时有效，因为没有 HTTP 头，所以浏览器根据此标签来识别 HTML 内容的编码方式。</p>
+<p>现在在 JSP 文件中硬编码出现乱码的机会比较小了，因为大家都用了如 eclipse 的编辑器，基本上可以自动保证这几个编码设置的正确性。现在更多碰到的是在 JSP 文件中从其他数据源中读取中文字符所产生的乱码问题。</p>
+<h2 id="在-JSP-文件中读取字符文件并在页面中显示，中文字符显示为乱码"><a href="#在-JSP-文件中读取字符文件并在页面中显示，中文字符显示为乱码" class="headerlink" title="在 JSP 文件中读取字符文件并在页面中显示，中文字符显示为乱码"></a>在 JSP 文件中读取字符文件并在页面中显示，中文字符显示为乱码</h2><p>比如，我们在 JSP 文件中使用以下代码：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">&quot;D://test.txt&quot;</span>));</span><br><span class="line">String content = reader.readLine();</span><br><span class="line">reader.close();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%=content%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>test.txt 里保存的是中文字符，但在浏览器上看到的乱码。这是个经常见到的问题。我们继续用之前的方法一步步来分析输入和输出流</p>
+<ol>
+<li>test.txt 是以某种编码方式保存中文字符，比如 UTF-8。</li>
+<li>BufferedReader 直接读取 test.txt 的字节内容并以默认方式构造字符串。分析 BufferedReader 的代码，我们可以看到 BufferedReader 调用了 FileReader 的 read 方法，而 FileReader 又调用了 FileInputStream 的 native 的 read 方法。所谓 native 的方法，就是操作系统底层方法。那么我们操作系统是中文系统，所以 FileInputStream 默认用 GBK 方式读取文件。因为我们保存 test.txt 用的是 UTF-8，所以在这里读取文件内容使用 GBK 是错误的编码。</li>
+<li><code>&lt;%=content%&gt;</code>其实就是<code>out.print(content)</code>，这里又用到了 HTTP 的输出流 JspWriter，于是字符串 content 又被以 JSP 的 page 标签中指定的 UTF-8 方式编码成字节数组被发送到浏览器端。</li>
+<li>浏览器以 HTTP 头中指定的方式解码字符，这时无论是用 GBK 还是 UTF-8 解码，显示的都是乱码。<br>可见，我们字符编码转换在第二步时出错了，UTF-8 的字符串被当做 GBK 读入了内存中。<br>解决这个乱码问题有两种方法，一是把 test.txt 用 GBK 保存，则 FileInputStream 能正确读入中文字符；二是使用 InputStreamReader 来转换字符编码，如：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InputStreamReader sr = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;D://test.txt&quot;</span>),<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">BufferedReader reader = <span class="keyword">new</span> BufferedReader(sr);</span><br></pre></td></tr></table></figure>
+
+<p>这样，JAVA 就会用 UTF-8 的方式来从文件中读取字符数据。</p>
+<p>另外，我们可以通过在 java 命令后带上 Dfile.encoding 参数来指定虚拟机读取文件使用的默认字符编码，例如<code>java -Dfile.encoding=UTF-8 Test</code>，这样，我们在 JAVA 代码里用<code>System.getProperty(&quot;file.encoding&quot;)</code>取到的值为 UTF-8。</p>
+<h2 id="JSP-读取-request-getParameter-里的中文参数后，在页面显示为乱码"><a href="#JSP-读取-request-getParameter-里的中文参数后，在页面显示为乱码" class="headerlink" title="JSP 读取 request.getParameter 里的中文参数后，在页面显示为乱码"></a>JSP 读取 request.getParameter 里的中文参数后，在页面显示为乱码</h2><p>在 JAVA 的 WEB 应用中，对 request 对象里的 parameters 的中文处理一直是常见也最难搞的一只大怪兽。经常是刚搞定了这边，那边又出了乱码。而导致这种复杂性的，主要是此过程中字符编解码次数非常多，而且无论是浏览器还是 WEB 服务器特别是 TOMCAT 总是不能给我们一个比较满意的支持。</p>
+<p>首先我们来分析用 GET 方式上传参数的乱码情况。</p>
+<p>例如我们在浏览器地址栏输入以下 URL：<code>http://localhost:8080/test/test.jsp?param=大家好</code></p>
+<p>我们的 JSP 代码如此处理 param 这个参数：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;% String text = request.getParameter(<span class="string">&quot;param&quot;</span>); %&gt;</span><br><span class="line">&lt;%=text%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>而就这么简单的两句代码，我们很有可能在页面上看到这样的乱码：<code>´ó¼ÒºÃ</code></p>
+<p>网上对处理<code>request.getParamter</code>中的乱码有很多文章和方法，也都是正确的，只是方法太多让人一直不明白到底是为什么。这里给大家分析一下到底是怎么一回事。</p>
+<p>首先，我们来看看与 request 对象有哪些相关的编码设置：</p>
+<ol>
+<li>JSP 文件的字符编码</li>
+<li>请求这个带参数 URL 的源页面的字符编码</li>
+<li>IE 的高级设置中的选项“总以 UTF-8 方式发送 URL 地址”</li>
+<li>TOMCAT 的 server.xml 中配置 URIEncoding</li>
+<li>函数 request.setCharacterEncoding()</li>
+<li>JS 的 encodeURIComponent 函数与 JAVA 的 URLDecoder 类</li>
+</ol>
+<p>这么多条相关编码设置，也难怪大家被搞得头晕了。这里给大家根据各种情况给大家一一分析一下。见下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">请求源页面编码</th>
+<th align="center">从地址栏<br>输入 URL 访问</th>
+<th align="center">TOMCAT 的<br> URIEncoding 设置</th>
+<th align="center">IE 的 UTF-8<br> 发送 URL 地址设置</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">UTF-8</td>
+<td align="center"></td>
+<td align="center">未设置</td>
+<td align="center">打开</td>
+<td align="center">显示符号乱码</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">UTF-8</td>
+<td align="center"></td>
+<td align="center">未设置</td>
+<td align="center">关闭</td>
+<td align="center">显示符号乱码</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">GBK</td>
+<td align="center"></td>
+<td align="center">未设置</td>
+<td align="center">打开</td>
+<td align="center">显示符号乱码</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">GBK</td>
+<td align="center"></td>
+<td align="center">未设置</td>
+<td align="center">关闭</td>
+<td align="center">显示符号乱码</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"></td>
+<td align="center">地址栏输入</td>
+<td align="center">未设置</td>
+<td align="center">打开</td>
+<td align="center">显示符号乱码</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center"></td>
+<td align="center">地址栏输入</td>
+<td align="center">未设置</td>
+<td align="center">关闭</td>
+<td align="center">显示符号乱码</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">UTF-8</td>
+<td align="center"></td>
+<td align="center">GBK</td>
+<td align="center">打开</td>
+<td align="center">显示汉字乱码</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">UTF-8</td>
+<td align="center"></td>
+<td align="center">GBK</td>
+<td align="center">关闭</td>
+<td align="center">显示汉字乱码</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">GBK</td>
+<td align="center"></td>
+<td align="center">GBK</td>
+<td align="center">打开</td>
+<td align="center">正常</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">GBK</td>
+<td align="center"></td>
+<td align="center">GBK</td>
+<td align="center">关闭</td>
+<td align="center">正常</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center"></td>
+<td align="center">地址栏输入</td>
+<td align="center">GBK</td>
+<td align="center">打开</td>
+<td align="center">正常</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="center"></td>
+<td align="center">地址栏输入</td>
+<td align="center">GBK</td>
+<td align="center">关闭</td>
+<td align="center">正常</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="center">UTF-8</td>
+<td align="center"></td>
+<td align="center">UTF-8</td>
+<td align="center">打开</td>
+<td align="center">IE6: 奇数个的中文最后一位为乱码<br>IE7: 正常</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="center">UTF-8</td>
+<td align="center"></td>
+<td align="center">UTF-8</td>
+<td align="center">关闭</td>
+<td align="center">IE6: 奇数个的中文最后一位为乱码<br>IE7: 正常</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="center"></td>
+<td align="center">地址栏输入</td>
+<td align="center">UTF-8</td>
+<td align="center">打开</td>
+<td align="center">显示口字乱码</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="center"></td>
+<td align="center">地址栏输入</td>
+<td align="center">UTF-8</td>
+<td align="center">关闭</td>
+<td align="center">显示口字乱码</td>
+</tr>
+<tr>
+<td align="center">17</td>
+<td align="center">GBK</td>
+<td align="center"></td>
+<td align="center">UTF-8</td>
+<td align="center">打开</td>
+<td align="center">显示问号乱码</td>
+</tr>
+<tr>
+<td align="center">18</td>
+<td align="center">GBK</td>
+<td align="center"></td>
+<td align="center">UTF-8</td>
+<td align="center">关闭</td>
+<td align="center">显示问号乱码</td>
+</tr>
+<tr>
+<td align="center">19</td>
+<td align="center"></td>
+<td align="center">地址栏输入</td>
+<td align="center">UTF-8</td>
+<td align="center">打开</td>
+<td align="center">显示口字乱码</td>
+</tr>
+<tr>
+<td align="center">20</td>
+<td align="center"></td>
+<td align="center">地址栏输入</td>
+<td align="center">UTF-8</td>
+<td align="center">关闭</td>
+<td align="center">显示口字乱码</td>
+</tr>
+</tbody></table>
+<p>（HerbertGao 注：15/16 与 19/20 重复，原文如此）</p>
+<p>以上表格里的现象，除了指名在 IE7 上，其他全是在 IE6 上测试的结果。</p>
+<p>由这个表我们可以看到，IE 的“总以 UTF-8 方式发送 URL 地址”设置并不影响对 parameter 的解析，而从页面请求 URL 和从地址栏输入 URL 居然也有不同的表现。</p>
+<p>根据这个表列出的现象，大家只要用 smartSniff 抓几个网络包，并稍稍调查一下 TOMCAT 的源代码，就可以得出以下结论：</p>
+<ol>
+<li>IE 设置中的“总以 UTF-8 方式发送 URL 地址”只对 URL 的 PATH 部分起作用，对查询字符串是不起作用的。也就是说，如果勾选了这个选项，那么类似<code>http://localhost:8080/test/大家好.jsp?param=大家好</code>这种 URL，前一个“大家好”将被转化成 UTF-8 形式，而后一个并没有变化。这里所说的 UTF-8 形式，其实应该叫 UTF-8+escape 形式，即<code>%B4%F3%BC%D2%BA%C3</code>这种形式。<br>那么，查询字符串中的中文字符，到底是用什么编码传送到服务器的呢？答案是系统默认编码，即 GBK。也就是说，在我们中文操作系统上，传送给 WEB 服务器的查询字符串，总是以 GBK 来编码的。</li>
+<li>在页面中通过链接或 location 重定向或 open 新窗口的方式来请求一个 URL，这个 URL 里面的中文字符是用什么编码的？答：是用该页面的编码类型。也就是说，如果我们从某个源 JSP 页面上的链接来访问<code>http://localhost:8080/test/test.jsp?param=大家好</code>这个 URL，如果源 JSP 页面的编码是 UTF-8，则大家好这几个字的编码就是 UTF-8。<br>而在地址栏上直接输入 URL 地址，或者从系统剪贴板粘贴到地址栏上，这个输入并非从页面中发起的，而是由操作系统发起的，所以这个编码只可能是系统的默认编码，与任何页面无关。我们还发现，在不同的浏览器上，用链接方式打开的页面，如果在地址栏上再敲个回车，显示的结果也会不同。IE 上敲回车后显示不变化，而傲游上可能就会有乱码或乱码消失的变化。说明 IE 上敲回车，实际发送的是之前记忆下来的内存中的 URL，而傲游上发送的从当前地址栏重新获取的 URL。</li>
+<li>TOMCAT 的 URIEncoding 如果不加以设置，则默认使用 ISO-8859-1 来解码 URL，设置后便用设置了的编码方式来解码。这个解码同时包括 PATH 部分和查询字符串部分。可见，这个参数是对用 GET 方式传递的中文参数最关键的设置。不过，这个参数只对 GET 方式传递的参数有效，对 POST 的无效。分析 TOMCAT 的源代码我们可以看到，在请求一个页面时，TOMCAT 会尝试构造一个 Request 对象，在这个对象里，会从 Server.xml 里读取 URIEncoding 的值，并赋值给 Parameters 类的 queryStringEncoding 变量，而这个变量将在解析 <code>request.getParameter</code> 中的 GET 参数时用来指导字符解码。</li>
+<li>request.setCharacterEncoding 函数只对 POST 的参数有效，对 GET 的参数无效。且这个函数必须是在第一次调用 request.getParameter 之前使用。这是因为 Parameters 类有两个字符编码参数，一个是 encoding，另一个是 queryStringEncoding，而 setCharacterEncoding 设置的是 encoding，这个是在解析 POST 的参数是才用到的。<br>所以，这就导致了我们通常都要分开处理 POST 和 GET 的字符编码，用 TOMCAT 自带的 filter 只能处理 POST 的，另外要设置 URIEncoding 来设置 GET 的。这样很麻烦而且 URIEncoding 无法根据内容来动态区分编码，总还是一个问题。<br>在调查 TOMCAT 的代码时发现了另一个在 server.xml 里的参数 useBodyEncodingForURI，可以解决这个问题。这个参数设成 true 后，TOMCAT 就会用 request.setCharacterEncoding 所设置的字符编码来同样解析 GET 参数了。这样，那个 SetCharacterEncodingFilter 就可以同时处理 GET 和 POST 参数了。</li>
+</ol>
+<p>知道了以上知识后，我们再来分析一下前面表格中列出的几个典型现象。</p>
+<p>第一条，请求源页面的编码为 UTF-8，而 TOMCAT 的 URIEncoding 未指定，则 TOMCAT 用 ISO8859-1 方式来解码参数，所以从 request 中读出来后，内存中存储的为错误的 UNICODE 数据，导致之后到屏幕显示的所有转换全部出错。</p>
+<p>第九条，请求源页面编码为 GBK，而 TOMCAT 的 URIEncoding 也为 GBK，TOMCAT 用 GBK 方式去解码原本用 GBK 编码的字符，解码正确，内存中的 UNICODE 值正确，最终显示正确的中文。</p>
+<p>第十三条，请求源页面编码为 UTF-8，TOMCAT 的 URIEncoding 也为 UTF-8，而在 IE6 中最终显示的中文字符，如果是奇数个数，则最后一个会显示为乱码。这是为什么呢？</p>
+<p>我的猜测是，这是因为 IE6 将 URL 地址发送时，对查询字符串是直接对 UTF-8 格式的字符使用 GBK 来编码，而不是对 UNICODE 的字符来用 GBK 编码，所以 UTF-8 的数据没有经过 UNICODE 而直接编码成了 GBK。而到了 TOMCAT 这边，GBK 的编码又被当成 UTF-8 做了解码。所以这个过程中经过了 UTF-8 转换成 GBK，然后又从 GBK 转换成 UTF-8 的过程，而这种转换，恰好就会出现奇数个中文字符串的最后一位为乱码的现象。而在 IE7 中，估计把这种现象当做 BUG 已经被解决了，即在发送地址时会先转成 UNICODE 再编码成 GBK。那么估计在 IE7 的浏览器+中文操作系统环境下，如果我们把 TOMCAT 的 URIEncoding 设置成 GBK，无论 JSP 编码成什么格式，都不会出现乱码。这个没测试，请大家自己验证。</p>
+<p>其他几条就不再做分析了，有兴趣的大家自己分析。</p>
+<h2 id="对-URL-做-Encode-和-Decode"><a href="#对-URL-做-Encode-和-Decode" class="headerlink" title="对 URL 做 Encode 和 Decode"></a>对 URL 做 Encode 和 Decode</h2><p>对于 request 参数的中文乱码问题，个人觉得最好的还是用 URLEncode/URLDecode，因为如果你的 WEB 站点要支持国际化，最好就是保证从 IE 递送过来的参数永远是正确的 UTF-8 编码。</p>
+<p>在 IE 端，我们可以用 JS 脚本来对参数编码：<code>encodeURIComponent()</code>，编码后中文字符便变成了<code>%B4%F3%BC%D2%BA%C3</code>这种形式。在 JAVA 端，可以用 <code>java.net.URLDecoder.decode</code>来解码。不过这里要注意一个问题，就是 TOMCAT 会自动先对 URL 做一次 decode，我们可以在 TOMCAT 的 UDecoder 类中看到这一点。不过 TOMCAT 并非使用了 URLDecoder.decode，而是自己编写了一个 decode 函数。网上有些文章上介绍过一种处理乱码的方法便是在 JS 中对参数做两次 encodeURIComponent，在 JAVA 中做一次 decode，可以解决一些没有设置 URIEncoding 时发生的乱码问题。不过个人觉得如果弄懂了整个字符编码转换的过程，基本上是用不到这种方法的。</p>
+<h2 id="从数据库中读取中文字符数据，在页面上显示为乱码"><a href="#从数据库中读取中文字符数据，在页面上显示为乱码" class="headerlink" title="从数据库中读取中文字符数据，在页面上显示为乱码"></a>从数据库中读取中文字符数据，在页面上显示为乱码</h2><p>对于数据库中读取中文字符出现乱码的问题，本人遇到的还比较少，所以暂时没有总结。如果大家有类似的经验，欢迎补充说明，我一定注明作者身份。</p>
+<p>好了，对各种字符乱码问题的分析就总结到这里，相信只要把握“以指定编码读取–转换为 UNICODE–以指定编码输入”这基本步骤，初学者也可以很快分析出字符乱码的根源所在。另外我建议不要随便使用<code>new String(str.getBytes(enc1),enc2)</code>这种方式来强行转码，也不要随便使用网上的字符转码函数，我觉得只会把问题隐藏更深更复杂化。我们应该清晰地分析整个字符流的编解码过程，自然可以找出乱码的根源所在，从而保证整个字符流动中，在内存中的 UNICODE 始终是正确的。</p>
+<h2 id="另外再附上个人总结的乱码分析的一套秘籍"><a href="#另外再附上个人总结的乱码分析的一套秘籍" class="headerlink" title="另外再附上个人总结的乱码分析的一套秘籍"></a>另外再附上个人总结的乱码分析的一套秘籍</h2><p>即从乱码的长相来分析是哪种编码转换错误。有人可以闻香识酒，我们也来个看字识码。请看下表：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>示例</th>
+<th>特点</th>
+<th>产生原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>古文码</td>
+<td>鐢辨湀瑕佸ソ濂藉  涔犲ぉ澶 ╁ 悜涓 ?</td>
+<td>大都为不认识的古文，并加杂日韩文</td>
+<td>以 GBK 方式读取 UTF-8 编码的中文</td>
+</tr>
+<tr>
+<td>口字码</td>
+<td>���� Ҫ �¨²� ѧ ϰ ������</td>
+<td>大部分字符为小方块</td>
+<td>以 UTF-8 的方式读取 GBK 编码的中文</td>
+</tr>
+<tr>
+<td>符号码</td>
+<td>ç±æè¦å¥½å¥½å­¦ä¹ å¤©å¤©åä¸</td>
+<td>大部分字符为各种符号</td>
+<td>以 ISO8859-1 方式读取 UTF-8 编码的中文</td>
+</tr>
+<tr>
+<td>拼音码</td>
+<td>ÓÉÔÂÒ ªº Ã º ÃÑ § Ï ° Ì ì Ì ì Ï ò ÉÏ</td>
+<td>大部分字符为头顶带有各种类似声调符号的字母</td>
+<td>以 ISO8859-1 方式读取 GBK 编码的中文</td>
+</tr>
+<tr>
+<td>问句码</td>
+<td>由月要好好学习天天向 ??</td>
+<td>字符串长度为偶数时正确，长度为奇数时最后的字符变为问号</td>
+<td>以 GBK 方式读取 UTF-8 编码的中文，然后又用 UTF-8 的格式再次读取</td>
+</tr>
+<tr>
+<td>锟拷码</td>
+<td>锟斤拷锟斤拷要锟矫猴拷学习锟斤拷锟斤拷锟斤拷</td>
+<td>全中文字符，且大部分字符为“ 锟斤拷 ”这几个字符</td>
+<td>以 UTF-8 方式读取 GBK 编码的中文，然后又用 GBK 的格式再次读取</td>
+</tr>
+</tbody></table>
+<p>不过个人至今仍然弄不明白的就是问号码的产生原因，问号码即所有字符几乎全部为问号的乱码。问号码的出现有多种情况。我目前能确认的当我们把中文字符强行以 ISO8859-1 编码写入文件后，字符的高位信息会丢失，从而再次从文件中读出字符时便全部变为问号符。而我在 JAVA 代码中用 UTF-8 的方式去读取 GBK 编码的字符，出来的也是问号码，而并非口字码，这是我百思不得其解的问题。</p>
+
+    </div>
+
+    
+    
+    <script src="/js/baffle.min.js"></script>
+<script>
+    let b = baffle(document.querySelectorAll('.post-title'));
+    b.set({
+        speed: 75,
+        characters: '/>░░▒▒▓▓██锟斤拷烫'
+    });
+    b.reveal(3000, 1000);
+</script>
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/HerbertGaoChannel">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">Telegram</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <div>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- 底部广告 -->
+     <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-4604823985082292"
+          data-ad-slot="4513265704"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"># 开发</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/16/" rel="prev" title="Nginx禁用TLS1.0与1.1的尝试">
+      <i class="fa fa-chevron-left"></i> Nginx禁用TLS1.0与1.1的尝试
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/18/" rel="next" title="Ingress 13 Archetypes 01: Dreamer">
+      Ingress 13 Archetypes 01: Dreamer <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-JAVA-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%A1%AC%E7%BC%96%E7%A0%81%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6%EF%BC%8C%E5%9C%A8-eclipse-%E4%B8%AD%E8%BF%90%E8%A1%8C%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E4%BA%86%E4%B9%B1%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">在 JAVA 文件中硬编码中文字符，在 eclipse 中运行，控制台输出了乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%A1%AC%E7%BC%96%E7%A0%81%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6%EF%BC%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E6%98%BE%E7%A4%BA%E4%B9%B1%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">JSP 文件中硬编码中文字符，在浏览器上显示乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-JSP-%E6%96%87%E4%BB%B6%E4%B8%AD%E8%AF%BB%E5%8F%96%E5%AD%97%E7%AC%A6%E6%96%87%E4%BB%B6%E5%B9%B6%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E6%98%BE%E7%A4%BA%EF%BC%8C%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6%E6%98%BE%E7%A4%BA%E4%B8%BA%E4%B9%B1%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">在 JSP 文件中读取字符文件并在页面中显示，中文字符显示为乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP-%E8%AF%BB%E5%8F%96-request-getParameter-%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E5%8F%82%E6%95%B0%E5%90%8E%EF%BC%8C%E5%9C%A8%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA%E4%B8%BA%E4%B9%B1%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">JSP 读取 request.getParameter 里的中文参数后，在页面显示为乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9-URL-%E5%81%9A-Encode-%E5%92%8C-Decode"><span class="nav-number">5.</span> <span class="nav-text">对 URL 做 Encode 和 Decode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E8%AF%BB%E5%8F%96%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%8A%E6%98%BE%E7%A4%BA%E4%B8%BA%E4%B9%B1%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">从数据库中读取中文字符数据，在页面上显示为乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A6%E5%A4%96%E5%86%8D%E9%99%84%E4%B8%8A%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93%E7%9A%84%E4%B9%B1%E7%A0%81%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E5%A5%97%E7%A7%98%E7%B1%8D"><span class="nav-number">7.</span> <span class="nav-text">另外再附上个人总结的乱码分析的一套秘籍</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Herbert Gao"
+      src="/images/HerbertGao.jpg">
+  <p class="site-author-name" itemprop="name">Herbert Gao</p>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+<br>
+<div class="site-description" itemprop="description"><div style='font-size: 8px'>弱小和无知不是生存的障碍，傲慢才是。<br><i>Weakness and ignorance are not barriers to survival, but arrogance is.</i><br><br><div style='text-align: left;margin-left: 40%;'>——三体Ⅲ·死神永生<br>——<i>Death's End</i></div></div></div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://t.me/herbertgao" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;herbertgao" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/herbertgao" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;herbertgao" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/HerbertGao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HerbertGao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:admin@herbertgao.com" title="E-Mail → mailto:admin@herbertgao.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.mtiner.com/" title="https:&#x2F;&#x2F;www.mtiner.com" rel="noopener" target="_blank">丁小浪的大城市</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.chenhao.net/" title="http:&#x2F;&#x2F;www.chenhao.net" rel="noopener" target="_blank">随风飞翔</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bh2ro.info/" title="https:&#x2F;&#x2F;bh2ro.info" rel="noopener" target="_blank">BH2RO</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+      <div>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- 侧栏广告 -->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:220px;height:220px"
+          data-ad-client="ca-pub-4604823985082292"
+          data-ad-slot="5387363677"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Herbert Gao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">83k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> & <a href="https://pages.github.com/" class="theme-link" rel="noopener" target="_blank">Github Pages</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

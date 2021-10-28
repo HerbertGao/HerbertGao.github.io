@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/site.webmanifest">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"herbertgao.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="原载于随风飞翔的扯淡博客-AllenChan 的专栏 &gt; 点击查看原文   前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。 什么叫分享，就是我有好东西，我恨不得你们也一样的拥有，什么叫装逼，就是我拥有好东西，我就是得瑟你们没有。 我跟你们分享 SSD 固态硬盘带来的酣畅淋漓，希望你们一样拥有。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【随风飞翔】SSD固态硬盘的Q and A">
+<meta property="og:url" content="https://herbertgao.com/2/index.html">
+<meta property="og:site_name" content="河伯特高">
+<meta property="og:description" content="原载于随风飞翔的扯淡博客-AllenChan 的专栏 &gt; 点击查看原文   前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。 什么叫分享，就是我有好东西，我恨不得你们也一样的拥有，什么叫装逼，就是我拥有好东西，我就是得瑟你们没有。 我跟你们分享 SSD 固态硬盘带来的酣畅淋漓，希望你们一样拥有。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/UmS4b3S.jpg">
+<meta property="article:published_time" content="2014-09-13T16:00:06.000Z">
+<meta property="article:modified_time" content="2021-01-07T02:45:41.000Z">
+<meta property="article:author" content="Herbert Gao">
+<meta property="article:tag" content="AllenChen专栏">
+<meta property="article:tag" content="SSD">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/UmS4b3S.jpg">
+
+<link rel="canonical" href="https://herbertgao.com/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【随风飞翔】SSD固态硬盘的Q and A | 河伯特高</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158897845-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-158897845-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <meta name="baidu-site-verification" content="code-GzghNwEis2" />
+  <script data-ad-client="ca-pub-4604823985082292" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">河伯特高</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">HerbertGao 个人主页</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/HerbertGao" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://herbertgao.com/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HerbertGao.jpg">
+      <meta itemprop="name" content="Herbert Gao">
+      <meta itemprop="description" content="<div style='font-size: 8px'>弱小和无知不是生存的障碍，傲慢才是。<br><i>Weakness and ignorance are not barriers to survival, but arrogance is.</i><br><br><div style='text-align: left;margin-left: 40%;'>——三体Ⅲ·死神永生<br>——<i>Death's End</i></div></div>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河伯特高">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【随风飞翔】SSD固态硬盘的Q and A
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2014-09-14 00:00:06" itemprop="dateCreated datePublished" datetime="2014-09-14T00:00:06+08:00">2014-09-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-07 10:45:41" itemprop="dateModified" datetime="2021-01-07T10:45:41+08:00">2021-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AllenChen%E4%B8%93%E6%A0%8F/" itemprop="url" rel="index"><span itemprop="name">AllenChen专栏</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>原载于<a target="_blank" rel="noopener" href="http://blog.chenhao.net/">随风飞翔的扯淡博客</a>-<a target="_blank" rel="noopener" href="http://blog.chenhao.net/category/allenchan%e7%9a%84%e4%b8%93%e6%a0%8f">AllenChan 的专栏</a> &gt; <a target="_blank" rel="noopener" href="http://blog.chenhao.net/938.html">点击查看原文</a></p>
+</blockquote>
+<blockquote>
+<p>前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。</p>
+<p>什么叫分享，就是我有好东西，我恨不得你们也一样的拥有，什么叫装逼，就是我拥有好东西，我就是得瑟你们没有。</p>
+<p>我跟你们分享 SSD 固态硬盘带来的酣畅淋漓，希望你们一样拥有。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="为什么要用固态硬盘？"><a href="#为什么要用固态硬盘？" class="headerlink" title="为什么要用固态硬盘？"></a>为什么要用固态硬盘？</h2><p>首先，看几个硬盘用 AS SSD Benchmark 测试的数据截图。</p>
+<p><img src="https://i.imgur.com/UmS4b3S.jpg" alt="截图">  </p>
+<p>自己看吧，SSD 固态硬盘的优势明显应该有眼就能看到的。就连乞丐版的威刚远甩机械硬盘，现在日常使用的电脑，无论台式机还是笔记本，CPU 在我看来是很是够用了，而机械硬盘是严重的短板。</p>
+<p>（注：之所以说乞丐版，是因为他在正规 SSD 固态硬盘里面，连续读取速度写入速度算最慢的了。 ）</p>
+<p>LOL 党，Dota 党，游戏党不要奢望装个固态硬盘就能特效全开、流畅画面，这是显卡的事，乖乖换显卡去。SSD 固态硬盘只会加载游戏更快（斗地主不要算游戏）。</p>
+<h2 id="用固态硬盘需要知道的几件事"><a href="#用固态硬盘需要知道的几件事" class="headerlink" title="用固态硬盘需要知道的几件事"></a>用固态硬盘需要知道的几件事</h2><p>Q：我的电脑好卡啊！<br>A：没有 SSD 固态硬盘活该卡。</p>
+<p>Q：系统一卡重装系统就好了？<br>A：重装个锤子啊，一点卡就怪系统，就想重装系统，脑子没问题吧，升级到 SSD 固态硬盘先。</p>
+<p>Q：你给我装的这个破系统，害我这么卡！<br>A：我去你大爷的，哥给你装的是微软官方原版的 Win 7 家庭高级版。你能给我找个更好的来么，4k 对齐，ACHI 打开，我能做得做得完美，我去你大爷。</p>
+<blockquote>
+<p>（随风注：AllenChan最近饱受重装系统之苦……）</p>
+</blockquote>
+<p>Q：驱动我不要最新！<br>A：百度百科“<a target="_blank" rel="noopener" href="http://baike.baidu.com/link?url=4U26th3RwKziP5-Jz-BBFPRj2vGu4i81dy2VpqKd-tmTotgRXVA5czhQJl6vOk4W">驱动</a>”看完回来再喷。哥的理念：Ghost 的万能驱动不能接受，兼容性驱动无法忍，触摸板、主板、显卡等驱动，全部升级到最新，一个都不能少，不满意，出门右转，花钱找电脑城去。</p>
+<p>Q：为什么不给我装 Win 7 旗舰版？<br>A：家庭高级版够用了，旗舰版多余的功能一辈子都用不到。</p>
+<p>Q：为什么装原版不用 Ghost 版？<br>原因 1：速度差距问题。在 SSD 固态硬盘装系统的过程中，速度问题已经没有过大区别了。由于 SSD 固态硬盘写入速度非常快，原版安装的速度已经很迅速，和 Ghost 的版本速度上的差距已经缩小了非常多。快的 5 分钟不到，慢的不到 10 分钟，这相比之前的将近 1 小时已经得到质的飞跃，相比 Ghost 的速度优势已经几乎没有。<br>原因 2：安全性问题。几乎所有 Ghost 系统都出自个人或者论坛等，这些出品人并不需要为自身出品的 GHO 文件负任何责任，即使有书面承诺，也未必有用。何况作者在 GHO 里可以做任何不为人知的手脚，比如肉鸡软件，木马等。但在用户使用的时候是很难察觉的。也许有人会说，这些我不在乎，反正我用了这么多年的 GHO，从来没出问题，从来没有什么信用卡盗刷，甚至我从来就不把病毒当回事，多年没装杀毒软件依然平安的路过等等。对此，我想表示，安全问题不是当你损失了才会想起去注意的东西。有时候不经意间你已经丢失了你自己电脑里面的信息，成为日后的潜在杀手。也许有人还会说，360、金山等杀毒软件有多么多么黑暗，装不如不装，但是总结一句话，有杀毒软件总比没有好，不管怎么样，他还是会给你电脑带来一份保护。至于装什么杀毒软件，不是讨论话题。<br>原因 3：GHO 版本系统没有原版系统稳定。这不单是 SSD 固态硬盘上而言，机械硬盘也是一样。GHO 系统在文件安全性，出错率，兼容性性等方面都不如原版系统。原版系统在安装的时候，会先根据你电脑自身的配置等条件，对系统做出优化，提高稳定性和使硬件和系统发挥最大的性能。相比 GHO 来说，GHO 其实就是作者用一台电脑做了系统之后拷贝的系统文件而已。系统更多的优话是对其本身的电脑而言，而你硬生生的拷贝进去作为你的操作系统。稳定性当然没有原版安装来的好。<br>原因 4：GHO 版本对齐问题。曾经，我们在帖吧讨论过 GHO 是否可以对 SSD 固态硬盘做到无损对齐。现在有了结论，GHO 版本 11.5 以后的版本是可以保证对齐的。11.5 版本以前的有对不齐的风险。另外有朋友反映对齐之后数字很大，比如 103424K，52434944K 等等，而不是常见的 1024K 或者 2048K。这些是因为你所检测该盘的起始位置造成的，并不是由于 GHO 的原因。比如 103424K 的，是因为 SSD 固态硬盘本身保留了 100M 的空间，这个空间所占位置在你系统盘所占位置的前面，所以顺序排列到 103424K 的位置作为你所检测盘的起始点。其他的同理。 以上来源百度。</p>
+<p>Q：怎么选 SSD 固态硬盘？<br>A：</p>
+<ol>
+<li>三星 840PRO，闪迪 Ultra plus，威刚 SP900，高中低档的代表，同档次的其他其实真的差别都不大，就这三最实惠。</li>
+<li>判断主硬盘位是 Sata 2 还是 3，如果是 2，请看第 3 点，如果是 3，请看第 4 点。</li>
+<li>威刚我想够了，因为 Sata 2 接口传输速度最快也就 300MB/S，你用闪迪也测速也才 300MB/S，威刚够了。</li>
+<li>三星 840PRO，闪迪 Ultraplus 自己选，搭配嘛，你电脑是近万块，特高档的，当然得来三星咯。我更推荐闪迪 Ultra plus。</li>
+</ol>
+<p>Q：SSD 固态硬盘的容量怎么选择？<br>A：个人比较推荐 120G，自己估计咯。系统和软件都装里面。剩下的空间多于百分之 30 吧，后期活动舒服点。</p>
+<p>Q：换了固态硬盘，剩下来的机械硬盘怎么办？<br>A：SSD 固态硬盘才 120G，要系统要软件，肯定不够用啦，有几部片马上没空间，机械硬盘当仓库盘继续使用，存照片电影。</p>
+<p>Q：台式机怎么加 SSD 固态硬盘？<br>A：把 SSD 固态硬盘加到主板上的 Sata 0（或者 1，反正就是最小的那个），机械硬盘再继续加进去。</p>
+<p>Q：笔记本怎么加 SSD 固态硬盘？<br>A：推荐方法，拆开笔记本，把内部的硬盘硬盘位，装上 SSD 固态硬盘，然后，X 宝购买笔记本光驱支架，把笔记本的光驱卸了，把机械硬盘塞在支架上，然后塞进光驱位。另有还有加 msata 接口的固态硬盘，这个就不用卸了光驱。NGFF 接口就算了。现在还没发现啥能可信的 NGFF 接口的固态硬盘。</p>
+<p>下月写一篇旧电脑联想 Y471 改造加装固态硬盘的教程。尽请期待。</p>
+<p>对内容有异议需要撕逼、咨询，欢迎约架上优酷土豆搜狐视频爱奇艺腾讯视频新浪播客我乐网酷6网风行网风云直播，请联系新浪微博：<a target="_blank" rel="noopener" href="http://weibo.com/945570100">@AllenChan___</a></p>
+
+    </div>
+
+    
+    
+    <script src="/js/baffle.min.js"></script>
+<script>
+    let b = baffle(document.querySelectorAll('.post-title'));
+    b.set({
+        speed: 75,
+        characters: '/>░░▒▒▓▓██锟斤拷烫'
+    });
+    b.reveal(3000, 1000);
+</script>
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/HerbertGaoChannel">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">Telegram</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <div>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- 底部广告 -->
+     <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-4604823985082292"
+          data-ad-slot="4513265704"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AllenChen%E4%B8%93%E6%A0%8F/" rel="tag"># AllenChen专栏</a>
+              <a href="/tags/SSD/" rel="tag"># SSD</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/1/" rel="prev" title="【随风飞翔】虚拟运营商首单——阿里通信">
+      <i class="fa fa-chevron-left"></i> 【随风飞翔】虚拟运营商首单——阿里通信
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/3/" rel="next" title="【随风飞翔】笔记本电脑加装固态硬盘教程">
+      【随风飞翔】笔记本电脑加装固态硬盘教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么要用固态硬盘？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%A0%E4%BB%B6%E4%BA%8B"><span class="nav-number">2.</span> <span class="nav-text">用固态硬盘需要知道的几件事</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Herbert Gao"
+      src="/images/HerbertGao.jpg">
+  <p class="site-author-name" itemprop="name">Herbert Gao</p>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+<br>
+<div class="site-description" itemprop="description"><div style='font-size: 8px'>弱小和无知不是生存的障碍，傲慢才是。<br><i>Weakness and ignorance are not barriers to survival, but arrogance is.</i><br><br><div style='text-align: left;margin-left: 40%;'>——三体Ⅲ·死神永生<br>——<i>Death's End</i></div></div></div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://t.me/herbertgao" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;herbertgao" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/herbertgao" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;herbertgao" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/HerbertGao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HerbertGao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:admin@herbertgao.com" title="E-Mail → mailto:admin@herbertgao.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.mtiner.com/" title="https:&#x2F;&#x2F;www.mtiner.com" rel="noopener" target="_blank">丁小浪的大城市</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.chenhao.net/" title="http:&#x2F;&#x2F;www.chenhao.net" rel="noopener" target="_blank">随风飞翔</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bh2ro.info/" title="https:&#x2F;&#x2F;bh2ro.info" rel="noopener" target="_blank">BH2RO</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+      <div>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- 侧栏广告 -->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:220px;height:220px"
+          data-ad-client="ca-pub-4604823985082292"
+          data-ad-slot="5387363677"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Herbert Gao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">83k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> & <a href="https://pages.github.com/" class="theme-link" rel="noopener" target="_blank">Github Pages</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

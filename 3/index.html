@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/site.webmanifest">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"herbertgao.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="原载于随风飞翔的扯淡博客-AllenChan 的专栏 &gt; 点击查看原文   看这个文章之前，请你点击这看完这篇文章：SSD 固态硬盘的 Q and A   前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。什么叫分享，就是我有好东西，我恨不得你们也一样的拥有；什么叫装逼，就是我拥有好东西，我就是得瑟你们没有。我跟你们分享 SSD 固态硬盘带">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【随风飞翔】笔记本电脑加装固态硬盘教程">
+<meta property="og:url" content="https://herbertgao.com/3/index.html">
+<meta property="og:site_name" content="河伯特高">
+<meta property="og:description" content="原载于随风飞翔的扯淡博客-AllenChan 的专栏 &gt; 点击查看原文   看这个文章之前，请你点击这看完这篇文章：SSD 固态硬盘的 Q and A   前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。什么叫分享，就是我有好东西，我恨不得你们也一样的拥有；什么叫装逼，就是我拥有好东西，我就是得瑟你们没有。我跟你们分享 SSD 固态硬盘带">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://img03.taobaocdn.com/imgextra/i3/730652580/TB2V6DfaFXXXXalXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img04.taobaocdn.com/imgextra/i4/730652580/TB2fVncaFXXXXc2XXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2aVrdaFXXXXchXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2BJffaFXXXXaKXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2QdLgaFXXXXX7XXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2QZ6faFXXXXaPXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2AirbaFXXXXcWXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2KDvfaFXXXXaXXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img01.taobaocdn.com/imgextra/i1/730652580/TB23_vbaFXXXXcAXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img04.taobaocdn.com/imgextra/i4/730652580/TB29I2haFXXXXXvXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2UrjXaFXXXXXKXpXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2c.rgaFXXXXXCXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img03.taobaocdn.com/imgextra/i3/730652580/TB2eujcaFXXXXcgXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img04.taobaocdn.com/imgextra/i4/730652580/TB2NW_baFXXXXc1XXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img04.taobaocdn.com/imgextra/i4/730652580/TB2zMO9aFXXXXa3XpXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2S8C8aFXXXXa_XpXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2TSm.aFXXXXX0XpXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2KFYbaFXXXXcJXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2vfveaFXXXXa6XXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img03.taobaocdn.com/imgextra/i3/730652580/TB2__e7aFXXXXbAXpXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img04.taobaocdn.com/imgextra/i4/730652580/TB2AW_eaFXXXXbmXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img03.taobaocdn.com/imgextra/i3/730652580/TB27Dy8aFXXXXajXpXXXXXXXXXX_!!730652580.jpg">
+<meta property="og:image" content="http://img03.taobaocdn.com/imgextra/i3/730652580/TB2P2zcaFXXXXcaXXXXXXXXXXXX_!!730652580.jpg">
+<meta property="article:published_time" content="2014-10-06T16:00:15.000Z">
+<meta property="article:modified_time" content="2021-01-07T02:46:48.000Z">
+<meta property="article:author" content="Herbert Gao">
+<meta property="article:tag" content="AllenChen专栏">
+<meta property="article:tag" content="SSD">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img03.taobaocdn.com/imgextra/i3/730652580/TB2V6DfaFXXXXalXXXXXXXXXXXX_!!730652580.jpg">
+
+<link rel="canonical" href="https://herbertgao.com/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【随风飞翔】笔记本电脑加装固态硬盘教程 | 河伯特高</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158897845-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-158897845-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <meta name="baidu-site-verification" content="code-GzghNwEis2" />
+  <script data-ad-client="ca-pub-4604823985082292" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">河伯特高</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">HerbertGao 个人主页</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/HerbertGao" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://herbertgao.com/3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HerbertGao.jpg">
+      <meta itemprop="name" content="Herbert Gao">
+      <meta itemprop="description" content="<div style='font-size: 8px'>弱小和无知不是生存的障碍，傲慢才是。<br><i>Weakness and ignorance are not barriers to survival, but arrogance is.</i><br><br><div style='text-align: left;margin-left: 40%;'>——三体Ⅲ·死神永生<br>——<i>Death's End</i></div></div>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河伯特高">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【随风飞翔】笔记本电脑加装固态硬盘教程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2014-10-07 00:00:15" itemprop="dateCreated datePublished" datetime="2014-10-07T00:00:15+08:00">2014-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-07 10:46:48" itemprop="dateModified" datetime="2021-01-07T10:46:48+08:00">2021-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AllenChen%E4%B8%93%E6%A0%8F/" itemprop="url" rel="index"><span itemprop="name">AllenChen专栏</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>原载于<a target="_blank" rel="noopener" href="http://blog.chenhao.net/">随风飞翔的扯淡博客</a>-<a target="_blank" rel="noopener" href="http://blog.chenhao.net/category/allenchan%e7%9a%84%e4%b8%93%e6%a0%8f">AllenChan 的专栏</a> &gt; <a target="_blank" rel="noopener" href="http://blog.chenhao.net/947.html">点击查看原文</a></p>
+</blockquote>
+<blockquote>
+<p>看这个文章之前，请你点击这看完这篇文章：<a target="_blank" rel="noopener" href="http://blog.chenhao.net/938.html">SSD 固态硬盘的 Q and A</a></p>
+</blockquote>
+<blockquote>
+<p>前言：如果你觉得语句会太过尖酸刻薄，请你理解。能带来酣畅淋漓体验的固态硬盘，你们不用，我表示很愤怒。什么叫分享，就是我有好东西，我恨不得你们也一样的拥有；什么叫装逼，就是我拥有好东西，我就是得瑟你们没有。我跟你们分享 SSD 固态硬盘带来的酣畅淋漓，希望你们一样拥有。</p>
+</blockquote>
+<p>本文是以联想 Y471 为例，笔记本在光驱位加装固态硬盘的教程。</p>
+<span id="more"></span>
+
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>1、下载硬件检测软件检测下，看看自己的硬盘接口是什么，我的这个  硬盘的接口是 Sata 2。</p>
+<p>2、购买固态硬盘，因为这次的笔记本只支持 Sata 2，所以参考<a target="_blank" rel="noopener" href="http://blog.chenhao.net/938.html">这里</a>，威刚天猫旗舰店下单，购买了 128G 的<a target="_blank" rel="noopener" href="http://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.13.SSh2gU&id=14382233475&areaId=350200&cat_id=50474006&rn=e4ea43b4fab3ddad1d2d5c270bd2ff40&user_id=796441621&is_b=1">威刚 SP900</a>。顺便找找 Y471 说需要的 12.7mm 的<a target="_blank" rel="noopener" href="http://detail.tmall.com/item.htm?spm=a220o.1000855.1998099587.6.LaDUaG&id=26610860269&bi_from=tm_comb">光驱位固态机械硬盘托架</a>。由于威刚天猫旗舰店有活动，把超值礼包装勾选后，再加 1 块钱就能买把螺丝刀。最后购买结果如下。总价 420 块。<br>TM 的良心价啊，超值，超超超超值。看到这可以点击 →<a target="_blank" rel="noopener" href="http://www.acfun.tv/v/ac1449651">这</a></p>
+<p><img src="http://img03.taobaocdn.com/imgextra/i3/730652580/TB2V6DfaFXXXXalXXXXXXXXXXXX_!!730652580.jpg" alt="套餐"></p>
+<p>3、收快递，开箱。单反，没有；DC 相机，电池都废了；只能 iPhone 拍了。将就，将就。附送就有个两个螺丝刀，黑的那个，是支架附送的，而那把红色透明的，就是那 1 块钱购买附送的。然后自己准备一块磁性非常好的磁铁，然后把俩把螺丝刀在磁铁上<a target="_blank" rel="noopener" href="http://music.163.com/#/song?id=28605055">摩擦摩擦</a>，反复摩擦。快递的其他东西都不需要了。</p>
+<p>用<code>黑色</code>的螺丝刀卸下支架上的四个角的固定硬盘的螺丝。</p>
+<p><img src="http://img04.taobaocdn.com/imgextra/i4/730652580/TB2fVncaFXXXXc2XXXXXXXXXXXX_!!730652580.jpg" alt="未标题-1"></p>
+<blockquote>
+<p>注：螺丝刀是一个不能马虎的东西。拿着太大了太小的螺丝刀去硬翘螺丝，螺丝非常容易就花了。螺丝刀尽量选用不要太尖的，这样也会尽可能的较小对螺丝的破坏。 同时，尽量擦干净螺丝和螺丝刀再使用。使用螺丝刀的时候，要稍微用点下压的力气去拧。（血与泪的教训啊啊啊啊）</p>
+</blockquote>
+<p>磁铁的作用还可以粘住拧下来的螺丝。避免丢失。</p>
+<h2 id="拆笔记本，加装固态硬盘"><a href="#拆笔记本，加装固态硬盘" class="headerlink" title="拆笔记本，加装固态硬盘"></a>拆笔记本，加装固态硬盘</h2><p>拿起联想 Y471，先拿张较软的东西垫在桌子上。翻过笔记本。</p>
+<p>用红色的螺丝刀拧开图中红色的那个几个螺丝， 拧到底就行了。不用去取螺丝，反正也取不出来。然后。用平头的螺丝刀，从绿色那地方插进去，向上翘起。就能打开后面板了。</p>
+<p><img src="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2aVrdaFXXXXchXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213100"><br>用红色螺丝刀卸下这三个螺丝，把机械硬盘拆出来。固态硬盘装到机械硬盘的位置去。然后放回去。螺丝锁好下面两个。</p>
+<pre><code>注：螺丝的可能会长短不一，拧回去的时候需要注意。
+</code></pre>
+<p><img src="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2BJffaFXXXXaKXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213154"></p>
+<p><img src="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2QdLgaFXXXXX7XXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213237"></p>
+<p><img src="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2QZ6faFXXXXaPXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213258"></p>
+<p><img src="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2AirbaFXXXXcWXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213520"></p>
+<p><img src="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2KDvfaFXXXXaXXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213537"></p>
+<p><img src="http://img01.taobaocdn.com/imgextra/i1/730652580/TB23_vbaFXXXXcAXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213652"></p>
+<p>把光驱往外面一拉。<br><img src="http://img04.taobaocdn.com/imgextra/i4/730652580/TB29I2haFXXXXXvXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213743"><br>拆下光驱的这个盖子，拿起光驱支架，一样的位置装进去。还有光驱尾部的一个铁块，一样卸下来装到硬盘支架上去。</p>
+<blockquote>
+<p>注：小心点，塑料特别脆弱，而且电脑常年是微高温，塑料有点碎，盖子总有有4个扣角，我自己的笔记本一个烂了，我哥的笔记本烂俩，这联想烂仨，最后只能用胶粘住。铁块的螺丝特容易花，卸下来装上去都用力的顶住螺丝再转动，红色螺丝刀或者黑色，这根据螺丝大小。</p>
+</blockquote>
+<p><img src="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2UrjXaFXXXXXKXpXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213807"></p>
+<p><img src="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2c.rgaFXXXXXCXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 213857"></p>
+<p><img src="http://img03.taobaocdn.com/imgextra/i3/730652580/TB2eujcaFXXXXcgXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 214135"></p>
+<p><img src="http://img04.taobaocdn.com/imgextra/i4/730652580/TB2NW_baFXXXXc1XXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 214806"></p>
+<p>把从机子卸下来的机械硬盘装到硬盘支架上。上面的触点对准后，向上一推，然后用黑色螺丝刀，把硬盘支架的螺丝锁进去。</p>
+<blockquote>
+<p>注：其实锁尾部两个螺丝就够了，没必要全锁，而且不要锁得太紧，这螺丝容易死在里面。如果购买硬盘支架有送红色的如图一样的橡胶块。塞在后面的缝隙里面顶住就够了。</p>
+</blockquote>
+<p><img src="http://img04.taobaocdn.com/imgextra/i4/730652580/TB2zMO9aFXXXXa3XpXXXXXXXXXX_!!730652580.jpg" alt="2014-09-30 155218"></p>
+<p><img src="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2S8C8aFXXXXa_XpXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 214355"></p>
+<p><img src="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2TSm.aFXXXXX0XpXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 214432"></p>
+<p>完成，塞进光驱里面去，把螺丝锁住。</p>
+<p>先别急着盖上盖子，先装上电池，开机，进去开机启动项的选择或者 BIOS 设置，看看是否有俩个硬盘。如果有，盖上后盖，进行装系统前的准备。</p>
+<p><img src="http://img02.taobaocdn.com/imgextra/i2/730652580/TB2KFYbaFXXXXcJXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 215013"></p>
+<h2 id="进入-Win-PE-分区装系统"><a href="#进入-Win-PE-分区装系统" class="headerlink" title="进入 Win PE 分区装系统"></a>进入 Win PE 分区装系统</h2><p>制作一个 U 盘启动盘，下载好一个原版系统，解压放在 U 盘里面。开机选项选择 U 盘启动，进入 Win PE 系统，打开分区工具 DiskGenius。把机械硬盘和固态硬盘都格式化了（如果机械硬盘里面原来还有重要的文件记得先备份啊啊啊啊）。然后，把固态硬盘设置为主分区（也就是 C 盘）。把整个机械硬盘分为扩展分区，再按需求分成几个盘（DEF..），不要使用快速分区。然后把原版系统装到 C 盘里面。</p>
+<blockquote>
+<p>注：把扇形曲的那个选项选择为4096每次都要，这就是<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/7096264.htm?fr=aladdin">4K对齐</a>。制作U盘，装原版系统请百度搜索。</p>
+</blockquote>
+<p><img src="http://img01.taobaocdn.com/imgextra/i1/730652580/TB2vfveaFXXXXa6XXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 215412"></p>
+<p><img src="http://img03.taobaocdn.com/imgextra/i3/730652580/TB2__e7aFXXXXbAXpXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 215509"></p>
+<p><img src="http://img04.taobaocdn.com/imgextra/i4/730652580/TB2AW_eaFXXXXbmXXXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 215555"></p>
+<p><img src="http://img03.taobaocdn.com/imgextra/i3/730652580/TB27Dy8aFXXXXajXpXXXXXXXXXX_!!730652580.jpg" alt="2014-10-01 215706"></p>
+<p>装完系统后，进入桌面的。运行<a target="_blank" rel="noopener" href="http://www.onlinedown.net/soft/94299.htm">AS_SSD_Benchmark</a>。</p>
+<p><img src="http://img03.taobaocdn.com/imgextra/i3/730652580/TB2P2zcaFXXXXcaXXXXXXXXXXXX_!!730652580.jpg" alt="as-ssd-bench SanDisk SDSSDHP1 2014.10"><br>如果 ACHI 没显示绿色。在 BIOS 设置里面调整，然后格式化 C 盘重装系统。如果 4K 对齐没有显示绿色。把硬盘格式化了再对齐。如果觉得开心，还可以用这个工具顺手“跑个分”，彪一下你的硬盘速度。<br>完成以上步骤后。就可以装驱动，软件尽情使用了。所有软件驱动都安装在 C 盘（固态硬盘）里面，也就是默认安装路径。没必要更改。</p>
+<h2 id="最后说几句"><a href="#最后说几句" class="headerlink" title="最后说几句"></a>最后说几句</h2><p>1、没事别拆后盖拆着玩，螺丝真的很容易花的（血与泪的教训）。<br>2、改造的小细节需要自己再自行多研究。但基本上大同小异<br>3、如果你是一个学计算机的人，连装个系统都不会，就别跟人说自己是学计算机的人了，丢人啊。如果毕业了。你自己都没拆过电脑，遗憾啊。多动手拆，坏了至多送修呗。<br>4、百度是个好东西。</p>
+<p>对内容有异议需要撕逼、咨询，欢迎约架上优酷土豆搜狐视频爱奇艺腾讯视频新浪播客我乐网酷6网风行网风云直播，请联系新浪微博：<a target="_blank" rel="noopener" href="http://weibo.com/945570100">@_AllenChan</a></p>
+
+    </div>
+
+    
+    
+    <script src="/js/baffle.min.js"></script>
+<script>
+    let b = baffle(document.querySelectorAll('.post-title'));
+    b.set({
+        speed: 75,
+        characters: '/>░░▒▒▓▓██锟斤拷烫'
+    });
+    b.reveal(3000, 1000);
+</script>
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/HerbertGaoChannel">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">Telegram</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <div>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- 底部广告 -->
+     <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-4604823985082292"
+          data-ad-slot="4513265704"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AllenChen%E4%B8%93%E6%A0%8F/" rel="tag"># AllenChen专栏</a>
+              <a href="/tags/SSD/" rel="tag"># SSD</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2/" rel="prev" title="【随风飞翔】SSD固态硬盘的Q and A">
+      <i class="fa fa-chevron-left"></i> 【随风飞翔】SSD固态硬盘的Q and A
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/4/" rel="next" title="疯狂的谜题 用代码的解析">
+      疯狂的谜题 用代码的解析 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%86%E7%AC%94%E8%AE%B0%E6%9C%AC%EF%BC%8C%E5%8A%A0%E8%A3%85%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">拆笔记本，加装固态硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5-Win-PE-%E5%88%86%E5%8C%BA%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">进入 Win PE 分区装系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E8%AF%B4%E5%87%A0%E5%8F%A5"><span class="nav-number">4.</span> <span class="nav-text">最后说几句</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Herbert Gao"
+      src="/images/HerbertGao.jpg">
+  <p class="site-author-name" itemprop="name">Herbert Gao</p>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+<br>
+<div class="site-description" itemprop="description"><div style='font-size: 8px'>弱小和无知不是生存的障碍，傲慢才是。<br><i>Weakness and ignorance are not barriers to survival, but arrogance is.</i><br><br><div style='text-align: left;margin-left: 40%;'>——三体Ⅲ·死神永生<br>——<i>Death's End</i></div></div></div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://t.me/herbertgao" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;herbertgao" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/herbertgao" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;herbertgao" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/HerbertGao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HerbertGao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:admin@herbertgao.com" title="E-Mail → mailto:admin@herbertgao.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.mtiner.com/" title="https:&#x2F;&#x2F;www.mtiner.com" rel="noopener" target="_blank">丁小浪的大城市</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.chenhao.net/" title="http:&#x2F;&#x2F;www.chenhao.net" rel="noopener" target="_blank">随风飞翔</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bh2ro.info/" title="https:&#x2F;&#x2F;bh2ro.info" rel="noopener" target="_blank">BH2RO</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+      <div>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- 侧栏广告 -->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:220px;height:220px"
+          data-ad-client="ca-pub-4604823985082292"
+          data-ad-slot="5387363677"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Herbert Gao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">83k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> & <a href="https://pages.github.com/" class="theme-link" rel="noopener" target="_blank">Github Pages</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>
