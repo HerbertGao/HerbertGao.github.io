@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -282,7 +282,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代替 &#x27;Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)&#x27;</span></span><br><span class="line"><span class="built_in">this</span>.someObject = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="built_in">this</span>.someObject, &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;)</span><br></pre></td></tr></table></figure>
 
 <p>这是对于对象赋值的解决方式，在采用了官方的解决方案 <code>this.$set(object, key, value)</code> 后确实实现了实时更新的效果。同时对于数组等情况，可查看 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/reactivity.html#%E5%A6%82%E4%BD%95%E8%BF%BD%E8%B8%AA%E5%8F%98%E5%8C%96">余下官方文档</a></p>
-<h2 id="为什么会这样呢？"><a href="#为什么会这样呢？" class="headerlink" title="为什么会这样呢？"></a>为什么会这样呢？</h2><p>如官方所说 <em>“由于 JavaScript 的限制，Vue <strong>不能检测</strong>数组和对象的变化。”</em>，但是为什么会这样呢？</p>
+<h2 id="为什么会这样呢？"><a href="#为什么会这样呢？" class="headerlink" title="为什么会这样呢？"></a>为什么会这样呢？</h2><p>如官方所说 *“由于 JavaScript 的限制，Vue <strong>不能检测</strong>数组和对象的变化。”*，但是为什么会这样呢？</p>
 <p>借用 Segmentfault <strong>UKer</strong> 的回答：</p>
 <blockquote>
 <p>ECMAScript 中有两种属性：<strong>数据属性</strong> 和 <strong>访问器属性</strong>;</p>
