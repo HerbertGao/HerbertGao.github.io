@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -272,30 +272,30 @@
 <p>一开始尝试按顺序交替看两个颜色的宽度数值，试了两次都不太顺利，看一会儿眼睛就花了。后来想到一个办法，每次只看一个颜色，对两个条码共计看 4 次，这样来记录条码宽度数值还算比较顺利。</p>
 </blockquote>
 <p>横向的条码宽度数字从左往右为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2112321122144211121224111241121224111212412412111112421341112411121122141421121</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2112321122144211121224111241121224111212412412111112421341112411121122141421121</span><br></pre></td></tr></table></figure>
 
 <p>其中开头6位为 <code>211232</code> ，为 Code128 编码条形码的 Start Code C ，那么这应该是一个 Code128C 标准的条形码。</p>
 <p>根据<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Code128">维基百科 Code128 词条</a>的介绍，一个 Code128 标准的条形码由6部分组成，分别为：空白区域、起始标记、数据区、校验符、终止符、空白区域。其中上述前6位 <code>211232</code> 即为起始标记之一。而最终的终止符应为 <code>2331112</code> 7位，但上面获得的横向条码的结尾并不是这个，说明我们还需要继续解析纵向条码。</p>
 <p>纵向条码应该从下往上还是从上往下来看呢？从原图的方向来看，将原图顺时针旋转 90° 后，可以获得羊脑袋、床头、闹钟朝上的方向的图片，那么这时的从左往右即为原图的从下往上来看。</p>
 <p>纵向的条码宽度数字从下往上为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">212411421121411221341112411121122141241121224111212411211241212412121232331112</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">212411421121411221341112411121122141241121224111212411211241212412121232331112</span><br></pre></td></tr></table></figure>
 
 <p>结尾 <code>2331112</code> 符合 Code128 标准的终止符。</p>
 <p>将两串数字合并，即为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2112321122144211121224111241121224111212412412111112421341112411121122141421121212411421121411221341112411121122141241121224111212411211241212412121232331112</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2112321122144211121224111241121224111212412412111112421341112411121122141421121212411421121411221341112411121122141241121224111212411211241212412121232331112</span><br></pre></td></tr></table></figure>
 
 <p>按照 Code128 的定义，每 6 位分为一组，转换为对应的 Code128C 数值，再根据此数值转换为对应的 ASCII 字符。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">211232</span><br><span class="line">112214 69 e</span><br><span class="line">421112 87 w</span><br><span class="line">122411 72 h</span><br><span class="line">124112 84 t</span><br><span class="line">122411 72 h</span><br><span class="line">121241 82 r</span><br><span class="line">241211 75 k</span><br><span class="line">111242 80 p</span><br><span class="line">134111 79 o</span><br><span class="line">241112 78 n</span><br><span class="line">112214 69 e</span><br><span class="line">142112 73 i</span><br><span class="line">121241 82 r</span><br><span class="line">142112 73 i</span><br><span class="line">141122 67 c</span><br><span class="line">134111 79 o</span><br><span class="line">241112 78 n</span><br><span class="line">112214 69 e</span><br><span class="line">124112 84 t</span><br><span class="line">122411 72 h</span><br><span class="line">121241 82 r</span><br><span class="line">121124 65 a</span><br><span class="line">121241 82 r</span><br><span class="line">212123 30 &gt;</span><br><span class="line">2331112</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">211232</span><br><span class="line">112214 69 e</span><br><span class="line">421112 87 w</span><br><span class="line">122411 72 h</span><br><span class="line">124112 84 t</span><br><span class="line">122411 72 h</span><br><span class="line">121241 82 r</span><br><span class="line">241211 75 k</span><br><span class="line">111242 80 p</span><br><span class="line">134111 79 o</span><br><span class="line">241112 78 n</span><br><span class="line">112214 69 e</span><br><span class="line">142112 73 i</span><br><span class="line">121241 82 r</span><br><span class="line">142112 73 i</span><br><span class="line">141122 67 c</span><br><span class="line">134111 79 o</span><br><span class="line">241112 78 n</span><br><span class="line">112214 69 e</span><br><span class="line">124112 84 t</span><br><span class="line">122411 72 h</span><br><span class="line">121241 82 r</span><br><span class="line">121124 65 a</span><br><span class="line">121241 82 r</span><br><span class="line">212123 30 &gt;</span><br><span class="line">2331112</span><br></pre></td></tr></table></figure>
 
 <p>去除校验符，则原本的条形码串为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6987728472827580797869738273677978698472826582</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6987728472827580797869738273677978698472826582</span><br></pre></td></tr></table></figure>
 
 <p>有兴趣的可以用这个串去生成一个 Code128 格式的条形码与原图做一下对比看看是否一致。</p>
 <p>而转换后的字符串则为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ewhthrkponeiriconethrar</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ewhthrkponeiriconethrar</span><br></pre></td></tr></table></figure>
 
-<p>按照 thr = 3 、 one = 1 来转换，即为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ewh3kp1iric13ar</span><br></pre></td></tr></table></figure>
+<p>按照 thr &#x3D; 3 、 one &#x3D; 1 来转换，即为</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ewh3kp1iric13ar</span><br></pre></td></tr></table></figure>
 
 <p>但这个并不符合 Passcode 通常用的格式。</p>
 <p>经翻阅词典后得知，<code>oneiric</code> 是个单词， <code>adj. 梦的</code> 。此处的 <code>one</code> 不用替换为 <code>1</code> 。</p>
@@ -303,7 +303,7 @@
 <p>这个人连英语四级都没过就别强求他会这种的单词了（摔）</p>
 </blockquote>
 <p>则转换后的 Passcode 应为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ewh3kponeiric13ar</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ewh3kponeiric13ar</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.imgur.com/rov1Luz.jpg" alt="redeem"><br>兑换 Passcode ，获取一个 Media 。</p>
 <p><img src="https://i.imgur.com/hmM8lAdl.png" alt="Media"></p>
@@ -535,7 +535,7 @@
 <div class="copyright">
   
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fas fa-user"></i>
   </span>

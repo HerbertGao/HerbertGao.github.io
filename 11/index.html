@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -230,7 +230,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>640</span>
+              <span>655</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -261,8 +261,8 @@
 <p>或者晚上空虚寂寞时用了某些方法疏通管道？</p>
 <p><strong>管理员</strong>运行<code>netsh winsock reset</code>帮你解决一切烦恼。</p>
 <p>好吧，说正经的，虚拟机和主机之间的通信，基本上是以 socket 的方式进行通信的（这里的 socket 泛指一切 socket，包括本地的、网络的等等）</p>
-<p>某个程序通过 LSP 给系统的 TCP/IP stack 注入了自己的 DLL，如果程序退出时，没有把这个 DLL 收回来，或者回收失败、没有彻底回收等，那么这个 DLL 残留的东西影响了整个 TCP/IP stack，而且是永久性的。</p>
-<p>每个 socket 收发的数据包是要经过 TCP/IP stack 的，这个 DLL 可能会对这些 socket 的数据包做了些什么操作（比如修改数据、直接丢弃等等），然后所以你的虚拟机就黑屏了……</p>
+<p>某个程序通过 LSP 给系统的 TCP&#x2F;IP stack 注入了自己的 DLL，如果程序退出时，没有把这个 DLL 收回来，或者回收失败、没有彻底回收等，那么这个 DLL 残留的东西影响了整个 TCP&#x2F;IP stack，而且是永久性的。</p>
+<p>每个 socket 收发的数据包是要经过 TCP&#x2F;IP stack 的，这个 DLL 可能会对这些 socket 的数据包做了些什么操作（比如修改数据、直接丢弃等等），然后所以你的虚拟机就黑屏了……</p>
 <p><code>netsh winsock reset</code>这条命令会重置，所以那些被注入的 DLL 就被清理掉了，所以一切都是最初的模样了……</p>
 <blockquote>
 <p>作者：知乎用户<br>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/66422773/answer/257812909">https://www.zhihu.com/question/66422773/answer/257812909</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
@@ -494,7 +494,7 @@
 <div class="copyright">
   
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fas fa-user"></i>
   </span>

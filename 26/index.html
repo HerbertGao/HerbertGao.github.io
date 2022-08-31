@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -269,22 +269,22 @@
 <li><code>RM</code></li>
 </ul>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>将长字符串按照 <code>#</code> 分割成 14 个字符串，即为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">zqq.vorntuvr,oso.npvwuvup</span><br><span class="line">rv.vwvwwrts,p.qqqrvruv</span><br><span class="line">pt.otrrnqus,zvn.outrnovw</span><br><span class="line">sq.spsqoruw,zp.pounnpvs</span><br><span class="line">qu.swvoopun,opt.wpwwnwuw</span><br><span class="line">rp.wvsttuvp,zvv.nvrnnnvr</span><br><span class="line">sp.srqtsovp,oq.qrtqusvw</span><br><span class="line">sq.ownrwnuq,s.wqnpvsuv</span><br><span class="line">sq.swqrrwuo,w.wvnrqtvr</span><br><span class="line">qr.ouqsvsup,zoou.vvrrvtuq</span><br><span class="line">ro.swnoopvq,zwq.tpuoppvn</span><br><span class="line">so.rowrrqvs,zn.ovsrntwn</span><br><span class="line">zqv.nurtrnwn,orp.pwvuouut</span><br><span class="line">ss.tvrtwutw,op.sotousqq</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">zqq.vorntuvr,oso.npvwuvup</span><br><span class="line">rv.vwvwwrts,p.qqqrvruv</span><br><span class="line">pt.otrrnqus,zvn.outrnovw</span><br><span class="line">sq.spsqoruw,zp.pounnpvs</span><br><span class="line">qu.swvoopun,opt.wpwwnwuw</span><br><span class="line">rp.wvsttuvp,zvv.nvrnnnvr</span><br><span class="line">sp.srqtsovp,oq.qrtqusvw</span><br><span class="line">sq.ownrwnuq,s.wqnpvsuv</span><br><span class="line">sq.swqrrwuo,w.wvnrqtvr</span><br><span class="line">qr.ouqsvsup,zoou.vvrrvtuq</span><br><span class="line">ro.swnoopvq,zwq.tpuoppvn</span><br><span class="line">so.rowrrqvs,zn.ovsrntwn</span><br><span class="line">zqv.nurtrnwn,orp.pwvuouut</span><br><span class="line">ss.tvrtwutw,op.sotousqq</span><br></pre></td></tr></table></figure>
 
 <p>看起来很像经纬度坐标。</p>
 <p>仔细观察后可以发现，一共用到了从 <code>n-w</code> 和 <code>z</code> ，一共 11 个字母，并且在 <code>.</code> 之前的存在三位或四位字母的时候，第一位必定是 <code>z</code> 或 <code>o</code>。以 <code>zoou</code> 为突破口来考虑的话，<code>z = -</code>、<code>o = 1</code> 的可能性很大。</p>
 <p>那么按照 <code>n = 0, o = 1, ... w = 9</code>、<code>z = -</code> 来转换的话，即为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-33.81406784,151.02897872</span><br><span class="line">48.89899465,2.33348478</span><br><span class="line">26.16440375,-80.17640189</span><br><span class="line">53.52531479,-2.21700285</span><br><span class="line">37.59811270,126.92990979</span><br><span class="line">42.98566782,-88.08400084</span><br><span class="line">52.54365182,13.34637589</span><br><span class="line">53.19049073,5.93028578</span><br><span class="line">53.59344971,9.98043684</span><br><span class="line">34.17358572,-117.88448673</span><br><span class="line">41.59011283,-93.62712280</span><br><span class="line">51.41944385,-0.18540690</span><br><span class="line">-38.07464090,142.29871776</span><br><span class="line">55.68469769,12.51617533</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-33.81406784,151.02897872</span><br><span class="line">48.89899465,2.33348478</span><br><span class="line">26.16440375,-80.17640189</span><br><span class="line">53.52531479,-2.21700285</span><br><span class="line">37.59811270,126.92990979</span><br><span class="line">42.98566782,-88.08400084</span><br><span class="line">52.54365182,13.34637589</span><br><span class="line">53.19049073,5.93028578</span><br><span class="line">53.59344971,9.98043684</span><br><span class="line">34.17358572,-117.88448673</span><br><span class="line">41.59011283,-93.62712280</span><br><span class="line">51.41944385,-0.18540690</span><br><span class="line">-38.07464090,142.29871776</span><br><span class="line">55.68469769,12.51617533</span><br></pre></td></tr></table></figure>
 
 <p>将这 14 个坐标放入 Google Earth 中：<br><img src="https://i.imgur.com/UYs4H84l.png" alt="Google Earth"><br>发现所有坐标所对应的建筑物、河流、道路都很像字母，那么将各个坐标所对应的字母写出来，即为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">THIRTEENINZULU</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">THIRTEENINZULU</span><br></pre></td></tr></table></figure>
 
 <p>将这一串理解为 <code>thirteen in zulu</code> 的话，就是让我们翻译南非祖鲁语中的 <code>thirteen</code> 一词。通过 Google Translator 可以得到 <code>ishumi nantathu</code>。</p>
 <p>回过头，将 <code>ishumi nantathu</code> 作为密钥，通过维吉尼亚密码（Vigenère cipher）解密 <code>glyiuajjpbnjjcviwydarpbeilrygstmfmednfrhtu</code> 可得：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ytroiswjcinqcinqpersepoliskeyamsterdamroma</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ytroiswjcinqcinqpersepoliskeyamsterdamroma</span><br></pre></td></tr></table></figure>
 
 <p>稍微分一下词，可得：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y trois wj cinq cinq persepolis key amsterdam roma</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y trois wj cinq cinq persepolis key amsterdam roma</span><br></pre></td></tr></table></figure>
 
 <p>按照法语 <code>trois = 3</code>、<code>cinq = 5</code>，<code>key = 13</code>，<code>amsterdam = a</code>、<code>roma = r</code>来转换，即为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y3wj55persepolis13ar</span><br></pre></td></tr></table></figure>
@@ -522,7 +522,7 @@
 <div class="copyright">
   
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fas fa-user"></i>
   </span>

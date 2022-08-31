@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -267,7 +267,7 @@
 <p>设计 DNS 的时候，互联网基本上还是个玩具。那年头的互联网协议，压根儿都没考虑安全性，DNS 当然也不例外。所以 DNS 的交互过程全都是【明文】滴，既无法做到“保密性”，也无法实现“完整性”。</p>
 <p>缺乏“保密性”就意味着——任何一个能【监视】你上网流量的人，都可以【看到】你查询了哪些域名。直接引发的问题就是隐私风险。</p>
 <p>缺乏“完整性”就意味着——任何一个能【修改】你上网流量的人，都可以【篡改】你的查询结果。直接引发的问题就是“DNS 欺骗”（也叫“DNS 污染”或“DNS 缓存投毒”）</p>
-<p>关于“域名欺骗/域名污染”，可以参见俺的另一篇博文《<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/01/dns.html">扫盲 DNS 原理，兼谈“域名劫持”和“域名欺骗／域名污染”</a>》（注：4 年前的那篇博文，不光讲了“域名欺骗”，还扫盲了 DNS 的基本原理）</p>
+<p>关于“域名欺骗&#x2F;域名污染”，可以参见俺的另一篇博文《<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/01/dns.html">扫盲 DNS 原理，兼谈“域名劫持”和“域名欺骗／域名污染”</a>》（注：4 年前的那篇博文，不光讲了“域名欺骗”，还扫盲了 DNS 的基本原理）</p>
 <p>为了解决传统 DNS 的这些弊端，后来诞生了好几个网络协议，以强化域名系统的安全性。俺今天挑选其中 4 个来介绍。除了这 4 个，其它一些协议的名气和影响力太小，不值一提。</p>
 <p>下面俺以出场时间的先后，分别介绍这 4 个协议。</p>
 <h2 id="DNSSEC"><a href="#DNSSEC" class="headerlink" title="DNSSEC"></a>DNSSEC</h2><h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>这玩意儿是“Domain Name System Security Extensions”的缩写。在今天介绍的 4 个协议中，DNSSEC 是最早诞生的（1997）。从最先的 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2065">RFC 2065</a> 进化为 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2535">RFC 2535</a>，再到 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4033">RFC 4033</a>、<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4034">RFC 4034</a>、<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4035">RFC 4035</a>。</p>
@@ -286,7 +286,7 @@
 <h2 id="DNSCrypt"><a href="#DNSCrypt" class="headerlink" title="DNSCrypt"></a>DNSCrypt</h2><h3 id="历史-1"><a href="#历史-1" class="headerlink" title="历史"></a>历史</h3><p>第 2 个出场的是 DNSCrypt。这个协议是由 Frank Denis 和 Yecheng Fu（付业成）两人设计的。</p>
 <p>这个协议从来【没有】提交过 RFC（征求意见稿），要想看它的协议实现，只能去它的官网（链接在“<a target="_blank" rel="noopener" href="https://dnscrypt.info/protocol/">这里</a>”）。</p>
 <p>历史上有过两个版本，分别称：Version 1 和 Version 2。如今主要使用“版本 2”</p>
-<h3 id="协议栈-1"><a href="#协议栈-1" class="headerlink" title="协议栈"></a>协议栈</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">----------------</span><br><span class="line">    DNSCrypt</span><br><span class="line">----------------</span><br><span class="line">   TCP or UDP</span><br><span class="line">----------------</span><br><span class="line">       IP</span><br><span class="line">----------------</span><br></pre></td></tr></table></figure>
+<h3 id="协议栈-1"><a href="#协议栈-1" class="headerlink" title="协议栈"></a>协议栈</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">----------------</span><br><span class="line">    DNSCrypt</span><br><span class="line">----------------</span><br><span class="line">   TCP or UDP</span><br><span class="line">----------------</span><br><span class="line">       IP</span><br><span class="line">----------------</span><br></pre></td></tr></table></figure>
 
 <h3 id="安全性的原理-1"><a href="#安全性的原理-1" class="headerlink" title="安全性的原理"></a>安全性的原理</h3><p>前面俺提到 DNSSEC 协议强调兼容性。而 DNSCrypt 则完全是另起炉灶搞出来的协议。在这个协议中，域名的“查询请求”与“响应结果”都是加密的。这就是它比 DNSSEC 高级的地方。</p>
 <p>换句话说，DNSCrypt 既能做到【完整性】，也能做到【保密性】；相比之下，DNSSEC 只能做到【完整性】。</p>
@@ -301,10 +301,10 @@
 <h2 id="DNS-over-TLS"><a href="#DNS-over-TLS" class="headerlink" title="DNS over TLS"></a>DNS over TLS</h2><p>“DNS over TLS”有时也被简称为【DoT】。为了打字省力，本文以下部分用 DoT 来称呼之。</p>
 <h3 id="历史-2"><a href="#历史-2" class="headerlink" title="历史"></a>历史</h3><p>DoT 已经正式发布了 RFC（参见 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7858">RFC 7858</a> 和 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc8310">RFC 8310</a>）。</p>
 <p>从时间上看，RFC7858 是 2016 年发布的，RFC8310 是今年（2018）发布的；显然，这个协议出现得比较晚（相比前面提到的 DNSSEC 和 DNSCrypt）。</p>
-<h3 id="协议栈-2"><a href="#协议栈-2" class="headerlink" title="协议栈"></a>协议栈</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--------</span><br><span class="line">  DoT</span><br><span class="line">--------</span><br><span class="line">  TLS</span><br><span class="line">--------</span><br><span class="line">  TCP</span><br><span class="line">--------</span><br><span class="line">  IP</span><br><span class="line">--------</span><br></pre></td></tr></table></figure>
+<h3 id="协议栈-2"><a href="#协议栈-2" class="headerlink" title="协议栈"></a>协议栈</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--------</span><br><span class="line">  DoT</span><br><span class="line">--------</span><br><span class="line">  TLS</span><br><span class="line">--------</span><br><span class="line">  TCP</span><br><span class="line">--------</span><br><span class="line">  IP</span><br><span class="line">--------</span><br></pre></td></tr></table></figure>
 
 <h3 id="安全性的原理-2"><a href="#安全性的原理-2" class="headerlink" title="安全性的原理"></a>安全性的原理</h3><p>顾名思义，DNS over TLS 就是基于 TLS 隧道之上的域名协议。由于 TLS 本身已经实现了【保密性】与【完整性】，因此 DoT 自然也就具有这两项特性。</p>
-<p>至于 TLS 协议是如何实现完整性与保密性滴？可以参见俺的系列博文：《<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/11/https-ssl-tls-0.html">扫盲 HTTPS 和 SSL/TLS 协议</a>》</p>
+<p>至于 TLS 协议是如何实现完整性与保密性滴？可以参见俺的系列博文：《<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/11/https-ssl-tls-0.html">扫盲 HTTPS 和 SSL&#x2F;TLS 协议</a>》</p>
 <h3 id="信任链的实现-2"><a href="#信任链的实现-2" class="headerlink" title="信任链的实现"></a>信任链的实现</h3><p>DoT 的信任链依赖于 TLS，而 TLS 的信任链靠的是 CA 证书体系。</p>
 <p>关于 CA 证书体系，可以参见 8 年前的博文：《<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html">数字证书及 CA 的扫盲介绍</a>》</p>
 <h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><p>相比 DNSSEC，DoT 具备了【保密性】；相比 DNSCrypt，DoT 已经标准化。</p>
@@ -313,11 +313,11 @@
 <h2 id="DNS-over-HTTPS"><a href="#DNS-over-HTTPS" class="headerlink" title="DNS over HTTPS"></a>DNS over HTTPS</h2><p>“DNS over HTTPS”有时也被简称为【DoH】。为了打字省力，本文以下部分用 DoH 来称呼之。</p>
 <h3 id="历史-3"><a href="#历史-3" class="headerlink" title="历史"></a>历史</h3><p>在今天介绍的 4 个协议中，DoH 是最新的（最晚出现的）。RFC 方面，它已经有了相应的草案，但还【没有】正式发布。截至俺写本文时，DoH 的草案已经发了 15 个版本（从 00 到 14），最新版的链接在“<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/draft-ietf-doh-dns-over-https-14">这里</a>”。</p>
 <p>很多人把 DoH 与 DoT 混为一谈，实际上这是两种不同的协议。你可以对比这两者的协议栈，（只要你眼睛不瞎）就可看出其中的差别。</p>
-<h3 id="协议栈-3"><a href="#协议栈-3" class="headerlink" title="协议栈"></a>协议栈</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--------</span><br><span class="line">  DoH</span><br><span class="line">--------</span><br><span class="line">  HTTP</span><br><span class="line">--------</span><br><span class="line">  TLS</span><br><span class="line">--------</span><br><span class="line">  TCP</span><br><span class="line">--------</span><br><span class="line">  IP</span><br><span class="line">--------</span><br></pre></td></tr></table></figure>
+<h3 id="协议栈-3"><a href="#协议栈-3" class="headerlink" title="协议栈"></a>协议栈</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--------</span><br><span class="line">  DoH</span><br><span class="line">--------</span><br><span class="line">  HTTP</span><br><span class="line">--------</span><br><span class="line">  TLS</span><br><span class="line">--------</span><br><span class="line">  TCP</span><br><span class="line">--------</span><br><span class="line">  IP</span><br><span class="line">--------</span><br></pre></td></tr></table></figure>
 
 <h3 id="安全性的原理-3"><a href="#安全性的原理-3" class="headerlink" title="安全性的原理"></a>安全性的原理</h3><p>顾名思义，DNS over HTTPS 就是基于 HTTPS 隧道之上的域名协议。而 HTTPS 又是“HTTP over TLS”。所以 DoH 相当于是【双重隧道】的协议。</p>
 <p>与 DoT 类似，DoH 最终也是依靠 TLS 来实现了【保密性】与【完整性】。</p>
-<p>至于 TLS 协议是如何实现完整性与保密性滴？可以参见俺的系列博文：《<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/11/https-ssl-tls-0.html">扫盲 HTTPS 和 SSL/TLS 协议</a>》</p>
+<p>至于 TLS 协议是如何实现完整性与保密性滴？可以参见俺的系列博文：《<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/11/https-ssl-tls-0.html">扫盲 HTTPS 和 SSL&#x2F;TLS 协议</a>》</p>
 <h3 id="信任链的实现-3"><a href="#信任链的实现-3" class="headerlink" title="信任链的实现"></a>信任链的实现</h3><p>DoH 类似于 DoT，最终是靠 TLS 所使用的“CA 证书体系”来实现信任链。</p>
 <p>关于 CA 证书体系，可以参见 8 年前的博文：《<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html">数字证书及 CA 的扫盲介绍</a>》</p>
 <h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><p>基本上，DoT 具备的优点，DoH 也具备。</p>
@@ -380,7 +380,7 @@
 <p>相比之下，另外三种协议都具备了“保密性”。</p>
 <h3 id="DNSCrypt-与-TLS-的对比"><a href="#DNSCrypt-与-TLS-的对比" class="headerlink" title="DNSCrypt 与 TLS 的对比"></a>DNSCrypt 与 TLS 的对比</h3><p>DoT 与 DoH 这两个协议，本质上都是依赖 TLS 来保证安全性（完整性 及 保密性）。所以剩下三种协议的对比，实际上是 DNSCrypt 与 TLS 之间的 PK。</p>
 <p>俺认为 TLS 具有如下几个优势：</p>
-<h4 id="优势-1——关于“标准化”"><a href="#优势-1——关于“标准化”" class="headerlink" title="优势 1——关于“标准化”"></a>优势 1——关于“标准化”</h4><p>SSL/TLS 老早就已经标准化了，距今已超过 20 年。（关于 SSL/TLS 版本的演变历史，可以参见<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2018/09/https-ssl-tls-4.html">这篇博文</a>）</p>
+<h4 id="优势-1——关于“标准化”"><a href="#优势-1——关于“标准化”" class="headerlink" title="优势 1——关于“标准化”"></a>优势 1——关于“标准化”</h4><p>SSL&#x2F;TLS 老早就已经标准化了，距今已超过 20 年。（关于 SSL&#x2F;TLS 版本的演变历史，可以参见<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2018/09/https-ssl-tls-4.html">这篇博文</a>）</p>
 <p>而 DNSCrypt 发布这么多年，连 RFC 都没有提交过——这玩意儿看来【没希望】成为互联网标准了。</p>
 <h4 id="优势-2——关于“客户端部署”"><a href="#优势-2——关于“客户端部署”" class="headerlink" title="优势 2——关于“客户端部署”"></a>优势 2——关于“客户端部署”</h4><p>TLS 的公钥体系（CA 证书体系）早就已经普及。所有主流的操作系统都内置了一系列 CA 根证书。</p>
 <p>相比之下，DNSCrypt 另起炉灶搞了一套公钥机制，只有它自己在用。</p>
@@ -396,8 +396,8 @@
 <p>DoH 的强项体现在如下几方面：</p>
 <h4 id="1-编程接口更简单"><a href="#1-编程接口更简单" class="headerlink" title="1. 编程接口更简单"></a>1. 编程接口更简单</h4><p>（关于这点，前面提到过）这是个很重要的优势——有助于让更多软件切换到 DoH 之上。</p>
 <h4 id="2-可以利用-HTTP-协议已有的特性"><a href="#2-可以利用-HTTP-协议已有的特性" class="headerlink" title="2. 可以利用 HTTP 协议已有的特性"></a>2. 可以利用 HTTP 协议已有的特性</h4><p>由于 DoH 是基于 HTTPS 之上，可以无缝地支持 Proxy；</p>
-<p>DoH 可以充分利用 HTTP 2.0 的特性（HTTP/2 在 HTTP/1.1 基础上加了很多功能）。</p>
-<p><strong>正是因为 DoH 的这些优势，浏览器厂商对 DoH 的支持更积极。对比一下就可以看出来——DoT 在两年前正式发布 RFC，主流的浏览器没一个支持；而 DoH 目前才仅仅是 RFC 草案，Firefox 与 Chrome/Chromium 都开始支持了。</strong></p>
+<p>DoH 可以充分利用 HTTP 2.0 的特性（HTTP&#x2F;2 在 HTTP&#x2F;1.1 基础上加了很多功能）。</p>
+<p><strong>正是因为 DoH 的这些优势，浏览器厂商对 DoH 的支持更积极。对比一下就可以看出来——DoT 在两年前正式发布 RFC，主流的浏览器没一个支持；而 DoH 目前才仅仅是 RFC 草案，Firefox 与 Chrome&#x2F;Chromium 都开始支持了。</strong></p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>经过层层淘汰，目前看下来最有前途的应该 DoH（DNS over HTTPS）。</p>
 <p>DoH 未来的发展势头取决于如下几点：</p>
 <ol>
@@ -408,8 +408,8 @@
 <p>《<a target="_blank" rel="noopener" href="https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/">A cartoon intro to DNS over HTTPS</a>》（这是 Mozilla 官方博客的一篇文章，深入浅出地扫盲了 DNS 和 DoH 的原理）</p>
 <p>《<a target="_blank" rel="noopener" href="https://bitsup.blogspot.com/2018/05/the-benefits-of-https-for-dns.html">The Benefits of HTTPS for DNS</a>》（这是某个老外写的技术文章，讨论 DoH 可以借助 HTTP 协议的哪些好处）</p>
 <h3 id="关于浏览器的说明"><a href="#关于浏览器的说明" class="headerlink" title="关于浏览器的说明"></a>关于浏览器的说明</h3><p>Firefox 从 62 版本开始支持 DoH，具体参见 Mozilla 官方博客（链接在“<a target="_blank" rel="noopener" href="https://blog.nightly.mozilla.org/2018/06/01/improving-dns-privacy-in-firefox/">这里</a>”）。</p>
-<p>Chrome/Chromium 从 66 版本开始支持 DoH。具体参见 Chromium 官网的 issue（链接在“<a target="_blank" rel="noopener" href="https://bugs.chromium.org/p/chromium/issues/detail?id=799753">这里</a>”）。</p>
-<p>虽然 Firefox 和 Chrome/Chromium 都已经开始支持 DoH，但大伙儿别急着用。</p>
+<p>Chrome&#x2F;Chromium 从 66 版本开始支持 DoH。具体参见 Chromium 官网的 issue（链接在“<a target="_blank" rel="noopener" href="https://bugs.chromium.org/p/chromium/issues/detail?id=799753">这里</a>”）。</p>
+<p>虽然 Firefox 和 Chrome&#x2F;Chromium 都已经开始支持 DoH，但大伙儿别急着用。</p>
 <p>按照历史经验，刚加入的新功能，可能还不够稳定，没准儿还存在未曝光的安全漏洞。多等几个版本之后再说。</p>
 <h3 id="对翻墙的好处——无缝整合"><a href="#对翻墙的好处——无缝整合" class="headerlink" title="对翻墙的好处——无缝整合"></a>对翻墙的好处——无缝整合</h3><p>常规的翻墙软件，无非就是“代理软件”与“VPN 软件”。</p>
 <h4 id="对于“VPN-软件”"><a href="#对于“VPN-软件”" class="headerlink" title="对于“VPN 软件”"></a>对于“VPN 软件”</h4><p>由于 VPN 具有【全局代理】的性质，DoH 当然可以无缝地整合到 VPN 翻墙中。</p>
@@ -421,7 +421,7 @@
 <p>喜欢折腾技术的同学，可以先去玩一玩。</p>
 <p>因为 DoH 的标准还没有正式发布，关于它的讨论就到此为止。等到啥时候发布了，俺再专门发一篇 DoH 如何使用的博文。</p>
 <blockquote>
-<p>俺博客上，和本文相关的帖子（需翻墙）：<br><a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/01/dns.html">扫盲 DNS 原理，兼谈“域名劫持”和“域名欺骗／域名污染”</a> &gt;<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/11/https-ssl-tls-0.html">扫盲 HTTPS 和 SSL/TLS 协议</a>（系列）<br><a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html">数字证书及 CA 的扫盲介绍</a> &gt;<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2013/06/privacy-protection-0.html">如何保护隐私</a>（系列）</p>
+<p>俺博客上，和本文相关的帖子（需翻墙）：<br><a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/01/dns.html">扫盲 DNS 原理，兼谈“域名劫持”和“域名欺骗／域名污染”</a> &gt;<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2014/11/https-ssl-tls-0.html">扫盲 HTTPS 和 SSL&#x2F;TLS 协议</a>（系列）<br><a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html">数字证书及 CA 的扫盲介绍</a> &gt;<a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2013/06/privacy-protection-0.html">如何保护隐私</a>（系列）</p>
 </blockquote>
 
     </div>
@@ -652,7 +652,7 @@
 <div class="copyright">
   
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fas fa-user"></i>
   </span>

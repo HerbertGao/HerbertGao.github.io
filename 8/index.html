@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -250,17 +250,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近在做 ASP.NET / VB.NET 中邮件发送的功能。</p>
+        <p>最近在做 ASP.NET &#x2F; VB.NET 中邮件发送的功能。</p>
 <p>我们虽然通常把检验邮箱地址是否存在的问题交给 SMTP 服务器来做，但是这个项目组长希望我能做出来在发邮件之前便判断出来邮箱地址是否存在的功能。<br>方法自然是有的，SMTP 服务器是怎么检验的，我们也怎么检验就行了。</p>
 <span id="more"></span>
 
 <p>查了下资料，大概了解了一下，可以用的命令如下：<br>（以下以我的和丁小浪的域名为例，我来当发件人，丁小浪来当收件人）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> nslookup -<span class="built_in">type</span>=MX mtiner.com</span></span><br><span class="line">  mtiner.com      MX preference = 5, mail exchanger = mxn.mxhichina.com</span><br><span class="line">  mtiner.com      nameserver = dns9.hichina.com</span><br><span class="line">  mtiner.com      nameserver = dns10.hichina.com</span><br><span class="line">  dns9.hichina.com        internet address = 42.120.221.13</span><br><span class="line">  dns9.hichina.com        internet address = 140.205.81.13</span><br><span class="line">  dns9.hichina.com        internet address = 140.205.228.13</span><br><span class="line">  dns10.hichina.com       internet address = 42.120.221.23</span><br><span class="line">  dns10.hichina.com       internet address = 140.205.81.23</span><br><span class="line">  dns10.hichina.com       internet address = 140.205.228.23</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">nslookup -<span class="built_in">type</span>=MX mtiner.com</span></span><br><span class="line">  mtiner.com      MX preference = 5, mail exchanger = mxn.mxhichina.com</span><br><span class="line">  mtiner.com      nameserver = dns9.hichina.com</span><br><span class="line">  mtiner.com      nameserver = dns10.hichina.com</span><br><span class="line">  dns9.hichina.com        internet address = 42.120.221.13</span><br><span class="line">  dns9.hichina.com        internet address = 140.205.81.13</span><br><span class="line">  dns9.hichina.com        internet address = 140.205.228.13</span><br><span class="line">  dns10.hichina.com       internet address = 42.120.221.23</span><br><span class="line">  dns10.hichina.com       internet address = 140.205.81.23</span><br><span class="line">  dns10.hichina.com       internet address = 140.205.228.23</span><br></pre></td></tr></table></figure>
 
 <p>这样，我就可以知道丁小浪的邮箱服务器是</p>
 <p><code>mxn.mxhichina.com</code></p>
 <p>然后，我们来连接到这台服务器上。一般的邮箱服务器收信端口都是 25，如果不是的话……那就让它去屎吧~</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> telnet mxn.mxhichina.com 25</span></span><br><span class="line">  220 mx1.aliyun-inc.com MX AliMail Server(10.147.11.245)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">telnet mxn.mxhichina.com 25</span></span><br><span class="line">  220 mx1.aliyun-inc.com MX AliMail Server(10.147.11.245)</span><br></pre></td></tr></table></figure>
 
 <p>获得了正常的响应之后，我们首先表明身份</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HELO smtp.ym.163.com</span><br><span class="line">250 Ok</span><br></pre></td></tr></table></figure>
@@ -271,7 +271,7 @@
 <p>最后来查询相应的邮箱地址是否存在</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RCPT TO:&lt;sb@mtiner.com &gt;</span><br><span class="line">554 delivery error: dd This user doesn&#x27;t have a mtiner.com e-mailaccount (sb@mtiner.com) [0] - mx1.aliyun-inc.com</span><br></pre></td></tr></table></figure>
 
-<p>嗯，原来 <a href="mailto:&#115;&#x62;&#64;&#109;&#116;&#105;&#x6e;&#101;&#114;&#x2e;&#99;&#111;&#x6d;">&#115;&#x62;&#64;&#109;&#116;&#105;&#x6e;&#101;&#114;&#x2e;&#99;&#111;&#x6d;</a> 不存在，那……就退出吧~</p>
+<p>嗯，原来 <a href="mailto:&#x73;&#98;&#x40;&#109;&#x74;&#105;&#x6e;&#101;&#x72;&#x2e;&#x63;&#111;&#x6d;">&#x73;&#98;&#x40;&#109;&#x74;&#105;&#x6e;&#101;&#x72;&#x2e;&#x63;&#111;&#x6d;</a> 不存在，那……就退出吧~</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QUIT</span><br><span class="line">221 Bye</span><br></pre></td></tr></table></figure>
 
 <p>这样就完成了一个完整的操作。最后只需把所写的这些命令 Object 化即可。</p>
@@ -503,7 +503,7 @@
 <div class="copyright">
   
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fas fa-user"></i>
   </span>

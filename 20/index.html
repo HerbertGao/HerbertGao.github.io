@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -280,29 +280,29 @@
 </blockquote>
 <p>但这次给出的东西并不一定全部都有用，最终事实也如此。</p>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>我们先来解右下角的字符串，这个字符串一共 15 个字符，按照 7+8 的方式拆成两行，即为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">I02NMAE</span><br><span class="line">E60GIMHE</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">I02NMAE</span><br><span class="line">E60GIMHE</span><br></pre></td></tr></table></figure>
 
 <p>然后从右下角的 <code>E</code> 开始，按照从上往下、从右往左的顺序读，即为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EEHAMMING2006IE</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EEHAMMING2006IE</span><br></pre></td></tr></table></figure>
 
 <p>把首两位的 <code>EE</code> 移到最后，即为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HAMMING2006IEEE</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HAMMING2006IEEE</span><br></pre></td></tr></table></figure>
 
 <p>通过搜索 IEEE 的汉明奖章（IEEE Richard W. Hamming Medal）后得知， 2006 年的获奖者为弗拉基米尔·莱文斯坦（Влади́мир Ио́сифович Левенште́йн, Vladimir I. Levenshtein）,获奖原因之一是其在1965年提出了「莱文斯坦距离」（Levenshtein distance），由此可得知本次解谜与莱文斯坦距离有关。</p>
 <blockquote>
 <p>关于莱文斯坦距离的计算方式，读者可自行参考<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%90%8A%E6%96%87%E6%96%AF%E5%9D%A6%E8%B7%9D%E9%9B%A2">维基百科</a>或其它资料，这里不再赘述。</p>
 </blockquote>
 <p>将原文的 16 个单词按顺序两两计算莱文斯坦距离，可得 15 个数字：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 2 11 2 7 18 15 12 1 14 4 1 3 1 18</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 2 11 2 7 18 15 12 1 14 4 1 3 1 18</span><br></pre></td></tr></table></figure>
 
 <p>按照字母表顺序转换为英文字母，即为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ebkbgrolandacar</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ebkbgrolandacar</span><br></pre></td></tr></table></figure>
 
 <p>由于原文 16 个单词中，第一个单词为 <code>a</code> ，仅有一个字母，将该字母加入上面得到的串中，可得</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aebkbgrolandacar</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aebkbgrolandacar</span><br></pre></td></tr></table></figure>
 
 <p>原文 16 个单词中，有 3 个单词为斜体，故转换相应单词顺序的字母，仍按照字母表顺序转回为数字</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a5bkbgroland13ar</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a5bkbgroland13ar</span><br></pre></td></tr></table></figure>
 
 <p>即为本次的 Passcode ，兑换获得 Media 。</p>
 <p><img src="https://i.imgur.com/Q7nM8v0l.jpg" alt="Media"></p>
@@ -537,7 +537,7 @@
 <div class="copyright">
   
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fas fa-user"></i>
   </span>
